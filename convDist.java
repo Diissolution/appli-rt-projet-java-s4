@@ -1,4 +1,4 @@
-public class convDist {
+public class ConvDist {
 	
 	public static double convRad (double degres) {
 		return (Math.PI*degres)/180;
