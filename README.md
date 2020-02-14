@@ -1,6 +1,6 @@
 # AppliRT S4
 
-Projet Java du module AppliRT au semestre 4 (DUT R&T)
+Projet Java du module AppliRT au semestre 4 (DUT R&T / IUT Nice Cote d'Azur)
 
 ## Membres du groupe
 
