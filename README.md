@@ -10,9 +10,6 @@ Jauffrey Saingery
 
 Guillaume Barault
 
-
-Ghassen Bouhlel
-
 Médy Belkacem
 
 Antoine Resta
