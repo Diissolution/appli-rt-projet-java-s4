@@ -1,0 +1,15 @@
+pylones
+methode : creer, modifier, supprimer, liste_antennes, caractéristiques_antennes
+	
+noeuds
+methode : creer, modifier, supprimer, (liste_antennes depuis pylones), (caractéristiques_antennes depuis pylones)
+
+abstract antennes
+methode : creer, modifier, supprimer
+
+	omni
+	methode : communication_antenne
+	
+	multi
+	methode : communication_antenne
+
