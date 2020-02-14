@@ -1,17 +1,16 @@
-public class AntenneOmnidirectionnelle extends Antennes {
+public class AntenneOmnidirectionnelle extends Antenne {
+	super(); //on récupère les caractéristiques de la classe Antenne
 	
-	super();
+	public boolean comAntenne(double distAB, float sensibiliteB, float puissanceA, float gainA, float gainB, float polarisationA, float frequence){
+
+	float lambda = (3*10^8) / frequence; //lambda = c/f
+	double pr = puissanceA + 20 * Math.log(lambda/4*Math.PI*distAB) + gainA + gainB + polarisationA; //formule du bilan de liaison
 	
-	public boolean comAntenne(double dist, float sensibilite, float puissance){
-	//calcul en fonction de sensibilité, distance et perte de DB
-	
-	float pertDB = 60,0; //perte pour 1km
-	
-	
+	if(pr >= sensibiliteB) { //comparaison puissance de reception / sensibilité
+		return true;
+	}else {
+		return false;
 	}
 	
-	
-	
-	
-	
+	}
 }
