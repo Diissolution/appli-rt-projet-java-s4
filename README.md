@@ -17,5 +17,5 @@ Antoine Resta
 
 ## Diagramme de classes (14/02)
 
-![diagramme_uml](http://i.imgur.com/m0XMoGP.png)
+![diagramme_uml](http://i.imgur.com/E9pfZR2.png)
 
