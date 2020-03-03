@@ -1,4 +1,4 @@
-import java.util.ArrayList;
+import java.util.*;
 
 public class Pylone {
 
@@ -15,6 +15,9 @@ public class Pylone {
     private int nbAntennes ;
     private ArrayList<String> antenneConnect ;
     private String noeudConnect ;
+    
+    public static int nbPylone=0;
+    
 
     public Pylone(){
         this.coordGps=COORDGPS;
@@ -22,6 +25,7 @@ public class Pylone {
         this.antenneConnect=ANTENNECONNECT;
         this.noeudConnect=NOEUDCONNECT;
         this.idPylone=IDPYLONE;
+        nbPylone++;
     }
 
     public Pylone(String idPylone, double[] coordGps, int nbAntennes, ArrayList<String> antenneConnect, String noeudConnect){
@@ -30,6 +34,7 @@ public class Pylone {
         this.antenneConnect=antenneConnect;
         this.noeudConnect=noeudConnect;
         this.idPylone=idPylone;
+        nbPylone++;
     }
 
     //Accesseurs -----------------------------------------------------------------
@@ -76,9 +81,7 @@ public class Pylone {
     }
 
     //Méthodes de créations ( par cmd / interface graphique ? ) -------------------
-    public void creer() {
-        // Création d'un pylone
-    }
+
 
     public void modifier(){
         //Modification d'un pylone
@@ -86,6 +89,16 @@ public class Pylone {
 
     public void supprimer(){
         //Supprimer un pylone (et les antennes attachées)
+    }
+    
+    public void affiche(){
+        String id=this.idPylone;
+        double[] coord = this.coordGps;
+        int nb = this.nbAntennes;
+        ArrayList<String> antenne = this.antenneConnect;
+        String noeud = this.noeudConnect;
+        
+        System.out.println("ID: "+id+"\nCoordonnées GPS: "+Arrays.toString(coord)+"\nNb antennes connectées: "+nb+"\nListe antennes connectées: "+antenne.toString()+"\nNoeud connecté: "+noeud);
     }
 
     /*
