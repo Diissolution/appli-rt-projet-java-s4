@@ -3,7 +3,7 @@ public class Pylone {
     //Constantes
     private final String IDPYLONE = "0";
     private final double[] COORDGPS ;
-    private final int NBATENNES = 0 ;
+    private final int NBANTENNES = 0 ;
     private final String[] ANTENNECONNECT ;
     private final String NOEUDCONNECT = "aucun";
 
@@ -15,7 +15,11 @@ public class Pylone {
     private String noeudConnect ;
 
     public Pylone(){
-        this(IDPYLONE,COORDGPS,NBATENNES,ANTENNECONNECT,NOEUDCONNECT);
+        this.coordGps=COORDGPS;
+        this.nbAntennes=NBANTENNES;
+        this.antenneConnect=ANTENNECONNECT;
+        this.noeudConnect=NOEUDCONNECT;
+        this.idPylone=IDPYLONE;
     }
 
     public Pylone(String idPylone, double[] coordGps, int nbAntennes, String[] antenneConnect, String noeudConnect){
