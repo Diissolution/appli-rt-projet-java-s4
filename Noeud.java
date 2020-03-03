@@ -12,7 +12,7 @@ public class Noeud {
 	public ArrayList pylonesConnect;
 	public HashMap listeAntennes;
 	
-	//constructeur par défaut
+	//constructeur par dÃ©faut
 	public Noeud(){
 		this.idNoeud=DEF;
 		this.pylonesConnect= new ArrayList<String>();
@@ -24,13 +24,12 @@ public class Noeud {
 		this.pylonesConnect=pylonesConnect;
 	}
 
-	
+	//mÃ©thodes
 	public String listeAntennes(String listeAntennes){
 		return listeAntennes;
-	}
-	
+	}	
 
-	public HashMap caractéristiqueAntenne(){
+	public HashMap caractÃ©ristiqueAntenne(){
 		HashMap<String, String> liste = new HashMap<String, String>(); 
 		liste.put("idNoeud", idNoeud);
 		return liste;
