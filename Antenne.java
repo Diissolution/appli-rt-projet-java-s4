@@ -1,4 +1,4 @@
-public class abstract Antenne{
+public abstract class Antenne{
 
 	public String idAntenne;
 	public float gain;
@@ -8,8 +8,8 @@ public class abstract Antenne{
 	public String polarisation;
 	public String pylonesConnect[];
 	
-	public Antennes (String idAntenne,float gain, float frequence,float puissance,float sensibilite,String polarisation){
-		this.idAntenne=id_Antenne;
+	public Antenne (String idAntenne, float gain, float frequence, float puissance, float sensibilite,String polarisation){
+		this.idAntenne=idAntenne;
 		this.gain=gain;
 		this.frequence=frequence;
 		this.puissance=puissance;
@@ -19,32 +19,29 @@ public class abstract Antenne{
 		
 			//accesseur en lecture
 
-	public static String getIdAntenne(){
+	public String getIdAntenne(){
 				return idAntenne;
 				}
-	public static float getFrequence(){
+	public float getFrequence(){
 				return frequence;
 				}
 				
-	public static float getGain(){
+	public float getGain(){
 				return gain;
 				}
 				
-	public static float getPuissance(){
+	public float getPuissance(){
 				return puissance;
 				}
 				
-	public static float getSensibilite(){
+	public float getSensibilite(){
 				return sensibilite;
 				}
 				
-	public static String getPolarisation(){
+	public String getPolarisation(){
 				return polarisation;
 				}
-				
-	public static String getPylonesConnect(){
-				return pylonesConnect[];
-				}
+
 				
 				
 				
@@ -72,9 +69,8 @@ public class abstract Antenne{
 	public void setPolarisation(String polarisation){
 				this.polarisation=polarisation;
 				}
-	
-	public void setPylonesConnect(String pylonesConnect[]){
-				this.pylonesConnect[]=pylonesConnect[];
-				}			
+	public void addPylonesConnect(String textAdd){
+		
+		}
 	
 	}
