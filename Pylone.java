@@ -1,8 +1,10 @@
+import java.util.ArrayList;
+
 public class Pylone {
 
     //Constantes
     private final String IDPYLONE = "0";
-    private final int TAILLECOORDGPS = 2 ;
+    private final double[] COORDGPS = {0.0,0.0} ;
     private final int NBANTENNES = 0 ;
     private final ArrayList<String> ANTENNECONNECT = new ArrayList<String>();
     private final String NOEUDCONNECT = "aucun";
@@ -11,18 +13,18 @@ public class Pylone {
     private String idPylone ;
     private double[] coordGps ;
     private int nbAntennes ;
-    private String[] antenneConnect ;
+    private ArrayList<String> antenneConnect ;
     private String noeudConnect ;
 
     public Pylone(){
-        this.coordGps=double[TAILLECOORDGPS];
+        this.coordGps=COORDGPS;
         this.nbAntennes=NBANTENNES;
         this.antenneConnect=ANTENNECONNECT;
         this.noeudConnect=NOEUDCONNECT;
         this.idPylone=IDPYLONE;
     }
 
-    public Pylone(String idPylone, double[] coordGps, int nbAntennes, String[] antenneConnect, String noeudConnect){
+    public Pylone(String idPylone, double[] coordGps, int nbAntennes, ArrayList<String> antenneConnect, String noeudConnect){
         this.coordGps=coordGps;
         this.nbAntennes=nbAntennes;
         this.antenneConnect=antenneConnect;
@@ -43,7 +45,7 @@ public class Pylone {
         return nbAntennes;
     }
 
-    public String[] getAntenneConnect(){
+    public ArrayList<String> getAntenneConnect(){
         return antenneConnect;
     }
 
@@ -65,7 +67,7 @@ public class Pylone {
         this.nbAntennes=nbAntennes;
     }
 
-    public void setAntenneConnect(String[] antenneConnect){
+    public void setAntenneConnect(ArrayList<String> antenneConnect){
         this.antenneConnect=antenneConnect;
     }
 
@@ -86,7 +88,10 @@ public class Pylone {
         //Supprimer un pylone (et les antennes attachées)
     }
 
-    public String[] listeAntenne(){
+    /*
+    public ArrayList<String> listeAntenne(){
         //Liste des antennes attachées à ce pylone (noeuds attachés à ce pylone)
+        
     }
+    */
 }
