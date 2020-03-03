@@ -34,8 +34,16 @@
 	
 	angle orientation + ouverture/2 & angle orientation - ouverture /2
 	
+	2.5)
+	double = ConvDist.angle(double lat_a, double lon_a, double lat_b, double lon_b); //angle entre les 2 pylones
+	double ouv = ouverture / 2
+	double anglSup = orientation + ouv
+	double anglInf = orientation - ouv
+	if ( anglPyl <= anglSup && anglPyl >= anglInf ){
 	
+	compareraison puissance/sensi
 	
-	
-	
+	}else{
+	return false
+	}
 	*/
