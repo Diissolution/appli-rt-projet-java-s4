@@ -2,9 +2,9 @@ public class Pylone {
 
     //Constantes
     private final String IDPYLONE = "0";
-    private final double[] COORDGPS ;
+    private final int TAILLECOORDGPS = 2 ;
     private final int NBANTENNES = 0 ;
-    private final String[] ANTENNECONNECT ;
+    private final ArrayList<String> ANTENNECONNECT = new ArrayList<String>();
     private final String NOEUDCONNECT = "aucun";
 
     //Variables d'instance
@@ -15,7 +15,7 @@ public class Pylone {
     private String noeudConnect ;
 
     public Pylone(){
-        this.coordGps=COORDGPS;
+        this.coordGps=double[TAILLECOORDGPS];
         this.nbAntennes=NBANTENNES;
         this.antenneConnect=ANTENNECONNECT;
         this.noeudConnect=NOEUDCONNECT;
