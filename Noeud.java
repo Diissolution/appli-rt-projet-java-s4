@@ -29,7 +29,7 @@ public class Noeud {
 		return listeAntennes;
 	}	
 
-	public HashMap caractéristiqueAntenne(){
+	public HashMap caracteristiqueAntenne(){
 		HashMap<String, String> liste = new HashMap<String, String>(); 
 		liste.put("idNoeud", idNoeud);
 		return liste;
