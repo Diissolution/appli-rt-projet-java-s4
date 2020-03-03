@@ -1,6 +1,7 @@
 import java.util.ArrayList;
+import java.util.HashMap;
 
-public abstract class Antenne{
+public class Antenne{
 
 	public String idAntenne;
 	public float gain;
@@ -9,6 +10,15 @@ public abstract class Antenne{
 	public float sensibilite;	
 	public String polarisation;
 	ArrayList<String> pylonesConnect = new ArrayList<String>();
+	
+	public Antenne (){
+		this.idAntenne="NULL";
+		this.gain=0;
+		this.frequence=0;
+		this.puissance=0;
+		this.sensibilite=0;
+		this.polarisation="NULL";
+		}
 	
 	public Antenne (String idAntenne, float gain, float frequence, float puissance, float sensibilite,String polarisation){
 		this.idAntenne=idAntenne;
@@ -71,6 +81,7 @@ public abstract class Antenne{
 	public void setPolarisation(String polarisation){
 				this.polarisation=polarisation;
 				}
+				
 	public void addPylonesConnect(String textAdd){
 		pylonesConnect.add(textAdd);
 		}
@@ -79,4 +90,26 @@ public abstract class Antenne{
 		pylonesConnect.remove(num);
 		}
 	
+	
+	public void cree(){
+		
+		}
+		
+	public void modifier(){
+		
+		}
+		
+	public void supprimer(){
+		
+		}
+	public HashMap caracteristiqueAntenne(){
+		HashMap<String, String> liste = new HashMap<String, String>();
+		liste.put("idAntenne",idAntenne);
+		liste.put("gain",gain);
+		liste.put("gain",gain);
+		liste.put("gain",gain);
+		liste.put("gain",gain);
+		liste.put("gain",gain);
+		return liste;
+		}
 	}
