@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public abstract class Antenne{
 
 	public String idAntenne;
@@ -6,7 +8,7 @@ public abstract class Antenne{
 	public float puissance;
 	public float sensibilite;	
 	public String polarisation;
-	public String pylonesConnect[];
+	ArrayList<String> pylonesConnect = new ArrayList<String>();
 	
 	public Antenne (String idAntenne, float gain, float frequence, float puissance, float sensibilite,String polarisation){
 		this.idAntenne=idAntenne;
@@ -70,7 +72,11 @@ public abstract class Antenne{
 				this.polarisation=polarisation;
 				}
 	public void addPylonesConnect(String textAdd){
-		
+		pylonesConnect.add(textAdd);
+		}
+	
+	public void delPylonesConnect(int num){
+		pylonesConnect.remove(num);
 		}
 	
 	}
