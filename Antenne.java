@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Scanner;
 
 public class Antenne{
 
@@ -10,6 +11,12 @@ public class Antenne{
 	public float sensibilite;	
 	public String polarisation;
 	ArrayList<String> pylonesConnect = new ArrayList<String>();
+	
+	//creation scanner
+	
+	Scanner add = new Scanner(System.in);
+	
+	//Constructeurs
 	
 	public Antenne (){
 		this.idAntenne="NULL";
@@ -53,10 +60,14 @@ public class Antenne{
 	public String getPolarisation(){
 				return polarisation;
 				}
+				
+	public ArrayList<String> getPylonesConnect(){
+		
+		}
 
 				
 				
-				
+				//modificateur en ecriture
 				
 	public void setIdAntenne(String idAntenne){
 				this.idAntenne=idAntenne;
@@ -82,34 +93,77 @@ public class Antenne{
 				this.polarisation=polarisation;
 				}
 				
-	public void addPylonesConnect(String textAdd){
-		pylonesConnect.add(textAdd);
+	public void addPylonesConnect(String idPylone){
+		pylonesConnect.add(idPylone);
 		}
 	
 	public void delPylonesConnect(int num){
 		pylonesConnect.remove(num);
 		}
 	
-	
-	public void cree(){
-		
-		}
 		
 	public void modifier(){
-		
+		System.out.println("1. gain");
+		System.out.println("2. frequence");
+		System.out.println("3. puissance");
+		System.out.println("4. sensibilite");
+		System.out.println("5. polarisation");
+		System.out.println("6. pylonesConnect");
+		int choix = add.nextInt();
+		if(choix ==1){
+			System.out.println("Entrer la Valeur de gain (Chiffre) ");
+			setGain(add.nextFloat());
+			}
+		if(choix ==2){
+			System.out.println("Entrer la Valeur de frequence (Chiffre) ");
+			setFrequence(add.nextFloat());
+			}
+		if(choix ==3){
+			System.out.println("Entrer la Valeur de puissance (Chiffre) ");
+			setPuissance(add.nextFloat());
+			}
+		if(choix ==4){
+			System.out.println("Entrer la Valeur de sensibilite (Chiffre) ");
+			setSensibilite(add.nextFloat());
+			}
+		if(choix ==5){
+			System.out.println("Choisir le type de polarisation :");
+			System.out.println("1. Horizontale ");
+			System.out.println("2. Verticale ");
+			System.out.println("3. Gauche ");
+			System.out.println("4. Droite ");
+			int choixPol = add.nextInt();
+			if(choixPol==1){
+				setPolarisation("horizontale");
+				}
+			if(choixPol==2){
+				setPolarisation("verticale");
+				}
+			if(choixPol==3){
+				setPolarisation("gauche");
+				}
+			if(choixPol==4){
+				setPolarisation("droite");
+				}
+			}
+		if(choix ==6){
+			for (int i=0;i<pylonesConnect.length;i++){
+				
+				System.out.println(i+". "+pylonesConnect[i]);
+				}
+			System.out.println("");
+			}
 		}
 		
-	public void supprimer(){
 		
-		}
 	public HashMap caracteristiqueAntenne(){
 		HashMap<String, String> liste = new HashMap<String, String>();
 		liste.put("idAntenne",idAntenne);
-		liste.put("gain",gain);
-		liste.put("gain",gain);
-		liste.put("gain",gain);
-		liste.put("gain",gain);
-		liste.put("gain",gain);
+		liste.put("gain",Float.toString(gain));
+		liste.put("frequence",Float.toString(frequence));
+		liste.put("puissance",Float.toString(puissance));
+		liste.put("sensibilite",Float.toString(sensibilite));
+		liste.put("polarisation",polarisation);
 		return liste;
 		}
 	}
