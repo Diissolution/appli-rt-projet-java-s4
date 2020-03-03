@@ -8,11 +8,11 @@ public class Pylone {
     private final String NOEUDCONNECT = "aucun";
 
     //Variables d'instance
-    private String idPylone
-    private double[] coordGps
-    private int nbAntennes
-    private String[] antenneConnect
-    private String noeudConnect
+    private String idPylone ;
+    private double[] coordGps ;
+    private int nbAntennes ;
+    private String[] antenneConnect ;
+    private String noeudConnect ;
 
     public Pylone(){
         this(IDPYLONE,COORDGPS,NBATENNES,ANTENNECONNECT,NOEUDCONNECT);
