@@ -1,0 +1,35 @@
+// Coordonnées GPS : latitude = Nord/Sud, longitude = Est/Ouest, coordonnées de la forme = latitude/longitude
+//latitude -> valeur positive = Nord, négative = Sud. Longitude -> valeur positive = Est, valeur négative = Ouest
+/*
+ * 
+ * String abscisse 
+ * String ordonnée
+	if (lat_b > lat_a){
+		ordonnée = "Nord";
+	}else if (lat_b < lat_a){
+		ordonnée = "Sud";
+	}else if (lon_b > lon_a){
+		abscisse = "Est";
+	}else if (lon_b < lon_a){
+		abscisse = "Ouest";
+	}	
+	
+	if (orientation == abscisse || orientation == ordonnée) {
+	* 
+	* faire algorithme qui prend en compte l'orientation du 2eme pylone
+	* 
+	* }else{
+	* 
+	* return false
+	* 
+	* }
+
+	faire exception pour "Nord-Est" etc...
+	
+	ordre de test : 1)Positionnement du 2eme pylone en fonction de l'orientation du 1er pylone
+	* 					2)Orientation du 2eme pylone en fonction du 1er pylone
+	* 					 2.5)Angles d'ouverture des pylones
+	* 						3)Comparaison Puissance de réception / sensibilité
+	
+	
+	*/
