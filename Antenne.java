@@ -103,6 +103,7 @@ public class Antenne{
 	
 		
 	public void modifier(){
+		
 		System.out.println("1. gain");
 		System.out.println("2. frequence");
 		System.out.println("3. puissance");
@@ -147,13 +148,27 @@ public class Antenne{
 				}
 			}
 		if(choix ==6){
-			for (int i=0;i<pylonesConnect.length;i++){
+			int choixPyl = add.nextInt();
+			System.out.println("1. Supprimer");
+			System.out.println("2. Ajouter");
+			int choixSupp = add.nextInt();
+			if(choixPyl==1){
+				for (int i=0;i<pylonesConnect.length;i++){
 				
-				System.out.println(i+". "+pylonesConnect[i]);
+					System.out.println(i+". "+pylonesConnect[i]);
+					}
+				for (int i=0;i<pylonesConnect.length;i++){
+					if(choixSupp == i){
+						delPylonesConnect(i);
+						}
+					}
 				}
-			System.out.println("");
+			if(choixPyl==2){
+				System.out.println("Ajouter un pylone (entrer id du pylone");
+				addPylonesConnect(add.nextLine());
 			}
 		}
+	}
 		
 		
 	public HashMap caracteristiqueAntenne(){
