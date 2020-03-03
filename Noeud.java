@@ -5,10 +5,10 @@ import java.util.HashMap;
 public class Noeud {
 	
 	//constantes
-	public static final String DEF="0";
-	
-	//variables
-	public String idNoeud;
+    	public static final String DEF="0";
+
+    	//variables
+    	public String idNoeud;
 	public ArrayList pylonesConnect;
 	public HashMap listeAntennes;
 	
@@ -24,15 +24,36 @@ public class Noeud {
 		this.pylonesConnect=pylonesConnect;
 	}
 
-	//méthodes
+	
 	public String listeAntennes(String listeAntennes){
 		return listeAntennes;
-	}	
+	}
+	
 
 	public HashMap caracteristiqueAntenne(){
 		HashMap<String, String> liste = new HashMap<String, String>(); 
 		liste.put("idNoeud", idNoeud);
 		return liste;
 	}
+	
+	//accesseurs en lecture
+	public String getIdNoeud(){
+		return idNoeud;
+	}
+	public ArrayList<String> getPylonesConnect(){
+		return pylonesConnect;
+	}
+	
+	//accesseurs en écriture
+	public void addPylonesConnect(String idPylone){
+		pylonesConnect.add(idPylone);
+	}
+	
+	public void delPylonesConnect(int num){
+		pylonesConnect.remove(num);
+	}
+
+	
+	
 }
 
