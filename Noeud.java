@@ -5,10 +5,10 @@ import java.util.HashMap;
 public class Noeud {
 	
 	//constantes
-    public static final String DEF="0";
-
-    //variables
-    public String idNoeud;
+	public static final String DEF="0";
+	
+	//variables
+	public String idNoeud;
 	public ArrayList pylonesConnect;
 	public HashMap listeAntennes;
 	
