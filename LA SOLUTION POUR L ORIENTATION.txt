@@ -1,0 +1,34 @@
+1)Orientation du 1er pylone en fonction du 2eme pylone :
+
+double anglPylA= ConvDist.angle(double lat_a, double lon_a, double lat_b, double lon_b); //angle entre les 2 pylones
+	double ouvA = ouvertureA / 2
+	double anglSupA = orientationA + ouvA
+	double anglInfA = orientationA - ouvA
+	if ( anglPylA <= anglSupA && anglPylA >= anglInfA ){
+	
+	orientation du 2eme pylone
+	
+	}else{
+	return false
+	}
+
+2)Orientation du 2ème pylone en fonction du 1er:
+
+
+double anglPylB = ConvDist.angle(double lat_b, double lon_b, double lat_a, double lon_a); //angle entre les 2 pylones
+	double ouvB = ouvertureB / 2
+	double anglSupB = orientationB + ouvB
+	double anglInfB = orientationB - ouvB
+	if ( anglPylB <= anglSupB && anglPylB >= anglInfB ){
+	
+	Comparaison puissance/sensibilité
+	
+	}else{
+	return false
+	}
+
+3)comparaison puissance/sensibilité:
+
+appel fonction comAntenne
+
+
