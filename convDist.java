@@ -23,5 +23,9 @@ public class ConvDist {
 		return (rayonTerre * calc2);
 		
 	}
+  
+	public static double angle (double radian){
+		return (radian*180)/Math.PI;
+	}
 	
 }
