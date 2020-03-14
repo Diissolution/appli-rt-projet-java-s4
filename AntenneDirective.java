@@ -40,12 +40,18 @@ public class AntenneDirective extends Antenne {
 		return polarisationAB;
 	}
 	
-	public boolean comAntenne(double distAB, float sensibiliteB, float puissanceA, float ouvertureA, float ouvertureB, String polarisationA, String polarisationB, float frequence){
-	
+	public boolean comAntenne(double distAB, float sensibiliteB, float puissanceA, float ouvertureA, float ouvertureB, String polarisationA, String polarisationB, float frequence, float gainB){
+		
+		if (ouvertureB == "NULL") //différencie si la 2eme antenne est directive ou omnidirectionnelle
+			float gainB = gainB;
+		}else{
+			float gainB = calculGain(ouvertureB);
+		}
+		
 		//calcul en fonction de sensibilité, distance et perte de DB
 		
 		float lambda = (3*10^8) / frequence; //lambda = c/f
-		double pr = puissanceA + 20 * Math.log(lambda/(4*Math.PI*distAB)) + calculGain(ouvertureA) + calculGain(ouvertureB) + calculPolarisation(polarisationA,polarisationB); //formule du bilan de liaison
+		double pr = puissanceA + 20 * Math.log(lambda/(4*Math.PI*distAB)) + calculGain(ouvertureA) + gainB + calculPolarisation(polarisationA,polarisationB); //formule du bilan de liaison
 		
 		//voir doc pour comprend polarisation : http://iutsa.unice.fr/~mgautero/ext/dut/M4210/DocAntennes.pdf
 		
