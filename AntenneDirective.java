@@ -1,3 +1,4 @@
+
 public class AntenneDirective extends Antenne {
 	
 	float orientation;
@@ -40,13 +41,18 @@ public class AntenneDirective extends Antenne {
 		return polarisationAB;
 	}
 	
-	public boolean comAntenne(double distAB, float sensibiliteB, float puissanceA, float ouvertureA, float ouvertureB, String polarisationA, String polarisationB, float frequence, float gainB){
+	public boolean comAntenne(double distAB, float sensibiliteB, float puissanceA, float ouvertureA, float ouvertureB, String polarisationA, String polarisationB, float frequence, float gainB, float orientationA, float orientationB,
+			double lat_a, double lon_a, double lat_b, double lon_b){
 		
-		if (ouvertureB == "NULL") //différencie si la 2eme antenne est directive ou omnidirectionnelle
-			float gainB1 = gainB;
-		}else{
-			float gainB1 = calculGain(ouvertureB);
+		double gainB1;
+		
+		if (ouvertureB == 360) { //différencie si la 2eme antenne est directive ou omnidirectionnelle
+			 gainB1 = gainB;
+			
+		}else {
+			gainB1 = calculGain(ouvertureB);
 		}
+			
 		
 		//calcul en fonction de sensibilité, distance et perte de DB
 		
@@ -55,12 +61,15 @@ public class AntenneDirective extends Antenne {
 		
 		//voir doc pour comprend polarisation : http://iutsa.unice.fr/~mgautero/ext/dut/M4210/DocAntennes.pdf
 		
-		double anglPylA= ConvDist.angle(double lat_a, double lon_a, double lat_b, double lon_b); //angle entre les 2 pylones
+
+		ConvDist anglPyl = new ConvDist();//angle entre les 2 pylones
+		
+		double anglPylA = anglPyl.angle(lat_b,lon_b,lat_a,lon_a);
 		double ouvA = ouvertureA / 2;
 		double anglSupA = orientationA + ouvA;
 		double anglInfA = orientationA - ouvA;
 		if ( anglPylA <= anglSupA && anglPylA >= anglInfA ){
-			double anglPylB = ConvDist.angle(double lat_b, double lon_b, double lat_a, double lon_a); //angle entre les 2 pylones
+			double anglPylB = anglPyl.angle(lat_b,lon_b,lat_a,lon_a); //angle entre les 2 pylones
 			double ouvB = ouvertureB / 2;
 			double anglSupB = orientationB + ouvB;
 			double anglInfB = orientationB - ouvB;
@@ -78,8 +87,6 @@ public class AntenneDirective extends Antenne {
 		}else{
 			return false;
 		}
-
-		
-		
+	
 	}
 }
