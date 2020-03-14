@@ -153,11 +153,11 @@ public class Antenne{
 			System.out.println("2. Ajouter");
 			int choixSupp = add.nextInt();
 			if(choixPyl==1){
-				for (int i=0;i<pylonesConnect.length;i++){
+				for (int i=0;i<pylonesConnect.size();i++){
 				
-					System.out.println(i+". "+pylonesConnect[i]);
+					System.out.println(i+". "+pylonesConnect.get(i));
 					}
-				for (int i=0;i<pylonesConnect.length;i++){
+				for (int i=0;i<pylonesConnect.size();i++){
 					if(choixSupp == i){
 						delPylonesConnect(i);
 						}
