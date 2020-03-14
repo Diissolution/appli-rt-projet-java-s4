@@ -49,10 +49,31 @@ public class AntenneDirective extends Antenne {
 		
 		//voir doc pour comprend polarisation : http://iutsa.unice.fr/~mgautero/ext/dut/M4210/DocAntennes.pdf
 		
-		if(pr >= sensibiliteB) { //comparaison puissance de reception / sensibilité
-			return true;
-		}else {
-			return false;
+		double anglPylA= ConvDist.angle(double lat_a, double lon_a, double lat_b, double lon_b); //angle entre les 2 pylones
+		double ouvA = ouvertureA / 2
+		double anglSupA = orientationA + ouvA
+		double anglInfA = orientationA - ouvA
+		if ( anglPylA <= anglSupA && anglPylA >= anglInfA ){
+			double anglPylB = ConvDist.angle(double lat_b, double lon_b, double lat_a, double lon_a); //angle entre les 2 pylones
+			double ouvB = ouvertureB / 2
+			double anglSupB = orientationB + ouvB
+			double anglInfB = orientationB - ouvB
+			if ( anglPylB <= anglSupB && anglPylB >= anglInfB ){
+				if(pr >= sensibiliteB) { //comparaison puissance de reception / sensibilité
+					return true;
+				}else {
+					return false;
+				}
+	
+			}else{
+				return false
+			}
+	
+		}else{
+			return false
 		}
+
+		
+		
 	}
 }
