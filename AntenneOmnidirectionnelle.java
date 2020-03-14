@@ -23,8 +23,15 @@ public class AntenneOmnidirectionnelle extends Antenne {
 	return polarisationAB;
 	}
 	
-	public boolean comAntenne(double distAB, float sensibiliteB, float puissanceA, float gainA, float gainB, String polarisationA, String polarisationB, float frequence){
-
+	public boolean comAntenne(double distAB, float sensibiliteB, float puissanceA, float gainA, float gainB, String polarisationA, String polarisationB, float frequence, float ouvertureB){
+		
+		if (ouvertureB == "NULL") //différencie si la 2eme antenne est directive ou omnidirectionnelle
+			float gainB = gainB;
+		}else{
+			float gainB = calculGain(ouvertureB);
+		}
+		
+		
 		float lambda = (3*10^8) / frequence; //lambda = c/f
 		double pr = puissanceA + 20 * Math.log(lambda/4*Math.PI*distAB) + gainA + gainB + calculPolarisation(polarisationA,polarisationB); //formule du bilan de liaison
 		
