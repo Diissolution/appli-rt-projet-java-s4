@@ -1,43 +1,52 @@
 import java.util.*;
 
 public class TestPylone {
-    public void creer() { // CrÃ©ation d'un pylone
+    public static Pylone creerPylone() { // Création d'un pylône
         Scanner sc = new Scanner(System.in);
-        double coords[] = new double[2];
         int idPyl = Pylone.nbPylone+1;
+        String idPylStr = Integer.toString(idPyl);
         ArrayList<String> antennesConnectees = new ArrayList<String>();
         
-        System.out.println("Entrez la latitude:(double)");
+        System.out.println("Entrez la latitude:(double avec virgule)");
         double coord1 = sc.nextDouble();
-        System.out.println("Entrez la longitude:(double)");
+        System.out.println("Entrez la longitude:(double avec virgule)");
         double coord2 = sc.nextDouble();
         
-        System.out.println("Entrez le nombre d'antennes connectÃ©es:(int)");
-        double nbAntennes = sc.nextInt();
+        System.out.println("Entrez le nombre d'antennes connectées:(int)");
+        int nbAntennes = sc.nextInt();
+        sc.nextLine();
         
-        System.out.println("Entrez les ID des antennes connectÃ©es sÃ©parÃ©s par des virgules:");
-        double antennes = sc.nextLine();
+        System.out.println("Entrez les ID des antennes connectées séparés par des virgules:");
+        String antennes = sc.nextLine();
         
-        System.out.println("Entrez l'ID du noeud auquel le pylone est connectÃ©:(String)");
-        double idNoeud = sc.nextString();
+        System.out.println("Entrez l'ID du noeud auquel le pylône est connecté:(String)");
+        String idNoeud = sc.nextLine();
         
-        coord[] = {coord1,coord2};
+        double coords[] = {coord1,coord2};
+        
         String[] antennesSeparees = antennes.split(",");
-        
         for (int i = 0; i < antennesSeparees.length; i++) {
             antennesConnectees.add(antennesSeparees[i]);
         }
         
         
-        Pylone x = new Pylone(idPyl.toString(),coords,nbAntennes,antennesConnectees,idNoeud) ;
+      
+        Pylone x = new Pylone(idPylStr,coords,nbAntennes,antennesConnectees,idNoeud) ;
         
+        sc.close(); 
+        System.out.println("------ Récapitulatif du pylône créé ------");
+        x.affiche();
         
+        return x;
+       
     }
     
     
     public static void main (String args[]){
         
-        
+    	Pylone z;
+    	z = creerPylone();
+    	z.modifier();
        
     }
 }

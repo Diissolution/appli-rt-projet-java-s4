@@ -84,7 +84,51 @@ public class Pylone {
 
 
     public void modifier(){
-        //Modification d'un pylone
+    	
+    	Scanner sc = new Scanner(System.in);
+    	
+		System.out.println("1. Coordonnées ");
+		System.out.println("2. Nombres d'antennes connectées");
+		System.out.println("3. Liste des antennes connectées");
+		System.out.println("4. Noeud connecté");
+		
+		int choix = sc.nextInt();
+		
+		switch(choix) {
+		case 1:
+			System.out.println("Entrez la nouvelle latitude:(double avec virgule)");
+	        double coord1 = sc.nextDouble();
+	        System.out.println("Entrez la nouvelle longitude:(double avec virgule)");
+	        double coord2 = sc.nextDouble();
+	        double coords[] = {coord1,coord2};
+	        this.setCoordGps(coords);
+			break;
+			
+		case 2:
+			System.out.println("Entrez le nouveau nombre d'antennes connectées:(int)");
+	        this.setNbAntennes(sc.nextInt());
+	        sc.nextLine();
+			break;
+			
+		case 3:
+			ArrayList<String> antennesConnectees = new ArrayList<String>();
+			System.out.println("Entrez les ID des antennes connectées séparés par des virgules:");
+	        String antennes = sc.nextLine();
+	        String[] antennesSeparees = antennes.split(",");
+	        for (int i = 0; i < antennesSeparees.length; i++) {
+	            antennesConnectees.add(antennesSeparees[i]);
+	        }
+	        this.setAntenneConnect(antennesConnectees);
+			break;
+			
+		case 4:
+			System.out.println("Entrez l'ID du noeud auquel le pylône est connecté:(String)");
+	        this.setNoeudConnect(sc.nextLine());
+			break;
+		}
+		
+		sc.close();
+
     }
 
     public void supprimer(){
@@ -98,7 +142,7 @@ public class Pylone {
         ArrayList<String> antenne = this.antenneConnect;
         String noeud = this.noeudConnect;
         
-        System.out.println("ID: "+id+"\nCoordonnÃ©es GPS: "+Arrays.toString(coord)+"\nNb antennes connectÃ©es: "+nb+"\nListe antennes connectÃ©es: "+antenne.toString()+"\nNoeud connectÃ©: "+noeud);
+        System.out.println("ID: "+id+"\nCoordonnées GPS: "+Arrays.toString(coord)+"\nNb antennes connectées: "+nb+"\nListe antennes connectées: "+antenne.toString()+"\nNoeud connecté: "+noeud);
     }
 
     /*
