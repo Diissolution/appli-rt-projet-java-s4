@@ -24,8 +24,10 @@ public class ConvDist {
 		
 	}
   
-	public static double angle (double radian){
-		return (radian*180)/Math.PI;
+		public double angle (double lat_a, double lon_a, double lat_b, double lon_b){
+		double angle;
+		angle =  Math.atan2(lat_b-lat_a, lon_b-lon_a);
+		return convAngle(angle);
 	}
 	
 }
