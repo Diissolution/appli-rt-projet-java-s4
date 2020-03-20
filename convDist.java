@@ -1,10 +1,14 @@
 public class ConvDist {
 	
-	public static double convRad (double degres) {
+	public double convRad (double degres) {
 		return (Math.PI*degres)/180;
 	}
 	
-	public static double distance (double lat_a, double lon_a, double lat_b, double lon_b){
+	public double convAngle (double rad) {
+		return (rad*180)/Math.PI;
+	}
+	
+	public double distance (double lat_a, double lon_a, double lat_b, double lon_b){
 		 int rayonTerre = 6378137; //on dit que la Terre est une sphère de rayon 6378km
 		
 		double convLat_a = convRad(lat_a); //conversion des coordonnées en radian
@@ -23,8 +27,8 @@ public class ConvDist {
 		return (rayonTerre * calc2);
 		
 	}
-  
-		public double angle (double lat_a, double lon_a, double lat_b, double lon_b){
+	
+	public double angle (double lat_a, double lon_a, double lat_b, double lon_b){
 		double angle;
 		angle =  Math.atan2(lat_b-lat_a, lon_b-lon_a);
 		return convAngle(angle);
