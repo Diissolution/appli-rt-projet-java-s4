@@ -1,4 +1,6 @@
 public class AntenneOmnidirectionnelle extends Antenne {
+	
+	float ouverture = 360;
 
 	public AntenneOmnidirectionnelle(){
 		super();
