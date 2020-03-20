@@ -1,0 +1,7 @@
+- Finir les classes Antenne, Pylone, Noeud ainsi que créer la classe main
+
+- Finir la méthode comAntenne et l’implémenter dans les classes AntenneDirective et AntenneOmnidirectionnelle
+
+- Faire le mode de fonctionnement client/serveur
+
+- Faire les méthodes permettant de lister les antennes joignables entre-elles
