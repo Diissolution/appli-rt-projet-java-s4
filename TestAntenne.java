@@ -42,6 +42,11 @@ public class TestAntenne {
 		}
 		return Antlist;
 	}
+	//Fonction pour supprimer une antenne dans la liste d'Antenne, avec pour paramettre la liste d'objet Antenne et le numéro de l'emplacement de l'element a supprimé.
+	public static ArrayList<Antenne> DeleteAntenne(ArrayList<Antenne> Antlist,int numDel){
+		Antlist.remove(numDel);
+		return Antlist;
+	}
 	
 	
 	 public static void main (String args[]){
@@ -53,6 +58,7 @@ public class TestAntenne {
 			System.out.println(x.get(i).caracteristiqueAntenne());
 		}
 		x=CreateAntenne(x,true);
+		x=DeleteAntenne(x,0);
 		for(int i=0;i<x.size();i++){
 			System.out.println(x.get(i).caracteristiqueAntenne());
 		}
