@@ -2,16 +2,15 @@ import java.util.ArrayList;
 import java.util.Scanner;
 public class TestAntenne {
 	
-	
-	public static ArrayList<Antenne> CreateAntenne(boolean isEmpty) {
-		ArrayList<Antenne> Antlist = new ArrayList<Antenne>();
-		int idAntenne=0;
+	//Fonction qui créé une antenne avec pour paramèttres une liste d'objet antenne et un boolean qui choisi si on utilise le constructeur pas défault (true) ou pas (false)
+	static Antenne x = new Antenne();
+	public static ArrayList<Antenne> CreateAntenne(ArrayList<Antenne> Antlist,boolean isEmpty) {
+		
+		int idAntenne= x.getNbAntenne();
 		Scanner user = new Scanner(System.in);
 		if (isEmpty==true) {
-			idAntenne++;
 			Antlist.add(new Antenne(Integer.toString(idAntenne)));
 		}else {
-			idAntenne++;
 			System.out.println("Entrer la Valeur de gain (Chiffre) ");
 			float gain = user.nextFloat();
 			System.out.println("Entrer la Valeur de frequence (Chiffre) ");
@@ -46,12 +45,14 @@ public class TestAntenne {
 	
 	
 	 public static void main (String args[]){
-		ArrayList<Antenne> x=CreateAntenne(false);
+		 //Test du fonctionnement de la fonction CreateAntenne
+		ArrayList<Antenne> x = new ArrayList<Antenne>();
+		x=CreateAntenne(x,false);
 		System.out.println(x.get(0));
 		for(int i=0;i<x.size();i++){
 			System.out.println(x.get(i).caracteristiqueAntenne());
 		}
-		x.get(0).modifier();
+		x=CreateAntenne(x,true);
 		for(int i=0;i<x.size();i++){
 			System.out.println(x.get(i).caracteristiqueAntenne());
 		}
