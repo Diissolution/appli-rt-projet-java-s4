@@ -57,13 +57,13 @@ public class StartApp {
 			if (isEmpty==true) {
 				Antlist.add(new Antenne(Integer.toString(idAntenne)));
 			}else {
-				System.out.println("Entrer la Valeur du gain (Chiffre) ");
+				System.out.println("Entrer la Valeur du gain (dBm) ");
 				float gain = user.nextFloat();
-				System.out.println("Entrer la Valeur de la frequence (Chiffre) ");
+				System.out.println("Entrer la Valeur de la frequence (MHz) ");
 				float frequence = user.nextFloat();
-				System.out.println("Entrer la Valeur de la puissance (Chiffre) ");
+				System.out.println("Entrer la Valeur de la puissance (dBm) ");
 				float puissance = user.nextFloat();
-				System.out.println("Entrer la Valeur de la sensibilite (Chiffre) ");
+				System.out.println("Entrer la Valeur de la sensibilite (dBm) ");
 				float sensibilite = user.nextFloat();
 				System.out.println("Choisir le type de l'antenne (selection) ");
 				System.out.println("1. Omnidirectionelle ");
@@ -97,7 +97,7 @@ public class StartApp {
 					}
 				System.out.println("choisir l'id du pylone à associer :");
 				String pylonesConnect="NULL";
-				String choixPolId = user.nextLine();
+				String choixPolId = user.next();
 				pylonesConnect=choixPolId;
 				Antlist.add(new Antenne(Integer.toString(idAntenne),gain,frequence,puissance,sensibilite,polarisation,type,pylonesConnect));
 			}
@@ -387,7 +387,7 @@ public class StartApp {
 			
 	
 		if(choix ==3){ 
-			creerNoeud();
+			ListN=Start.createNoeud(ListN);
 		}
 			//supprimer une antenne
 		if(choix ==6){
