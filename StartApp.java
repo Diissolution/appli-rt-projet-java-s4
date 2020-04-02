@@ -177,7 +177,30 @@ public class StartApp {
 			
 			return Antlist;
 		}
-	
+	// ================================= FONCTIONS SYNCPYLONE ===========================================
+	  public ArrayList<Pylone> SyncPylone(ArrayList<Pylone> Pylonelist,ArrayList<Antenne> Antlist) { 
+			  String idPylone;
+			  String idAntenne;
+			  String CoPylone;
+			  ArrayList <String> LAntenne=null;
+			  HashMap<String, String> AntActuel = new HashMap<String, String>();
+			  HashMap<String, String> PyloneActuel = new HashMap<String, String>();
+			  for(int i=0;i<Pylonelist.size();i++){
+				  PyloneActuel=Pylonelist.get(i).caracteristiquePylone();
+					idPylone=PyloneActuel.get("idPylone");
+						for(int n=0;n<Antlist.size();n++){
+							AntActuel=Antlist.get(n).caracteristiqueAntenne();
+							CoPylone=AntActuel.get("pylonesConnect");
+							idAntenne=AntActuel.get("idAntenne");
+							if(Integer.parseInt(CoPylone)==Integer.parseInt(PyloneActuel.get("idPylone"))) {
+								LAntenne.add(idAntenne);
+						}
+							Pylonelist.get(i).setAntenneConnect(LAntenne);
+					}
+					
+			  }
+			  return Pylonelist;
+		  }
 	// ================================= FONCTIONS PYLÔNE ===========================================
 		
 		// Création d'un pylône
