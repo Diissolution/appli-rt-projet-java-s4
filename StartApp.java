@@ -4,9 +4,41 @@ import java.util.Scanner;
 
 public class StartApp {	
 	
-	public static void creerNoeud() {
-	
-			  }		 
+		//fonction createNoeud
+		Noeud unNoeud = new Noeud();
+		public ArrayList<Noeud> createNoeud(ArrayList<Noeud> NoeudList) {		
+			int idNoeud = unNoeud.getNbNoeud();			
+			NoeudList.add(new Noeud(Integer.toString(idNoeud)));			
+			return NoeudList;			
+		}	
+		
+		
+		public HashMap <String, String> searchNoeud(ArrayList<Noeud> NoeudList,int numDel) {
+			HashMap<String, String> noeud = new HashMap<String, String>();
+			HashMap<String, String> result = new HashMap<String, String>();
+			for(int i=0;i<NoeudList.size();i++){
+				noeud=NoeudList.get(i).caracteristiqueNoeud();
+				if(Integer.parseInt(noeud.get("idNoeud"))==numDel) {
+					result=noeud;
+				}
+			}
+			
+			return result;
+		}
+		
+	//fonction deleteNoeud
+		
+		public ArrayList<Noeud> DeleteNoeud(ArrayList<Noeud> NoeudList,int numDel){
+			HashMap<String, String> test = new HashMap<String, String>();
+			for(int i=0;i<NoeudList.size();i++){
+				test=NoeudList.get(i).caracteristiqueNoeud();
+				if(Integer.parseInt(test.get("idNoeud"))==numDel) {
+					NoeudList.remove(i);
+				}
+			}
+			
+			return NoeudList;
+		}		 
 	
 	//Fonctions pour Antennes
 	
