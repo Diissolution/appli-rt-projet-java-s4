@@ -59,14 +59,6 @@ public class StartApp {
 			if (isEmpty==true) {
 				Antlist.add(new Antenne(Integer.toString(idAntenne)));
 			}else {
-				System.out.println("Entrer la Valeur du gain (dBm) ");
-				float gain = user.nextFloat();
-				System.out.println("Entrer la Valeur de la frequence (MHz) ");
-				float frequence = user.nextFloat();
-				System.out.println("Entrer la Valeur de la puissance (dBm) ");
-				float puissance = user.nextFloat();
-				System.out.println("Entrer la Valeur de la sensibilite (dBm) ");
-				float sensibilite = user.nextFloat();
 				System.out.println("Choisir le type de l'antenne (selection) ");
 				System.out.println("1. Omnidirectionelle ");
 				System.out.println("2. Directive ");
@@ -74,35 +66,87 @@ public class StartApp {
 				String type="NULL";
 				if(choixType==1){
 					type="omnidirectionelle";
+					
+					System.out.println("Entrer la valeur du gain (dBm) ");
+					float gain = user.nextFloat();
+					System.out.println("Entrer la valeur de la frequence (MHz) ");
+					float frequence = user.nextFloat();
+					System.out.println("Entrer la valeur de la puissance (dBm) ");
+					float puissance = user.nextFloat();
+					System.out.println("Entrer la valeur de la sensibilite (dBm) ");
+					float sensibilite = user.nextFloat();
+					System.out.println("Entrer la valeur de l'ouverture (degrés) ");
+					float ouverture = user.nextFloat();
+					System.out.println("Choisir le type de polarisation :");
+					System.out.println("1. Horizontale ");
+					System.out.println("2. Verticale ");
+					System.out.println("3. Gauche ");
+					System.out.println("4. Droite ");
+					int choixPol = user.nextInt();
+					String polarisation="NULL";
+					if(choixPol==1){
+						polarisation="horizontale";
+						}
+					if(choixPol==2){
+						polarisation="verticale";
+						}
+					if(choixPol==3){
+						polarisation="gauche";
+						}
+					if(choixPol==4){
+						polarisation="droite";
+						}
+					System.out.println("choisir l'id du pylone à associer :");
+					String pylonesConnect="NULL";
+					String choixPolId = user.next();
+					pylonesConnect=choixPolId;
+					float orientation = 360;
+					Antlist.add(new Antenne(Integer.toString(idAntenne),gain,frequence,puissance,sensibilite,polarisation,type,pylonesConnect,orientation,ouverture));
+				
+					
 					}
 				if(choixType==2){
 					type="directive";
+					
+					System.out.println("Entrer la valeur de la frequence (MHz) ");
+					float frequence = user.nextFloat();
+					System.out.println("Entrer la valeur de la puissance (dBm) ");
+					float puissance = user.nextFloat();
+					System.out.println("Entrer la valeur de la sensibilite (dBm) ");
+					float sensibilite = user.nextFloat();
+					System.out.println("Entrer la valeur de l'orientation (degrés) ");
+					float orientation = user.nextFloat();
+					System.out.println("Entrer la valeur de l'ouverture (degrés) ");
+					float ouverture = user.nextFloat();
+					System.out.println("Choisir le type de polarisation :");
+					System.out.println("1. Horizontale ");
+					System.out.println("2. Verticale ");
+					System.out.println("3. Gauche ");
+					System.out.println("4. Droite ");
+					int choixPol = user.nextInt();
+					String polarisation="NULL";
+					if(choixPol==1){
+						polarisation="horizontale";
+						}
+					if(choixPol==2){
+						polarisation="verticale";
+						}
+					if(choixPol==3){
+						polarisation="gauche";
+						}
+					if(choixPol==4){
+						polarisation="droite";
+						}
+					System.out.println("choisir l'id du pylone à associer :");
+					String pylonesConnect="NULL";
+					String choixPolId = user.next();
+					pylonesConnect=choixPolId;
+					float gain = 0;
+					Antlist.add(new Antenne(Integer.toString(idAntenne),gain,frequence,puissance,sensibilite,polarisation,type,pylonesConnect,orientation,ouverture));
+				
+					
 					}
-				System.out.println("Choisir le type de polarisation :");
-				System.out.println("1. Horizontale ");
-				System.out.println("2. Verticale ");
-				System.out.println("3. Gauche ");
-				System.out.println("4. Droite ");
-				int choixPol = user.nextInt();
-				String polarisation="NULL";
-				if(choixPol==1){
-					polarisation="horizontale";
-					}
-				if(choixPol==2){
-					polarisation="verticale";
-					}
-				if(choixPol==3){
-					polarisation="gauche";
-					}
-				if(choixPol==4){
-					polarisation="droite";
-					}
-				System.out.println("choisir l'id du pylone à associer :");
-				String pylonesConnect="NULL";
-				String choixPolId = user.next();
-				pylonesConnect=choixPolId;
-				Antlist.add(new Antenne(Integer.toString(idAntenne),gain,frequence,puissance,sensibilite,polarisation,type,pylonesConnect));
-			}
+				}
 			return Antlist;
 		}
 		
