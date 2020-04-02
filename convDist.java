@@ -5,7 +5,11 @@ public class ConvDist {
 	}
 	
 	public double convAngle (double rad) {
-		return (rad*180)/Math.PI;
+		double math = (rad*180)/Math.PI;
+			if (math<0) {
+				math = 360 + math;
+			}
+		return math;
 	}
 	
 	public double distance (double lat_a, double lon_a, double lat_b, double lon_b){
