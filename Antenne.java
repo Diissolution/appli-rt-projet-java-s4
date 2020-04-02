@@ -12,7 +12,7 @@ public class Antenne{
 	public String polarisation;
 	public static int nbAntenne=0;
 	public String typeAntenne;
-	public String pylonesConnect ="connecté a aucun pylonne";
+	public String pylonesConnect;
 	
 	//creation scanner
 	
@@ -28,6 +28,7 @@ public class Antenne{
 		this.sensibilite=0;
 		this.polarisation="NULL";
 		this.typeAntenne="Inconnu";
+		this.pylonesConnect="connecté a aucun pylonne";
 		nbAntenne++;
 		}
 
@@ -38,10 +39,11 @@ public class Antenne{
 		this.puissance=0;
 		this.sensibilite=0;
 		this.polarisation="NULL";
+		this.pylonesConnect="connecté a aucun pylonne";
 		nbAntenne++;
 		}
 	
-	public Antenne (String idAntenne, float gain, float frequence, float puissance, float sensibilite,String polarisation,String typeAntenne){
+	public Antenne (String idAntenne, float gain, float frequence, float puissance, float sensibilite,String polarisation,String typeAntenne,String pylonesConnect){
 		this.idAntenne=idAntenne;
 		this.gain=gain;
 		this.frequence=frequence;
@@ -49,6 +51,7 @@ public class Antenne{
 		this.sensibilite=sensibilite;
 		this.polarisation=polarisation;
 		this.typeAntenne=typeAntenne;
+		this.pylonesConnect=pylonesConnect;
 		nbAntenne++;
 		}
 		
