@@ -359,11 +359,38 @@ public class StartApp {
 		}
 			//supprimer une antenne
 		if(choix ==6){
-			//int choixAntenne = entre.nextInt();
-			for(int i=0;i<ListA.size();i++){
-						System.out.println(ListA.get(i).caracteristiqueAntenne());
+				while(true) {
+				HashMap<String, String> result = new HashMap<String, String>();
+				for(int i=0;i<ListA.size();i++){
+					result=ListA.get(i).caracteristiqueAntenne();
+					System.out.println(result.get("idAntenne")+". "+" Antenne"+result.get("idAntenne"));
+				}
+				System.out.println("0. Retourner en arrière");
+					int choixAntenne = entre.nextInt();
+					if(choixAntenne!=0) {
+						ListA=Start.DeleteAntenne(ListA,choixAntenne);
+					}else{
+						break;
+						}
+				}
 			}
-		}
+			
+			if(choix==7) {
+					while(true) {
+					HashMap<String, String> result = new HashMap<String, String>();
+					for(int i=0;i<ListP.size();i++){
+						result=ListP.get(i).caracteristiquePylone();
+						System.out.println(result.get("idPylone")+". "+" Pylône"+result.get("idPylone"));
+					}
+					System.out.println("0. Retourner en arrière");
+						int choixPylone = entre.nextInt();
+						if(choixPylone!=0) {
+							ListP=Start.DeletePylone(ListP,choixPylone);
+						}else{
+							break;
+							}
+					}
+				}
 			
 			//ajout d'un pylone au Noeud
 		if(choix ==5){ 
