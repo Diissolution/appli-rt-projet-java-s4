@@ -13,6 +13,8 @@ public class Antenne{
 	public static int nbAntenne=0;
 	public String typeAntenne;
 	public String pylonesConnect;
+	public float orientation;
+	public float ouverture;
 	
 	//creation scanner
 	
@@ -29,6 +31,8 @@ public class Antenne{
 		this.polarisation="NULL";
 		this.typeAntenne="Inconnu";
 		this.pylonesConnect="connecté a aucun pylonne";
+		this.orientation = 0;
+		this.ouverture = 0;
 		nbAntenne++;
 		}
 
@@ -40,10 +44,12 @@ public class Antenne{
 		this.sensibilite=0;
 		this.polarisation="NULL";
 		this.pylonesConnect="connecté a aucun pylonne";
+		this.orientation = 0;
+		this.ouverture = 0;
 		nbAntenne++;
 		}
 	
-	public Antenne (String idAntenne, float gain, float frequence, float puissance, float sensibilite,String polarisation,String typeAntenne,String pylonesConnect){
+	public Antenne (String idAntenne, float gain, float frequence, float puissance, float sensibilite,String polarisation,String typeAntenne,String pylonesConnect, float orientation, float ouverture){
 		this.idAntenne=idAntenne;
 		this.gain=gain;
 		this.frequence=frequence;
@@ -52,6 +58,9 @@ public class Antenne{
 		this.polarisation=polarisation;
 		this.typeAntenne=typeAntenne;
 		this.pylonesConnect=pylonesConnect;
+		this.ouverture=ouverture;
+		this.orientation=orientation;
+		
 		nbAntenne++;
 		}
 		
@@ -88,6 +97,12 @@ public class Antenne{
 		}
 	public String getTypeAntenne() {
 		return typeAntenne;
+	}
+	public float getOrientation() {
+		return orientation;
+	}
+	public float getOuverture() {
+		return ouverture;
 	}
 	
 
@@ -126,6 +141,12 @@ public class Antenne{
 		this.typeAntenne=typeAntenne;
 		}
 	
+	public void setOrientation(float orientation) {
+		this.orientation = orientation;
+	}
+	public void setOuverture (float ouverture) {
+		this.ouverture = ouverture;
+	}
 		
 	public void modifier(){
 		
@@ -136,6 +157,8 @@ public class Antenne{
 		System.out.println("5. polarisation");
 		System.out.println("6. Ajouter/remplacer un pylone");
 		System.out.println("7. Choisir le type d'antenne");
+		System.out.println("8. Ouverture");
+		System.out.println("9. Orientation");
 		
 		int choix = add.nextInt();
 		if(choix ==1){
@@ -192,6 +215,14 @@ public class Antenne{
 				setPolarisation("directive");
 				}
 			}
+		if(choix==8) {
+			System.out.println("Entrer la valeur de l'ouverture");
+			setOuverture(add.nextFloat());
+		}
+		if(choix==9) {
+			System.out.println("Entrer la valeur de l'orientation");
+			setOrientation(add.nextFloat());
+		}
 	}
 		
 		
@@ -204,6 +235,9 @@ public class Antenne{
 		liste.put("sensibilite",Float.toString(sensibilite));
 		liste.put("polarisation",polarisation);
 		liste.put("typeAntenne",typeAntenne);
+		liste.put("ouverture",Float.toString(ouverture));
+		liste.put("orientation",Float.toString(orientation));
+		
 		return liste;
 		}
 	}
