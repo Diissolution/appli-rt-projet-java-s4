@@ -307,11 +307,12 @@ public class StartApp {
 			int choixAntenne = entre.nextInt();
 			if(choixAntenne==1) {
 				ListA=Start.CreateAntenne(ListA,true,entre);
-				break;
+				System.out.println("-----------------------------");
+				
 			}
 			else if(choixAntenne==2) {
 				ListA=Start.CreateAntenne(ListA,false,entre);
-				break;
+				System.out.println("-----------------------------");
 			}
 			else if(choixAntenne==3) {
 				break;
