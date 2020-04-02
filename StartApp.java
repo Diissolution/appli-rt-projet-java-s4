@@ -101,6 +101,106 @@ public class StartApp {
 			return Antlist;
 		}
 	
+	public void testConnecAnt (ArrayList <Antenne> Antlist) {
+		ConvDist convDist = new ConvDist();
+		AntenneOmnidirectionnelle omni = new AntenneOmnidirectionnelle();
+		AntenneDirective direct = new AntenneDirective();
+		
+		int idAntenne; //a supprimer, présent juste pour ne pas avoir d'erreur
+		float frequenceA;
+		float puissanceA;
+		float sensibiliteA;
+		float gainA;
+		float ouvertureA;
+		float orientationA;
+		String typeA;
+		String polarisationA;
+		double lat_A;
+		double lon_A;
+		
+		//float frequenceB;
+		float puissanceB;
+		float sensibiliteB;
+		float gainB;
+		float ouvertureB;
+		float orientationB;
+		String typeB;
+		String polarisationB;
+		double lat_B;
+		double lon_B;
+		
+		double distanceAB;
+		boolean testConnec;
+		
+		
+		HashMap<String, String> test = new HashMap<String, String>();
+		test = searchAntenne(Antlist, idAntenne);
+		typeA = test.get("typeAntenne");
+		
+				if (typeA == "omnidirectionnelle") {
+					
+					frequenceA = Float.parseFloat(test.get("frequence"));
+					puissanceA = Float.parseFloat(test.get("puissance"));
+					sensibiliteA = Float.parseFloat(test.get("sensibilite"));
+					gainA = Float.parseFloat(test.get("gain"));
+					ouvertureA = Float.parseFloat(test.get("ouverture"));
+					orientationA = Float.parseFloat(test.get("orientation"));
+					polarisationA = test.get("polarisation");
+					lat_A = Double.parseDouble(test.get("lat_a"));
+					lon_A = Double.parseDouble(test.get("lon_a"));
+					
+					
+				}else { //directive, cad, pas de gainA
+					
+					frequenceA = Float.parseFloat(test.get("frequence"));
+					puissanceA = Float.parseFloat(test.get("puissance"));
+					sensibiliteA = Float.parseFloat(test.get("sensibilite"));
+					ouvertureA = Float.parseFloat(test.get("ouverture"));
+					orientationA = Float.parseFloat(test.get("orientation"));
+					polarisationA = test.get("polarisation");
+					lat_A = Double.parseDouble(test.get("lat_a"));
+					lon_A = Double.parseDouble(test.get("lon_a"));
+					
+				}
+				
+				for(int i=0;i<Antlist.size();i++){
+					test=Antlist.get(i).caracteristiqueAntenne();
+					
+					//frequenceB = Float.parseFloat(test.get("frequence"));
+					puissanceB = Float.parseFloat(test.get("puissance"));
+					sensibiliteB = Float.parseFloat(test.get("sensibilite"));
+					gainB = Float.parseFloat(test.get("gain"));
+					ouvertureB = Float.parseFloat(test.get("ouverture"));
+					orientationB = Float.parseFloat(test.get("orientation"));
+					polarisationB = test.get("polarisation");
+					lat_B = Double.parseDouble(test.get("lat_a"));
+					lon_B = Double.parseDouble(test.get("lon_a"));
+					
+					distanceAB = convDist.distance(lat_A, lon_A, lat_B, lon_B);
+					
+					if (typeA == "omnidirectionnelle") {
+						testConnec = omni.comAntenne(distanceAB, sensibiliteB, puissanceA, ouvertureA, ouvertureB, polarisationA, polarisationB, frequenceA, gainA, gainB, orientationA, orientationB, lat_A, lon_A, lat_B, lon_B);
+						if (testConnec = true) {
+							System.out.println("les 2 antennes peuvent communiquer");
+							//on affiche l'id de cette antenne
+						}else {
+							System.out.println("les 2 antennes ne peuvent pas communiquer");
+							//on fait rien, cette antenne ne peut pas communiquer avec nous
+						}
+					}else {
+						testConnec = direct.comAntenne(distanceAB, sensibiliteB, puissanceA, ouvertureA, ouvertureB, polarisationA, polarisationB, frequenceA, gainB, orientationA, orientationB, lat_A, lon_A, lat_B, lon_B)
+						if (testConnec = true) {
+							System.out.println("les 2 antennes peuvent communiquer");
+							//on affiche l'id de cette antenne
+						}else {
+							System.out.println("les 2 antennes ne peuvent pas communiquer");
+							//on fait rien, cette antenne ne peut pas communiquer avec nous
+						}
+					
+					}
+						
+			}
+	
 	
 	public static void main (String args[]){
 		HashMap<String, String> test = new HashMap<String, String>();
