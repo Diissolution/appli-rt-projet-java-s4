@@ -155,6 +155,7 @@ public class StartApp {
 					frequenceA = Float.parseFloat(test.get("frequence"));
 					puissanceA = Float.parseFloat(test.get("puissance"));
 					sensibiliteA = Float.parseFloat(test.get("sensibilite"));
+					gainA = Float.parseFloat(test.get("gain"));
 					ouvertureA = Float.parseFloat(test.get("ouverture"));
 					orientationA = Float.parseFloat(test.get("orientation"));
 					polarisationA = test.get("polarisation");
