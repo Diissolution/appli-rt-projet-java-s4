@@ -58,8 +58,8 @@ public class Antenne{
 		this.polarisation=polarisation;
 		this.typeAntenne=typeAntenne;
 		this.pylonesConnect=pylonesConnect;
-		this.ouverture=ouverture;
 		this.orientation=orientation;
+		this.ouverture=ouverture;
 		
 		nbAntenne++;
 		}
@@ -157,8 +157,8 @@ public class Antenne{
 		System.out.println("5. polarisation");
 		System.out.println("6. Ajouter/remplacer un pylone");
 		System.out.println("7. Choisir le type d'antenne");
-		System.out.println("8. Ouverture");
 		System.out.println("9. Orientation");
+		System.out.println("8. Ouverture");
 		
 		int choix = add.nextInt();
 		if(choix ==1){
@@ -216,13 +216,14 @@ public class Antenne{
 				}
 			}
 		if(choix==8) {
-			System.out.println("Entrer la valeur de l'ouverture");
-			setOuverture(add.nextFloat());
-		}
-		if(choix==9) {
 			System.out.println("Entrer la valeur de l'orientation");
 			setOrientation(add.nextFloat());
 		}
+		if(choix==9) {
+			System.out.println("Entrer la valeur de l'ouverture");
+			setOuverture(add.nextFloat());
+		}
+		
 	}
 		
 		
@@ -235,8 +236,9 @@ public class Antenne{
 		liste.put("sensibilite",Float.toString(sensibilite));
 		liste.put("polarisation",polarisation);
 		liste.put("typeAntenne",typeAntenne);
-		liste.put("ouverture",Float.toString(ouverture));
 		liste.put("orientation",Float.toString(orientation));
+		liste.put("ouverture",Float.toString(ouverture));
+		
 		
 		return liste;
 		}
