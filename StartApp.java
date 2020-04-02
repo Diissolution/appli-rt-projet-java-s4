@@ -4,6 +4,8 @@ import java.util.Scanner;
 
 public class StartApp {	
 	
+		public int idAntenne;
+	
 		//fonction createNoeud
 		Noeud unNoeud = new Noeud();
 		public ArrayList<Noeud> createNoeud(ArrayList<Noeud> NoeudList) {		
@@ -306,7 +308,7 @@ public class StartApp {
 	
 	public static void main (String args[]){
 		HashMap<String, String> test = new HashMap<String, String>();
-		StartApp Start = new StartApp();
+		StartApp start = new StartApp();
 		//scanner pour faire les choix
 		Scanner entre = new Scanner(System.in);
 		//Liste des Antennes,Pylone et Noeud dans le programme
@@ -342,12 +344,12 @@ public class StartApp {
 			System.out.print(">> ");
 			int choixAntenne = entre.nextInt();
 			if(choixAntenne==1) {
-				ListA=Start.CreateAntenne(ListA,true,entre);
+				ListA=start.CreateAntenne(ListA,true,entre);
 				System.out.println("-----------------------------");
 				
 			}
 			else if(choixAntenne==2) {
-				ListA=Start.CreateAntenne(ListA,false,entre);
+				ListA=start.CreateAntenne(ListA,false,entre);
 				System.out.println("-----------------------------");
 			}
 			else if(choixAntenne==3) {
@@ -371,10 +373,10 @@ public class StartApp {
 				entre.nextLine();
 					switch(choixPylone) {
 						case 1: 
-							ListP=Start.CreatePylone(ListP,true,entre);
+							ListP=start.CreatePylone(ListP,true,entre);
 							break;
 						case 2:
-							ListP=Start.CreatePylone(ListP,false,entre);
+							ListP=start.CreatePylone(ListP,false,entre);
 							break;
 						case 3:
 							break out;
@@ -387,7 +389,7 @@ public class StartApp {
 			
 	
 		if(choix ==3){ 
-			ListN=Start.createNoeud(ListN);
+			ListN=start.createNoeud(ListN);
 		}
 			//supprimer une antenne
 		if(choix ==6){
@@ -401,7 +403,7 @@ public class StartApp {
 				System.out.print(">> ");
 					int choixAntenne = entre.nextInt();
 					if(choixAntenne!=0) {
-						ListA=Start.DeleteAntenne(ListA,choixAntenne);
+						ListA=start.DeleteAntenne(ListA,choixAntenne);
 						System.out.println("-----------------------------");
 					}else{
 						System.out.println("-----------------------------");
@@ -421,7 +423,7 @@ public class StartApp {
 					System.out.print(">> ");
 						int choixPylone = entre.nextInt();
 						if(choixPylone!=0) {
-							ListP=Start.DeletePylone(ListP,choixPylone);
+							ListP=start.DeletePylone(ListP,choixPylone);
 							System.out.println("-----------------------------");
 						}else{
 							System.out.println("-----------------------------");
@@ -446,7 +448,7 @@ public class StartApp {
 				System.out.print(">> ");
 				int numRech = entre.nextInt();
 				if(numRech!=0) {
-				HashMap<String,String> caracs = Start.searchPylone(ListP,numRech);
+				HashMap<String,String> caracs = start.searchPylone(ListP,numRech);
 				System.out.println("-----------------------------");
 				System.out.println("- Pylône "+numRech);
 				caracs.forEach((key, value) -> System.out.println(key + ":" + value));
@@ -470,9 +472,10 @@ public class StartApp {
 				System.out.print(">> ");
 				int numRech = entre.nextInt();
 				if(numRech!=0) {
-				HashMap<String,String> caracs = Start.searchAntenne(ListA,numRech);
+				HashMap<String,String> caracs = start.searchAntenne(ListA,numRech);
 				System.out.println("-----------------------------");
 				System.out.println("- Antenne "+numRech);
+				start.idAntenne = numRech;
 				caracs.forEach((key, value) -> System.out.println(key + ":" + value));
 				System.out.println("-----------------------------");
 				}else{
