@@ -404,27 +404,50 @@ public class StartApp {
 		}
 			
 		if(choix==10) {
-			System.out.println("Entrez l'ID du pylône");
-			System.out.print(">> ");
-			int numRech = entre.nextInt();
-			HashMap<String,String> caracs = Start.searchPylone(ListP,numRech);
-			System.out.println("-----------------------------");
-			System.out.println("- Pylône "+numRech);
-			caracs.forEach((key, value) -> System.out.println(key + ":" + value));
-			System.out.println("-----------------------------");
+			while(true) {
+				HashMap<String, String> result = new HashMap<String, String>();
+				for(int i=0;i<ListP.size();i++){
+					result=ListP.get(i).caracteristiquePylone();
+					System.out.println(result.get("idPylone")+". "+" Pylône"+result.get("idPylone"));
+				}
+				System.out.println("0. Retourner en arrière");
+				System.out.print(">> ");
+				int numRech = entre.nextInt();
+				if(numRech!=0) {
+				HashMap<String,String> caracs = Start.searchPylone(ListP,numRech);
+				System.out.println("-----------------------------");
+				System.out.println("- Pylône "+numRech);
+				caracs.forEach((key, value) -> System.out.println(key + ":" + value));
+				System.out.println("-----------------------------");
+				}else{
+					System.out.println("-----------------------------");
+					break;
+				}
+			}
 			
 		}
 			
 		if(choix==9) {
-			System.out.println("Entrez l'ID de l'antenne");
-			System.out.print(">> ");
-			int numRech = entre.nextInt();
-			HashMap<String,String> caracs = Start.searchAntenne(ListA,numRech);
-			System.out.println("-----------------------------");
-			System.out.println("- Antenne "+numRech);
-			caracs.forEach((key, value) -> System.out.println(key + ": " + value));
-			System.out.println("-----------------------------");
-			
+			while(true) {
+				HashMap<String, String> result = new HashMap<String, String>();
+				for(int i=0;i<ListA.size();i++){
+					result=ListA.get(i).caracteristiqueAntenne();
+					System.out.println(result.get("idAntenne")+". "+" Antenne"+result.get("idAntenne"));
+				}
+				System.out.println("0. Retourner en arrière");
+				System.out.print(">> ");
+				int numRech = entre.nextInt();
+				if(numRech!=0) {
+				HashMap<String,String> caracs = Start.searchAntenne(ListA,numRech);
+				System.out.println("-----------------------------");
+				System.out.println("- Antenne "+numRech);
+				caracs.forEach((key, value) -> System.out.println(key + ":" + value));
+				System.out.println("-----------------------------");
+				}else{
+					System.out.println("-----------------------------");
+					break;
+				}
+			}
 		}
 					
 	
