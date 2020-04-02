@@ -328,6 +328,7 @@ public class StartApp {
 		}
 		if(choix==2) {
 			int choixPylone;
+			out:
 			while(true) {
 				System.out.println("Voulez-vous créer un pylône vide ou remplir ses paramètres ?");
 				System.out.println("1. Créer un Pylone vide?");
@@ -344,7 +345,7 @@ public class StartApp {
 							ListP=Start.CreatePylone(ListP,false,entre);
 							break;
 						case 3:
-							break;
+							break out;
 						default:
 							System.out.println("Erreur dans le choix.");
 							break;
