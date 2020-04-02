@@ -106,7 +106,7 @@ public class StartApp {
 		AntenneOmnidirectionnelle omni = new AntenneOmnidirectionnelle();
 		AntenneDirective direct = new AntenneDirective();
 		
-		int idAntenne; //a supprimer, présent juste pour ne pas avoir d'erreur
+		int idAntenne = 0; //a supprimer, présent juste pour ne pas avoir d'erreur
 		float frequenceA;
 		float puissanceA;
 		float sensibiliteA;
@@ -189,7 +189,7 @@ public class StartApp {
 							//on fait rien, cette antenne ne peut pas communiquer avec nous
 						}
 					}else {
-						testConnec = direct.comAntenne(distanceAB, sensibiliteB, puissanceA, ouvertureA, ouvertureB, polarisationA, polarisationB, frequenceA, gainB, orientationA, orientationB, lat_A, lon_A, lat_B, lon_B)
+						testConnec = direct.comAntenne(distanceAB, sensibiliteB, puissanceA, ouvertureA, ouvertureB, polarisationA, polarisationB, frequenceA, gainB, orientationA, orientationB, lat_A, lon_A, lat_B, lon_B);
 						if (testConnec = true) {
 							System.out.println("les 2 antennes peuvent communiquer");
 							//on affiche l'id de cette antenne
@@ -201,6 +201,7 @@ public class StartApp {
 					}
 						
 			}
+	}
 	
 	
 	public static void main (String args[]){
