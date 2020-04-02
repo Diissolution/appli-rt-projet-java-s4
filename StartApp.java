@@ -348,21 +348,43 @@ public class StartApp {
 		}
 			
 	
-			if(choix ==3){ 
-				creerNoeud();
-				}
+		if(choix ==3){ 
+			creerNoeud();
+		}
 			//supprimer une antenne
-			if(choix ==6){
-					//int choixAntenne = entre.nextInt();
-					for(int i=0;i<ListA.size();i++){
+		if(choix ==6){
+			//int choixAntenne = entre.nextInt();
+			for(int i=0;i<ListA.size();i++){
 						System.out.println(ListA.get(i).caracteristiqueAntenne());
-					}
-				}
+			}
+		}
 			
 			//ajout d'un pylone au Noeud
-			if(choix ==5){ 
+		if(choix ==5){ 
 				
-				}
+		}
+			
+		if(choix==10) {
+			System.out.println("Entrez l'ID du pylône");
+			int numRech = entre.nextInt();
+			HashMap<String,String> caracs = Start.searchPylone(ListP,numRech);
+			System.out.println("-----------------------------");
+			System.out.println("- Pylône "+numRech);
+			caracs.forEach((key, value) -> System.out.println(key + ":" + value));
+			System.out.println("-----------------------------");
+			
+		}
+			
+		if(choix==12) {
+			System.out.println("Entrez l'ID de l'antenne");
+			int numRech = entre.nextInt();
+			HashMap<String,String> caracs = Start.searchAntenne(ListA,numRech);
+			System.out.println("-----------------------------");
+			System.out.println("- Antenne "+numRech);
+			caracs.forEach((key, value) -> System.out.println(key + ": " + value));
+			System.out.println("-----------------------------");
+			
+		}
 					
 	
 		}
