@@ -5,34 +5,40 @@ import java.util.HashMap;
 public class Noeud {
 	
 	//constantes
-    	public static final String DEF="0";
+    public static final String DEF="0";
 
-    	//variables
-    	public String idNoeud;
-	public ArrayList pylonesConnect;
-	public HashMap listeAntennes;
+    //variables
+    public String idNoeud;
+	public ArrayList pylonesConnect;	
+	public int nbNoeud=0;
 	
-	//constructeur par défaut
+	//constructeur par dÃ©faut
 	public Noeud(){
 		this.idNoeud=DEF;
 		this.pylonesConnect= new ArrayList<String>();
+		nbNoeud++;
 	}
 	
+	
 	//constructeur
+		public Noeud(String idNoeud){
+			this.idNoeud=idNoeud;
+			this.pylonesConnect=new ArrayList<String>();
+			nbNoeud++;
+		}
+
+	/*//constructeur
 	public Noeud(String idNoeud, ArrayList pylonesConnect){
 		this.idNoeud=idNoeud;
 		this.pylonesConnect=pylonesConnect;
-	}
-
-	
-	public String listeAntennes(String listeAntennes){
-		return listeAntennes;
-	}
+		nbNoeud++;
+	}*/
 	
 
-	public HashMap caracteristiqueAntenne(){
+	public HashMap caracteristiqueNoeud(){
 		HashMap<String, String> liste = new HashMap<String, String>(); 
 		liste.put("idNoeud", idNoeud);
+		liste.put("pylonesConnect", pylonesConnect.toString());
 		return liste;
 	}
 	
@@ -40,11 +46,13 @@ public class Noeud {
 	public String getIdNoeud(){
 		return idNoeud;
 	}
-	public ArrayList<String> getPylonesConnect(){
-		return pylonesConnect;
+	
+	public int getNbNoeud() {
+		return nbNoeud;
 	}
 	
-	//accesseurs en écriture
+	
+	//accesseurs en Ã©criture
 	public void addPylonesConnect(String idPylone){
 		pylonesConnect.add(idPylone);
 	}
@@ -52,5 +60,5 @@ public class Noeud {
 	public void delPylonesConnect(int num){
 		pylonesConnect.remove(num);
 	}	
-	
+
 }
