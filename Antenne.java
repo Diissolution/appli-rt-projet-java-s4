@@ -11,6 +11,7 @@ public class Antenne{
 	public float sensibilite;	
 	public String polarisation;
 	public static int nbAntenne=0;
+	public String typeAntenne;
 	public String pylonesConnect ="connecté a aucun pylonne";
 	
 	//creation scanner
@@ -26,6 +27,7 @@ public class Antenne{
 		this.puissance=0;
 		this.sensibilite=0;
 		this.polarisation="NULL";
+		this.typeAntenne="Inconnu";
 		nbAntenne++;
 		}
 
@@ -39,13 +41,14 @@ public class Antenne{
 		nbAntenne++;
 		}
 	
-	public Antenne (String idAntenne, float gain, float frequence, float puissance, float sensibilite,String polarisation){
+	public Antenne (String idAntenne, float gain, float frequence, float puissance, float sensibilite,String polarisation,String typeAntenne){
 		this.idAntenne=idAntenne;
 		this.gain=gain;
 		this.frequence=frequence;
 		this.puissance=puissance;
 		this.sensibilite=sensibilite;
 		this.polarisation=polarisation;
+		this.typeAntenne=typeAntenne;
 		nbAntenne++;
 		}
 		
@@ -80,6 +83,10 @@ public class Antenne{
 	public String getPylonesConnect(){
 		return pylonesConnect;
 		}
+	public String getTypeAntenne() {
+		return typeAntenne;
+	}
+	
 
 				
 				
@@ -112,6 +119,9 @@ public class Antenne{
 	public void setPylonesConnect(String pylonesConnect){
 		this.pylonesConnect=pylonesConnect;
 		}
+	public void setTypeAntenne(String typeAntenne){
+		this.typeAntenne=typeAntenne;
+		}
 	
 		
 	public void modifier(){
@@ -122,6 +132,8 @@ public class Antenne{
 		System.out.println("4. sensibilite");
 		System.out.println("5. polarisation");
 		System.out.println("6. Ajouter/remplacer un pylone");
+		System.out.println("7. Choisir le type d'antenne");
+		
 		int choix = add.nextInt();
 		if(choix ==1){
 			System.out.println("Entrer la Valeur de gain (Chiffre) ");
@@ -165,6 +177,18 @@ public class Antenne{
 				setPylonesConnect(add.nextLine());
 			
 		}
+		if(choix ==7){
+			System.out.println("Choisir le type d'antenne :");
+			System.out.println("1. Omnidirectionelle ");
+			System.out.println("2. Directive ");
+			int choixPol = add.nextInt();
+			if(choixPol==1){
+				setTypeAntenne("omnidirectionelle");
+				}
+			if(choixPol==2){
+				setPolarisation("directive");
+				}
+			}
 	}
 		
 		
@@ -176,6 +200,7 @@ public class Antenne{
 		liste.put("puissance",Float.toString(puissance));
 		liste.put("sensibilite",Float.toString(sensibilite));
 		liste.put("polarisation",polarisation);
+		liste.put("typeAntenne",typeAntenne);
 		return liste;
 		}
 	}
