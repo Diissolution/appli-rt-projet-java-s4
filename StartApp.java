@@ -20,7 +20,7 @@ public class StartApp {
 	
 	//fonction createAntenne
 		static Antenne x = new Antenne();
-		public static ArrayList<Antenne> CreateAntenne(ArrayList<Antenne> Antlist,boolean isEmpty) {
+		public ArrayList<Antenne> CreateAntenne(ArrayList<Antenne> Antlist,boolean isEmpty) {
 			int idAntenne= x.getNbAntenne();
 			Scanner user = new Scanner(System.in);
 			if (isEmpty==true) {
@@ -35,6 +35,8 @@ public class StartApp {
 				System.out.println("Entrer la Valeur de la sensibilite (Chiffre) ");
 				float sensibilite = user.nextFloat();
 				System.out.println("Choisir le type de l'antenne (selection) ");
+				System.out.println("1. Omnidirectionelle ");
+				System.out.println("2. Directive ");
 				int choixType = user.nextInt();
 				String type="NULL";
 				if(choixType==1){
@@ -62,14 +64,32 @@ public class StartApp {
 				if(choixPol==4){
 					polarisation="droite";
 					}
-				Antlist.add(new Antenne(Integer.toString(idAntenne),gain,frequence,puissance,sensibilite,polarisation,type));
+				System.out.println("choisir l'id du pylone à associer :");
+				String pylonesConnect="NULL";
+				String choixPolId = user.nextLine();
+				pylonesConnect=choixPolId;
+				Antlist.add(new Antenne(Integer.toString(idAntenne),gain,frequence,puissance,sensibilite,polarisation,type,pylonesConnect));
 			}
+			user.close();
 			return Antlist;
+		}
+		
+		public HashMap <String, String> searchAntenne(ArrayList<Antenne> Antlist,int numDel) {
+			HashMap<String, String> antenne = new HashMap<String, String>();
+			HashMap<String, String> result = new HashMap<String, String>();
+			for(int i=0;i<Antlist.size();i++){
+				antenne=Antlist.get(i).caracteristiqueAntenne();
+				if(Integer.parseInt(antenne.get("idAntenne"))==numDel) {
+					result=antenne;
+				}
+			}
+			
+			return result;
 		}
 		
 		//fonction DelelteAntenne
 		
-		public static ArrayList<Antenne> DeleteAntenne(ArrayList<Antenne> Antlist,int numDel){
+		public ArrayList<Antenne> DeleteAntenne(ArrayList<Antenne> Antlist,int numDel){
 			HashMap<String, String> test = new HashMap<String, String>();
 			for(int i=0;i<Antlist.size();i++){
 				test=Antlist.get(i).caracteristiqueAntenne();
@@ -83,22 +103,21 @@ public class StartApp {
 	
 	
 	public static void main (String args[]){
-		
+		HashMap<String, String> test = new HashMap<String, String>();
+		StartApp Start = new StartApp();
 		//scanner pour faire les choix
-		Scanner sc = new Scanner(System.in);
-		
+		Scanner entre = new Scanner(System.in);
 		//Liste des Antennes,Pylone et Noeud dans le programme
 		ArrayList<Antenne> ListA = new ArrayList<Antenne>();
 		ArrayList<Pylone> ListP = new ArrayList<Pylone>();
 		ArrayList<Noeud> ListN = new ArrayList<Noeud>();
-		
 		int run=1;
+		int run2=1;
 		while (run==1) {
 		System.out.println("Que voulez-vous faire ?");
 		System.out.println("1. Créer une antenne");
 		System.out.println("2. Créer un pylone");
 		System.out.println("3. Créer un noeud");
-		System.out.println("4. Ajouter une antenne à un pylone");
 		System.out.println("5. Ajouter un pylone à un noeud");
 		System.out.println("6. Supprimer une antenne");
 		System.out.println("7. Supprimer un pylone");
@@ -107,46 +126,42 @@ public class StartApp {
 		System.out.println("10. Afficher les caractérisitques d'un pylone");
 		System.out.println("11. Afficher les caractérisitques d'un noeud");
 		System.out.println("12. Afficher les informations sur les antennes");
-			
-			int choix = sc.nextInt();
-			
+		
+		int choix = entre.nextInt();
 			//création d'une antenne
-			if(choix ==1){
-				int run2=1;
-				while(run2==1) {
-				int choixAntenne = sc.nextInt();
-				System.out.println("voulez-vous créé une antenne vide ou remplir ses paramètres ?");
-				System.out.println("1. Créer une Antenne vide?");
-				System.out.println("2. Créer une Antenne et remplir ses paramètres");
-				System.out.println("3. Revenir en arrière");
-				if(choixAntenne==1) {
-					ListA=CreateAntenne(ListA,true);
-				}
-				else if(choixAntenne==2) {
-					ListA=CreateAntenne(ListA,false);
-				}
-				else if(choixAntenne==3) {
-					run2=0;
-					}
-				else {
-					System.out.println("Veuillez choisir un chiffre attitré à une option");
-				}
-				}
+		System.out.println(choix);
+		if(choix == 1){
+			while(run2== 1) {
+			System.out.println("voulez-vous créé une antenne vide ou remplir ses paramètres ?");
+			System.out.println("1. Créer une Antenne vide?");
+			System.out.println("2. Créer une Antenne et remplir ses paramètres");
+			System.out.println("3. Revenir en arrière");
+			int choixAntenne = entre.nextInt();
+			if(choixAntenne==1) {
+				ListA=Start.CreateAntenne(ListA,true);
 			}
-			
+			else if(choixAntenne==2) {
+				ListA=Start.CreateAntenne(ListA,false);
+			}
+			else if(choixAntenne==3) {
+				run2=0;
+				}
+			else {
+				System.out.println("Veuillez choisir un chiffre attitré à une option");
+			}
+			}
+		}
+		
 			
 			//création d'un Noeud
 			if(choix ==3){ 
 				creerNoeud();
 				}
 			//supprimer une antenne
-			if(choix ==6){ 
-				int run2=1;
-				while(run2==1) {
-					int choixAntenne = sc.nextInt();
+			if(choix ==6){
+					//int choixAntenne = entre.nextInt();
 					for(int i=0;i<ListA.size();i++){
 						System.out.println(ListA.get(i).caracteristiqueAntenne());
-					}
 					}
 				}
 			
@@ -156,6 +171,6 @@ public class StartApp {
 				}
 					
 	
-		}
+		}entre.close();
 	 }
 }
