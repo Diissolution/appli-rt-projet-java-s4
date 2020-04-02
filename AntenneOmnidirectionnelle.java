@@ -25,10 +25,11 @@ public class AntenneOmnidirectionnelle extends Antenne {
 	return polarisationAB;
 	}
 	
-	public boolean comAntenne(double distAB, float sensibiliteB, float puissanceA, float ouvertureA, float ouvertureB, String polarisationA, String polarisationB, float frequence, float gainA, float gainB, float orientationA, float orientationB,
+	public boolean comAntenne(double distAB, float sensibiliteB, float puissanceA, float ouvertureA, float ouvertureB, String polarisationA, String polarisationB, double frequence, float gainA, float gainB, float orientationA, float orientationB,
 			double lat_a, double lon_a, double lat_b, double lon_b){
 		
 		double gainB1;
+		frequence = frequence *  Math.pow(10, 6);
 		AntenneDirective gain = new AntenneDirective();
 		
 		if (ouvertureB == 360) { //différencie si la 2eme antenne est directive ou omnidirectionnelle
@@ -39,7 +40,7 @@ public class AntenneOmnidirectionnelle extends Antenne {
 		}
 		
 		
-		float lambda = (3*10^8) / frequence; //lambda = c/f
+		double lambda = (3*10^8) / frequence; //lambda = c/f
 		double pr = puissanceA + 20 * Math.log(lambda/(4*Math.PI*distAB)) + gainA + gainB1 + calculPolarisation(polarisationA,polarisationB); //formule du bilan de liaison		
 	//voir doc pour comprend polarisation : http://iutsa.unice.fr/~mgautero/ext/dut/M4210/DocAntennes.pdf
 	
