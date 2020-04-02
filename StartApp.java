@@ -308,10 +308,10 @@ public class StartApp {
 			System.out.println("3. Revenir en arrière");
 			int choixAntenne = entre.nextInt();
 			if(choixAntenne==1) {
-				ListA=Start.CreateAntenne(ListA,true);
+				ListA=Start.CreateAntenne(ListA,true,entre);
 			}
 			else if(choixAntenne==2) {
-				ListA=Start.CreateAntenne(ListA,false);
+				ListA=Start.CreateAntenne(ListA,false,entre);
 			}
 			else if(choixAntenne==3) {
 				break;
