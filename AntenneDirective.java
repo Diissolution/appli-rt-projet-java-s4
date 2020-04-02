@@ -50,6 +50,7 @@ public class AntenneDirective extends Antenne {
 			double lat_a, double lon_a, double lat_b, double lon_b){
 		
 		double gainB1;
+		frequence = frequence *  Math.pow(10, 6);
 		
 		if (ouvertureB == 360) { //différencie si la 2eme antenne est directive ou omnidirectionnelle
 			 gainB1 = gainB;
