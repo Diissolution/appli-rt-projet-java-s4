@@ -20,9 +20,8 @@ public class StartApp {
 	
 	//fonction createAntenne
 		static Antenne x = new Antenne();
-		public ArrayList<Antenne> CreateAntenne(ArrayList<Antenne> Antlist,boolean isEmpty) {
+		public ArrayList<Antenne> CreateAntenne(ArrayList<Antenne> Antlist,boolean isEmpty, Scanner user) {
 			int idAntenne= x.getNbAntenne();
-			Scanner user = new Scanner(System.in);
 			if (isEmpty==true) {
 				Antlist.add(new Antenne(Integer.toString(idAntenne)));
 			}else {
@@ -105,9 +104,8 @@ public class StartApp {
 		
 		// Création d'un pylône
 		static Pylone pyl = new Pylone();
-	    public ArrayList<Pylone> CreatePylone(ArrayList<Pylone> Pylonelist,boolean isEmpty) { 
-	    	
-	    	Scanner sc = new Scanner(System.in);
+	    public ArrayList<Pylone> CreatePylone(ArrayList<Pylone> Pylonelist,boolean isEmpty, Scanner sc) { 
+	  
 	    	
 	    	int idPyl = pyl.getNbPylone();
 	        ArrayList<String> antennesConnectees = new ArrayList<String>();
@@ -285,9 +283,7 @@ public class StartApp {
 		ArrayList<Antenne> ListA = new ArrayList<Antenne>();
 		ArrayList<Pylone> ListP = new ArrayList<Pylone>();
 		ArrayList<Noeud> ListN = new ArrayList<Noeud>();
-		int run=1;
-		int run2=1;
-		while (run==1) {
+		while (true) {
 		System.out.println("Que voulez-vous faire ?");
 		System.out.println("1. Créer une antenne");
 		System.out.println("2. Créer un pylone");
@@ -305,7 +301,7 @@ public class StartApp {
 			//création d'une antenne
 		System.out.println(choix);
 		if(choix == 1){
-			while(run2== 1) {
+			while(true) {
 			System.out.println("voulez-vous créé une antenne vide ou remplir ses paramètres ?");
 			System.out.println("1. Créer une Antenne vide?");
 			System.out.println("2. Créer une Antenne et remplir ses paramètres");
@@ -318,7 +314,7 @@ public class StartApp {
 				ListA=Start.CreateAntenne(ListA,false);
 			}
 			else if(choixAntenne==3) {
-				run2=0;
+				break;
 				}
 			else {
 				System.out.println("Veuillez choisir un chiffre attitré à une option");
@@ -337,10 +333,10 @@ public class StartApp {
 				entre.nextLine();
 					switch(choixPylone) {
 						case 1: 
-							ListP=Start.CreatePylone(ListP,true);
+							ListP=Start.CreatePylone(ListP,true,entre);
 							break;
 						case 2:
-							ListP=Start.CreatePylone(ListP,false);
+							ListP=Start.CreatePylone(ListP,false,entre);
 							break;
 						case 3:
 							break;
