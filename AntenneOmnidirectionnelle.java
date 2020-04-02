@@ -59,14 +59,17 @@ ConvDist anglPyl = new ConvDist();//angle entre les 2 pylones
 				if(pr >= sensibiliteB) { //comparaison puissance de reception / sensibilité
 					return true;
 				}else {
+					System.out.println("Puissance d'émission plus faible que la sensibilité");
 					return false;
 				}
 	
 			}else{
+				System.out.println("Le pylone B ne peut pas communiquer avec le pylone A");
 				return false;
 			}
 	
 		}else{
+			System.out.println("Le pylone A ne peut pas communiquer avec le pylone B");
 			return false;
 		}
 	
