@@ -10,6 +10,7 @@ public class ConvDist {
 	
 	public double distance (double lat_a, double lon_a, double lat_b, double lon_b){
 		 int rayonTerre = 6378137; //on dit que la Terre est une sphère de rayon 6378km
+		DecimalFormat df = new DecimalFormat("########.000"); //afficher 3 chiffres apres la virgule
 		
 		double convLat_a = convRad(lat_a); //conversion des coordonnées en radian
 		double convLon_a = convRad(lon_a);
@@ -24,7 +25,15 @@ public class ConvDist {
 		
 		double calc2 = 2 * Math.atan2(Math.sqrt(calc), Math.sqrt(1 - calc));
 		
-		return (rayonTerre * calc2);
+		double distance = rayonTerre * calc2;
+		
+		String distanceStr = df.format(distance);
+		String[] mort1 = distanceStr.split(",");// on enleve la "," car ce n'est pas reconnu en tant que float
+		String mort2 = mort1[0] +"."+ mort1[1]; //on met un "." pour que ce soit reconnue comme une virgule de float
+		//System.out.println("valeur mort2 =  "+mort2);
+		float distanceFl = Float.parseFloat(mort2);
+		
+		return (distanceFl);
 		
 	}
 	
