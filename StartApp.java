@@ -69,7 +69,6 @@ public class StartApp {
 				pylonesConnect=choixPolId;
 				Antlist.add(new Antenne(Integer.toString(idAntenne),gain,frequence,puissance,sensibilite,polarisation,type,pylonesConnect));
 			}
-			user.close();
 			return Antlist;
 		}
 		
@@ -137,7 +136,6 @@ public class StartApp {
 			
 				Pylonelist.add(new Pylone(Integer.toString(idPyl),coords,nbAntennes,antennesConnectees,idNoeud) );
 				}
-	        sc.close();
 	        return Pylonelist;
 	       
 	    }
