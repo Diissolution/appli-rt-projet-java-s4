@@ -366,10 +366,13 @@ public class StartApp {
 					System.out.println(result.get("idAntenne")+". "+" Antenne"+result.get("idAntenne"));
 				}
 				System.out.println("0. Retourner en arrière");
+				System.out.print(">> ");
 					int choixAntenne = entre.nextInt();
 					if(choixAntenne!=0) {
 						ListA=Start.DeleteAntenne(ListA,choixAntenne);
+						System.out.println("-----------------------------");
 					}else{
+						System.out.println("-----------------------------");
 						break;
 						}
 				}
@@ -383,10 +386,13 @@ public class StartApp {
 						System.out.println(result.get("idPylone")+". "+" Pylône"+result.get("idPylone"));
 					}
 					System.out.println("0. Retourner en arrière");
+					System.out.print(">> ");
 						int choixPylone = entre.nextInt();
 						if(choixPylone!=0) {
 							ListP=Start.DeletePylone(ListP,choixPylone);
+							System.out.println("-----------------------------");
 						}else{
+							System.out.println("-----------------------------");
 							break;
 							}
 					}
