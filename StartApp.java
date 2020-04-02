@@ -5,12 +5,13 @@ import java.util.Scanner;
 public class StartApp {	
 	
 		public int idAntenne;
-	
-		//fonction createNoeud
+	// ================================= FONCTIONS NOEUD ===========================================
+	//fonction createNoeud
 		Noeud unNoeud = new Noeud();
 		public ArrayList<Noeud> createNoeud(ArrayList<Noeud> NoeudList) {		
 			int idNoeud = unNoeud.getNbNoeud();			
-			NoeudList.add(new Noeud(Integer.toString(idNoeud)));			
+			NoeudList.add(new Noeud(Integer.toString(idNoeud)));	
+			System.out.println(idNoeud);
 			return NoeudList;			
 		}	
 		
@@ -40,17 +41,17 @@ public class StartApp {
 			}
 			
 			return NoeudList;
-		}		 
+		}	
+		public void addPyloneConnect(Scanner sc) {
+		
+			System.out.println("Veuillez saisir l'ID du noeud auquel ajouter :");
+			String idNoeud = sc.nextLine();
+			System.out.println("Veuillez saisir l'ID du pylone :");		
+			String idPylone = sc.nextLine();
+			System.out.println("Le pylone " + idPylone + " est désormais connecté au noeud " + idNoeud);
+		}
 	
-	//Fonctions pour Antennes
-	
-	/*ic void addPyloneConnect() {
-		System.out.println("Veuillez saisir l'ID du noeud auquel ajouter :");
-		System.out.println("Veuillez saisir l'ID du pylone :");
-		String idNoeud = sc.nextLine();
-		String idPylone = sc.nextLine();
-		System.out.println("Le pylone " +"AJOUTE l'ID DU PYLONNE DU CON" + " est désormais connecté à ce noeud.");
-	}*/
+	// ================================= FONCTIONS ANTENNE ===========================================
 	
 	//fonction createAntenne
 		static Antenne x = new Antenne();
@@ -438,6 +439,8 @@ public class StartApp {
 	
 		if(choix ==3){ 
 			ListN=start.createNoeud(ListN);
+		
+			System.out.println("-----------------------------");
 		}
 			//supprimer une antenne
 		if(choix ==6){
@@ -482,7 +485,7 @@ public class StartApp {
 			
 			//ajout d'un pylone au Noeud
 		if(choix ==5){ 
-				
+			start.addPyloneConnect(entre);	
 		}
 			
 		if(choix==10) {
@@ -508,6 +511,28 @@ public class StartApp {
 			}
 			
 		}
+		if(choix==11) {
+			while(true) {
+				HashMap<String, String> result = new HashMap<String, String>();
+				for(int i=0;i<ListN.size();i++){
+					result=ListN.get(i).caracteristiqueNoeud();
+					System.out.println(result.get("idNoeud")+". "+" Noeud"+result.get("idNoeud"));
+				}
+				System.out.println("0. Retourner en arrière");
+				System.out.print(">> ");
+				int numRech = entre.nextInt();
+				if(numRech!=0) {
+				HashMap<String,String> caracs = start.searchNoeud(ListN,numRech);
+				System.out.println("-----------------------------");
+				System.out.println("- Noeud "+numRech);				
+				caracs.forEach((key, value) -> System.out.println(key + ":" + value));
+				System.out.println("-----------------------------");
+				}else{
+					System.out.println("-----------------------------");
+					break;		
+				}			
+			}
+		}	
 			
 		if(choix==9) {
 			while(true) {
