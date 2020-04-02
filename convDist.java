@@ -48,6 +48,9 @@ public class ConvDist {
 		DecimalFormat df = new DecimalFormat("########.000");
 		String val = df.format(valeur);
 		String[] val1 = val.split(",");
+		if (val1.length<1) {
+			val1[1] = "0";
+		}
 		String val2 = val1[0] +"."+ val1[1];
 		return Float.parseFloat(val2);
 	}
