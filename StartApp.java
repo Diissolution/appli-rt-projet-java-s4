@@ -330,7 +330,11 @@ public class StartApp {
 		System.out.println("9. Afficher les caractérisitques d'une antenne");
 		System.out.println("10. Afficher les caractérisitques d'un pylone");
 		System.out.println("11. Afficher les caractérisitques d'un noeud");
-		System.out.println("12. Afficher les antennes pouvant se connecter entre elles");
+		System.out.println("12. Afficher  pouvant se connecter entre elles");
+		System.out.println("-- Modification --");
+		System.out.println("13. Modifier une antenne");
+		System.out.println("14. Modifier un pylone");
+		System.out.println("15. Modifier un noeud");
 		System.out.print(">> ");
 		int choix = entre.nextInt();
 			//création d'une antenne
