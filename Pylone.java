@@ -91,17 +91,17 @@ public class Pylone {
         this.noeudConnect=noeudConnect;
     }
 
-    //MÃ©thodes de création -> dans le StartApp !
+    //MÃƒÂ©thodes de crÃ©ation -> dans le StartApp !
 
 
     public void modifier(){
     	
     	Scanner sc = new Scanner(System.in);
     	
-		System.out.println("1. Coordonnées ");
-		System.out.println("2. Nombres d'antennes connectées");
-		System.out.println("3. Liste des antennes connectées");
-		System.out.println("4. Noeud connecté");
+		System.out.println("1. CoordonnÃ©es ");
+		System.out.println("2. Nombres d'antennes connectÃ©es");
+		System.out.println("3. Liste des antennes connectÃ©es");
+		System.out.println("4. Noeud connectÃ©");
 		
 		int choix = sc.nextInt();
 		
@@ -116,14 +116,14 @@ public class Pylone {
 			break;
 			
 		case 2:
-			System.out.println("Entrez le nouveau nombre d'antennes connectées:(int)");
+			System.out.println("Entrez le nouveau nombre d'antennes connectÃ©es:(int)");
 	        this.setNbAntennes(sc.nextInt());
 	        sc.nextLine();
 			break;
 			
 		case 3:
 			ArrayList<String> antennesConnectees = new ArrayList<String>();
-			System.out.println("Entrez les ID des antennes connectées séparés par des virgules:");
+			System.out.println("Entrez les ID des antennes connectÃ©es sÃ©parÃ©s par des virgules:");
 	        String antennes = sc.nextLine();
 	        String[] antennesSeparees = antennes.split(",");
 	        for (int i = 0; i < antennesSeparees.length; i++) {
@@ -133,7 +133,7 @@ public class Pylone {
 			break;
 			
 		case 4:
-			System.out.println("Entrez l'ID du noeud auquel le pylône est connecté:(String)");
+			System.out.println("Entrez l'ID du noeud auquel le pylÃ´ne est connectÃ©:(String)");
 	        this.setNoeudConnect(sc.nextLine());
 			break;
 		}
@@ -142,29 +142,33 @@ public class Pylone {
 
     }
     
-    public void affiche(){ //Préférer l'utilisation de -> caracteristiquePylone
+    public void affiche(){ //PrÃ©fÃ©rer l'utilisation de -> caracteristiquePylone
         String id=this.idPylone;
         double[] coord = this.coordGps;
         int nb = this.nbAntennes;
         ArrayList<String> antenne = this.antenneConnect;
         String noeud = this.noeudConnect;
         
-        System.out.println("ID: "+id+"\nCoordonnées GPS: "+Arrays.toString(coord)+"\nNb antennes connectées: "+nb+"\nListe antennes connectées: "+antenne.toString()+"\nNoeud connecté: "+noeud);
+        System.out.println("ID: "+id+"\nCoordonnÃ©es GPS: "+Arrays.toString(coord)+"\nNb antennes connectÃ©es: "+nb+"\nListe antennes connectÃ©es: "+antenne.toString()+"\nNoeud connectÃ©: "+noeud);
     }
     
     public HashMap caracteristiquePylone(){
 		HashMap<String, String> liste = new HashMap<String, String>();
 		liste.put("idPylone",idPylone);
-		liste.put("Coordonées",Arrays.toString(coordGps));
-		liste.put("Nb antennes connectées",Integer.toString(nbAntennes));
-		liste.put("Liste antennes connectées",antenneConnect.toString());
-		liste.put("Noeud connecté",noeudConnect);
+		liste.put("Nb antennes connectÃ©es",Integer.toString(nbAntennes));
+		liste.put("Liste antennes connectÃ©es",antenneConnect.toString());
+		liste.put("Noeud connectÃ©",noeudConnect);
 		return liste;
 		}
-
+    
+    public HashMap cooPyl() {
+    	HashMap<String, double[]> liste = new HashMap<String, double[]>();
+    	liste.put("CoordonÃ©es",coordGps);
+    	return liste;
+    }
     /*
     public ArrayList<String> listeAntenne(){
-        //Liste des antennes attachÃ©es Ã  ce pylone (noeuds attachÃ©s Ã  ce pylone)
+        //Liste des antennes attachÃƒÂ©es ÃƒÂ  ce pylone (noeuds attachÃƒÂ©s ÃƒÂ  ce pylone)
         
     }
     */
