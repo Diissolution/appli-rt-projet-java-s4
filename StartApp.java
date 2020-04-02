@@ -34,6 +34,15 @@ public class StartApp {
 				float puissance = user.nextFloat();
 				System.out.println("Entrer la Valeur de la sensibilite (Chiffre) ");
 				float sensibilite = user.nextFloat();
+				System.out.println("Choisir le type de l'antenne (selection) ");
+				int choixType = user.nextInt();
+				String type="NULL";
+				if(choixType==1){
+					type="omnidirectionelle";
+					}
+				if(choixType==2){
+					type="directive";
+					}
 				System.out.println("Choisir le type de polarisation :");
 				System.out.println("1. Horizontale ");
 				System.out.println("2. Verticale ");
@@ -53,7 +62,7 @@ public class StartApp {
 				if(choixPol==4){
 					polarisation="droite";
 					}
-				Antlist.add(new Antenne(Integer.toString(idAntenne),gain,frequence,puissance,sensibilite,polarisation));
+				Antlist.add(new Antenne(Integer.toString(idAntenne),gain,frequence,puissance,sensibilite,polarisation,type));
 			}
 			return Antlist;
 		}
@@ -64,10 +73,6 @@ public class StartApp {
 			HashMap<String, String> test = new HashMap<String, String>();
 			for(int i=0;i<Antlist.size();i++){
 				test=Antlist.get(i).caracteristiqueAntenne();
-				System.out.println(Antlist.get(i).caracteristiqueAntenne());
-				System.out.println(test.get("idAntenne"));
-				System.out.println(numDel);
-				System.out.println(i);
 				if(Integer.parseInt(test.get("idAntenne"))==numDel) {
 					Antlist.remove(i);
 				}
@@ -93,7 +98,7 @@ public class StartApp {
 		System.out.println("1. Créer une antenne");
 		System.out.println("2. Créer un pylone");
 		System.out.println("3. Créer un noeud");
-		System.out.println("4. Ajouter une antenne un pylone");
+		System.out.println("4. Ajouter une antenne à un pylone");
 		System.out.println("5. Ajouter un pylone à un noeud");
 		System.out.println("6. Supprimer une antenne");
 		System.out.println("7. Supprimer un pylone");
@@ -101,6 +106,7 @@ public class StartApp {
 		System.out.println("9. Afficher les caractérisitques d'une antenne");
 		System.out.println("10. Afficher les caractérisitques d'un pylone");
 		System.out.println("11. Afficher les caractérisitques d'un noeud");
+		System.out.println("12. Afficher les informations sur les antennes");
 			
 			int choix = sc.nextInt();
 			
@@ -116,12 +122,15 @@ public class StartApp {
 				if(choixAntenne==1) {
 					ListA=CreateAntenne(ListA,true);
 				}
-				if(choixAntenne==2) {
+				else if(choixAntenne==2) {
 					ListA=CreateAntenne(ListA,false);
 				}
-				if(choixAntenne==3) {
+				else if(choixAntenne==3) {
 					run2=0;
 					}
+				else {
+					System.out.println("Veuillez choisir un chiffre attitré à une option");
+				}
 				}
 			}
 			
@@ -130,9 +139,16 @@ public class StartApp {
 			if(choix ==3){ 
 				creerNoeud();
 				}
-			
-			
-			
+			//supprimer une antenne
+			if(choix ==6){ 
+				int run2=1;
+				while(run2==1) {
+					int choixAntenne = sc.nextInt();
+					for(int i=0;i<ListA.size();i++){
+						System.out.println(ListA.get(i).caracteristiqueAntenne());
+					}
+					}
+				}
 			
 			//ajout d'un pylone au Noeud
 			if(choix ==5){ 
