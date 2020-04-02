@@ -10,7 +10,8 @@ public class Antenne{
 	public float puissance;
 	public float sensibilite;	
 	public String polarisation;
-	ArrayList<String> pylonesConnect = new ArrayList<String>();
+	public static int nbAntenne=0;
+	public String pylonesConnect ="connecté a aucun pylonne";
 	
 	//creation scanner
 	
@@ -25,6 +26,17 @@ public class Antenne{
 		this.puissance=0;
 		this.sensibilite=0;
 		this.polarisation="NULL";
+		nbAntenne++;
+		}
+
+	public Antenne (String idAntenne){
+		this.idAntenne=idAntenne;
+		this.gain=0;
+		this.frequence=0;
+		this.puissance=0;
+		this.sensibilite=0;
+		this.polarisation="NULL";
+		nbAntenne++;
 		}
 	
 	public Antenne (String idAntenne, float gain, float frequence, float puissance, float sensibilite,String polarisation){
@@ -34,6 +46,7 @@ public class Antenne{
 		this.puissance=puissance;
 		this.sensibilite=sensibilite;
 		this.polarisation=polarisation;
+		nbAntenne++;
 		}
 		
 			//accesseur en lecture
@@ -60,8 +73,11 @@ public class Antenne{
 	public String getPolarisation(){
 				return polarisation;
 				}
+	public int getNbAntenne() {
+		return nbAntenne;
+	}
 				
-	public ArrayList<String> getPylonesConnect(){
+	public String getPylonesConnect(){
 		return pylonesConnect;
 		}
 
@@ -69,6 +85,9 @@ public class Antenne{
 				
 				//modificateur en ecriture
 				
+	public void setIdAntenne(String idAntenne){
+				this.idAntenne=idAntenne;
+				}
 				
 	public void setFrequence(float frequence){
 				this.frequence=frequence;
@@ -90,25 +109,19 @@ public class Antenne{
 				this.polarisation=polarisation;
 				}
 				
-	public void addPylonesConnect(String idPylone){
-		pylonesConnect.add(idPylone);
-		}
-	
-	public void delPylonesConnect(int num){
-		pylonesConnect.remove(num);
+	public void setPylonesConnect(String pylonesConnect){
+		this.pylonesConnect=pylonesConnect;
 		}
 	
 		
 	public void modifier(){
-		int in=1;
-		while(in==1) {
+		
 		System.out.println("1. gain");
 		System.out.println("2. frequence");
 		System.out.println("3. puissance");
 		System.out.println("4. sensibilite");
 		System.out.println("5. polarisation");
-		System.out.println("6. pylonesConnect");
-		System.out.println("7. quiter");
+		System.out.println("6. Ajouter/remplacer un pylone");
 		int choix = add.nextInt();
 		if(choix ==1){
 			System.out.println("Entrer la Valeur de gain (Chiffre) ");
@@ -147,29 +160,10 @@ public class Antenne{
 				}
 			}
 		if(choix ==6){
-			int choixPyl = add.nextInt();
-			System.out.println("1. Supprimer");
-			System.out.println("2. Ajouter");
-			int choixSupp = add.nextInt();
-			if(choixPyl==1){
-				for (int i=0;i<pylonesConnect.size();i++){
-				
-					System.out.println(i+". "+pylonesConnect.get(i));
-					}
-				for (int i=0;i<pylonesConnect.size();i++){
-					if(choixSupp == i){
-						delPylonesConnect(i);
-						}
-					}
-				}
-			if(choixPyl==2){
-				System.out.println("Ajouter un pylone (entrer id du pylone");
-				addPylonesConnect(add.nextLine());
-			}
-		}
-		if(choix ==7){
-			in=0;
-		}
+
+				System.out.println("Ajouter/remplacer un pylone (entrer id du pylone");
+				setPylonesConnect(add.nextLine());
+			
 		}
 	}
 		
