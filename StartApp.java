@@ -101,6 +101,78 @@ public class StartApp {
 			return Antlist;
 		}
 	
+	// ================================= FONCTIONS PYLÔNE ===========================================
+		
+		// Création d'un pylône
+		static Pylone pyl = new Pylone();
+	    public ArrayList<Pylone> CreatePylone(ArrayList<Pylone> Pylonelist,boolean isEmpty) { 
+	    	
+	    	Scanner sc = new Scanner(System.in);
+	    	
+	    	int idPyl = pyl.getNbPylone();
+	        ArrayList<String> antennesConnectees = new ArrayList<String>();
+	        
+	        if (isEmpty==true) {
+				Pylonelist.add(new Pylone(Integer.toString(idPyl)));
+			}else {
+				System.out.println("Entrez la latitude:(double avec virgule)");
+				double coord1 = sc.nextDouble();
+				System.out.println("Entrez la longitude:(double avec virgule)");
+				double coord2 = sc.nextDouble();
+	        
+				System.out.println("Entrez le nombre d'antennes connectées:(int)");
+				int nbAntennes = sc.nextInt();
+				sc.nextLine();
+	        
+				System.out.println("Entrez les ID des antennes connectées séparés par des virgules:");
+				String antennes = sc.nextLine();
+	        
+				System.out.println("Entrez l'ID du noeud auquel le pylône est connecté:(String)");
+				String idNoeud = sc.nextLine();
+	        
+				double coords[] = {coord1,coord2};
+	        
+				String[] antennesSeparees = antennes.split(",");
+				for (int i = 0; i < antennesSeparees.length; i++) {
+					antennesConnectees.add(antennesSeparees[i]);
+				}
+			
+				Pylonelist.add(new Pylone(Integer.toString(idPyl),coords,nbAntennes,antennesConnectees,idNoeud) );
+				}
+	        sc.close();
+	        return Pylonelist;
+	       
+	    }
+	    
+	    //Recherche d'un pylône
+	    public HashMap <String, String> searchPylone(ArrayList<Pylone> Pylonelist,int numRech) {
+			HashMap<String, String> pylone = new HashMap<String, String>();
+			HashMap<String, String> result = new HashMap<String, String>();
+			for(int i=0;i<Pylonelist.size();i++){
+				pylone=Pylonelist.get(i).caracteristiquePylone();
+				if(Integer.parseInt(pylone.get("idPylone"))==numRech) {
+					result=pylone;
+				}
+			}
+			
+			return result;
+		}
+	    
+	    //Suppression d'un pylône
+	    public ArrayList<Pylone> DeletePylone(ArrayList<Pylone> Pylonelist,int numDel){
+			HashMap<String, String> testPyl = new HashMap<String, String>();
+			for(int i=0;i<Pylonelist.size();i++){
+				testPyl=Pylonelist.get(i).caracteristiquePylone();
+				if(Integer.parseInt(testPyl.get("idPylone"))==numDel) {
+					Pylonelist.remove(i);
+				}
+			}
+			
+			return Pylonelist;
+		}
+	    
+	 // ================================= FIN PYLÔNE =================================================
+	
 	public void testConnecAnt (ArrayList <Antenne> Antlist) {
 		ConvDist convDist = new ConvDist();
 		AntenneOmnidirectionnelle omni = new AntenneOmnidirectionnelle();
