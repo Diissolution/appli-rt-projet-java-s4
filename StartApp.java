@@ -325,9 +325,33 @@ public class StartApp {
 			}
 			}
 		}
-		
+		if(choix==2) {
+			int choixPylone;
+			while(true) {
+				System.out.println("Voulez-vous créer un pylône vide ou remplir ses paramètres ?");
+				System.out.println("1. Créer un Pylone vide?");
+				System.out.println("2. Créer un Pylone et remplir ses paramètres");
+				System.out.println("3. Revenir en arrière");
+    		
+				choixPylone =  entre.nextInt();
+				entre.nextLine();
+					switch(choixPylone) {
+						case 1: 
+							ListP=Start.CreatePylone(ListP,true);
+							break;
+						case 2:
+							ListP=Start.CreatePylone(ListP,false);
+							break;
+						case 3:
+							break;
+						default:
+							System.out.println("Erreur dans le choix.");
+							break;
+				}
+    			}
+		}
 			
-			//création d'un Noeud
+	
 			if(choix ==3){ 
 				creerNoeud();
 				}
