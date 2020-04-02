@@ -27,6 +27,14 @@ public class Pylone {
         this.idPylone=IDPYLONE;
         nbPylone++;
     }
+    public Pylone(String idPyl){
+        this.coordGps=COORDGPS;
+        this.nbAntennes=NBANTENNES;
+        this.antenneConnect=ANTENNECONNECT;
+        this.noeudConnect=NOEUDCONNECT;
+        this.idPylone=idPyl;
+        nbPylone++;
+    }
 
     public Pylone(String idPylone, double[] coordGps, int nbAntennes, ArrayList<String> antenneConnect, String noeudConnect){
         this.coordGps=coordGps;
@@ -57,6 +65,9 @@ public class Pylone {
     public String getNoeudConnect(){
         return noeudConnect;
     }
+    public int getNbPylone(){
+        return nbPylone;
+    }
 
     //Set -------------------------------------------------------------------------
 
@@ -80,7 +91,7 @@ public class Pylone {
         this.noeudConnect=noeudConnect;
     }
 
-    //MÃ©thodes de crÃ©ations ( par cmd / interface graphique ? ) -------------------
+    //MÃ©thodes de création -> dans le StartApp !
 
 
     public void modifier(){
@@ -130,12 +141,8 @@ public class Pylone {
 		sc.close();
 
     }
-
-    public void supprimer(){
-        //Supprimer un pylone (et les antennes attachÃ©es)
-    }
     
-    public void affiche(){
+    public void affiche(){ //Préférer l'utilisation de -> caracteristiquePylone
         String id=this.idPylone;
         double[] coord = this.coordGps;
         int nb = this.nbAntennes;
@@ -144,6 +151,16 @@ public class Pylone {
         
         System.out.println("ID: "+id+"\nCoordonnées GPS: "+Arrays.toString(coord)+"\nNb antennes connectées: "+nb+"\nListe antennes connectées: "+antenne.toString()+"\nNoeud connecté: "+noeud);
     }
+    
+    public HashMap caracteristiquePylone(){
+		HashMap<String, String> liste = new HashMap<String, String>();
+		liste.put("idPylone",idPylone);
+		liste.put("Coordonées",Arrays.toString(coordGps));
+		liste.put("Nb antennes connectées",Integer.toString(nbAntennes));
+		liste.put("Liste antennes connectées",antenneConnect.toString());
+		liste.put("Noeud connecté",noeudConnect);
+		return liste;
+		}
 
     /*
     public ArrayList<String> listeAntenne(){
