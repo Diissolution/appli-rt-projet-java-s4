@@ -271,12 +271,11 @@ public class StartApp {
 	    
 	 // ================================= FIN PYLÔNE =================================================
 	
-	public void testConnecAnt (ArrayList <Antenne> Antlist) {
+	public void testConnecAnt (ArrayList <Antenne> Antlist, ArrayList <Pylone> Pylonelist, int idAntenne) {
 		ConvDist convDist = new ConvDist();
 		AntenneOmnidirectionnelle omni = new AntenneOmnidirectionnelle();
 		AntenneDirective direct = new AntenneDirective();
 		
-		int idAntenne = 0; //a supprimer, présent juste pour ne pas avoir d'erreur
 		float frequenceA;
 		float puissanceA;
 		float sensibiliteA;
@@ -285,6 +284,7 @@ public class StartApp {
 		float orientationA;
 		String typeA;
 		String polarisationA;
+		String idPyloneA;
 		double lat_A;
 		double lon_A;
 		
@@ -296,6 +296,7 @@ public class StartApp {
 		float orientationB;
 		String typeB;
 		String polarisationB;
+		String idPyloneB;
 		double lat_B;
 		double lon_B;
 		
@@ -304,10 +305,18 @@ public class StartApp {
 		
 		
 		HashMap<String, String> test = new HashMap<String, String>();
+		//HashMap<String, String> test2 = new HashMap<String, String>();
 		test = searchAntenne(Antlist, idAntenne);
 		typeA = test.get("typeAntenne");
 		
+		
 				if (typeA == "omnidirectionnelle") {
+					
+					idPyloneA = test.get("pylonesConnect");
+					
+					HashMap <String,double[]> pylA = searchCooPyl(Pylonelist,Integer.parseInt(idPyloneA));
+					double[] getPylA = pylA.get("Coordonées");
+					System.out.println("pylA = "+getPylA[0]);
 					
 					frequenceA = Float.parseFloat(test.get("frequence"));
 					puissanceA = Float.parseFloat(test.get("puissance"));
@@ -316,12 +325,19 @@ public class StartApp {
 					ouvertureA = Float.parseFloat(test.get("ouverture"));
 					orientationA = Float.parseFloat(test.get("orientation"));
 					polarisationA = test.get("polarisation");
-					lat_A = Double.parseDouble(test.get("lat_a"));
-					lon_A = Double.parseDouble(test.get("lon_a"));
+					lat_A = getPylA[0]; //Double.parseDouble(test.get("lat_a"));
+					lon_A = getPylA[1];;//Double.parseDouble(test.get("lon_a"));
+					
 					
 					
 				}else { //directive, cad, pas de gainA
 					
+					idPyloneA = test.get("pylonesConnect");
+					
+					HashMap <String,double[]> pylA = searchCooPyl(Pylonelist,Integer.parseInt(idPyloneA));
+					double[] getPylA = pylA.get("Coordonées");
+					System.out.println("pylA = "+getPylA[0]);
+					
 					frequenceA = Float.parseFloat(test.get("frequence"));
 					puissanceA = Float.parseFloat(test.get("puissance"));
 					sensibiliteA = Float.parseFloat(test.get("sensibilite"));
@@ -329,30 +345,54 @@ public class StartApp {
 					ouvertureA = Float.parseFloat(test.get("ouverture"));
 					orientationA = Float.parseFloat(test.get("orientation"));
 					polarisationA = test.get("polarisation");
-					lat_A = Double.parseDouble(test.get("lat_a"));
-					lon_A = Double.parseDouble(test.get("lon_a"));
+					lat_A = getPylA[0]; //Double.parseDouble(test.get("lat_a"));
+					lon_A = getPylA[1];;//Double.parseDouble(test.get("lon_a"));
+					
 					
 				}
 				
 				for(int i=0;i<Antlist.size();i++){
 					test=Antlist.get(i).caracteristiqueAntenne();
+					System.out.println("idPyloneApre = "+idPyloneA);
+					System.out.println("idPyloneBpre = "+test.get("pylonesConnect"));
 					
-					//frequenceB = Float.parseFloat(test.get("frequence"));
+					if (test.get("pylonesConnect") == idPyloneA) {
+						if (i != Antlist.size()-1) {
+							System.out.println("je rentre dans l'exception, i vaut : "+i);
+								i++;
+							System.out.println("je sors, i vaut desormais = "+i);
+							test=Antlist.get(i).caracteristiqueAntenne();
+						}else {
+							break;
+						}
+					}
+					
+					idPyloneB = test.get("pylonesConnect");
+					
+					HashMap <String,double[]> pylB = searchCooPyl(Pylonelist,Integer.parseInt(idPyloneB));
+					double[] getPylA = pylB.get("Coordonées");
+					System.out.println("pylA = "+getPylA[0]);
+					
 					puissanceB = Float.parseFloat(test.get("puissance"));
 					sensibiliteB = Float.parseFloat(test.get("sensibilite"));
 					gainB = Float.parseFloat(test.get("gain"));
 					ouvertureB = Float.parseFloat(test.get("ouverture"));
 					orientationB = Float.parseFloat(test.get("orientation"));
 					polarisationB = test.get("polarisation");
-					lat_B = Double.parseDouble(test.get("lat_a"));
-					lon_B = Double.parseDouble(test.get("lon_a"));
+					lat_B = getPylA[0];//Double.parseDouble(test.get("lat_a"));
+					lon_B = getPylA[1];//Double.parseDouble(test.get("lon_a"));
+
+					System.out.println("idPyloneApost = "+idPyloneA);
+					System.out.println("idPyloneBpost = "+idPyloneB);
+					
+					//System.out.println(convDist.angle(lat_A, lon_B, lat_B, lon_A);)
 					
 					distanceAB = convDist.distance(lat_A, lon_A, lat_B, lon_B);
-					
+					System.out.println("L'antenne "+idPyloneA+" peut communiquer avec : ");
 					if (typeA == "omnidirectionnelle") {
 						testConnec = omni.comAntenne(distanceAB, sensibiliteB, puissanceA, ouvertureA, ouvertureB, polarisationA, polarisationB, frequenceA, gainA, gainB, orientationA, orientationB, lat_A, lon_A, lat_B, lon_B);
 						if (testConnec = true) {
-							System.out.println("les 2 antennes peuvent communiquer");
+							System.out.println("(1)"+idPyloneB);
 							//on affiche l'id de cette antenne
 						}else {
 							System.out.println("les 2 antennes ne peuvent pas communiquer");
@@ -361,7 +401,7 @@ public class StartApp {
 					}else {
 						testConnec = direct.comAntenne(distanceAB, sensibiliteB, puissanceA, ouvertureA, ouvertureB, polarisationA, polarisationB, frequenceA, gainB, orientationA, orientationB, lat_A, lon_A, lat_B, lon_B);
 						if (testConnec = true) {
-							System.out.println("les 2 antennes peuvent communiquer");
+							System.out.println("(2)"+idPyloneB);
 							//on affiche l'id de cette antenne
 						}else {
 							System.out.println("les 2 antennes ne peuvent pas communiquer");
@@ -371,6 +411,26 @@ public class StartApp {
 					}
 						
 			}
+				
+				
+				
+				
+	}
+	
+	public HashMap <String, double[]> searchCooPyl(ArrayList<Pylone> Pylonelist,int numRech) {
+		HashMap<String, double[]> pylone = new HashMap<String, double[]>();
+		HashMap<String, double[]> result = new HashMap<String, double[]>();
+		HashMap<String, String> idPylone = new HashMap<String, String>();
+		for(int i=0;i<Pylonelist.size();i++){
+			pylone=Pylonelist.get(i).cooPyl();
+			idPylone=Pylonelist.get(i).caracteristiquePylone();
+			if(Integer.parseInt(idPylone.get("idPylone"))==numRech) {
+				result=pylone;
+			}
+		}
+		
+		
+		return result;
 	}
 	
 	
