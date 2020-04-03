@@ -1,3 +1,8 @@
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
@@ -250,24 +255,13 @@ public class StartApp {
 				System.out.println("Entrez la longitude:(double avec virgule)");
 				double coord2 = sc.nextDouble();
 	        
-				System.out.println("Entrez le nombre d'antennes connectees:(int)");
-				int nbAntennes = sc.nextInt();
-				sc.nextLine();
-	        
-				System.out.println("Entrez les ID des antennes connectees separes par des virgules:");
-				String antennes = sc.nextLine();
-	        
 				System.out.println("Entrez l'ID du noeud auquel le pylone est connecte:(String)");
 				String idNoeud = sc.nextLine();
 	        
 				double coords[] = {coord1,coord2};
 	        
-				String[] antennesSeparees = antennes.split(",");
-				for (int i = 0; i < antennesSeparees.length; i++) {
-					antennesConnectees.add(antennesSeparees[i]);
-				}
 			
-				Pylonelist.add(new Pylone(Integer.toString(idPyl),coords,nbAntennes,antennesConnectees,idNoeud) );
+				Pylonelist.add(new Pylone(Integer.toString(idPyl),coords,idNoeud) );
 				}
 	        return Pylonelist;
 	       
@@ -565,8 +559,8 @@ public class StartApp {
 		nul.add("test");
 		ListA.add(new Antenne(Integer.toString(1),Float.parseFloat("60"),Float.parseFloat("10"),Float.parseFloat("50"),Float.parseFloat("-120"),"verticale","directive","1",Float.parseFloat("45"),Float.parseFloat("360")));
 		ListA.add(new Antenne(Integer.toString(2),Float.parseFloat("60"),Float.parseFloat("50"),Float.parseFloat("60"),Float.parseFloat("-120"),"verticale","directive","2",Float.parseFloat("225"),Float.parseFloat("30")));
-		ListP.add(new Pylone(Integer.toString(1),coords,1,nul,Integer.toString(1)));
-		ListP.add(new Pylone(Integer.toString(2),coords2,1,nul,Integer.toString(1)));
+		ListP.add(new Pylone(Integer.toString(1),coords,Integer.toString(1)));
+		ListP.add(new Pylone(Integer.toString(2),coords2,Integer.toString(1)));
 		
 		
 		
