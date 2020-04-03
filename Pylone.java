@@ -94,9 +94,8 @@ public class Pylone {
     //MÃ©thodes de création -> dans le StartApp !
 
 
-    public void modifier(){
+    public void modifier(Scanner sc){
     	
-    	Scanner sc = new Scanner(System.in);
     	
 		System.out.println("1. Coordonnées ");
 		System.out.println("2. Nombres d'antennes connectées");
