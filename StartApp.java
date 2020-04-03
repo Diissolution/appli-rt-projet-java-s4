@@ -521,6 +521,8 @@ public class StartApp {
 		System.out.println("11. Modifier une antenne");
 		System.out.println("12. Modifier un pylone");
 		System.out.println("13. Modifier un noeud");
+		System.out.println("---=============---");
+		System.out.println("0. QUITTER");
 		System.out.print(">> ");
 		int choix = entre.nextInt();
 			//création d'une antenne
@@ -779,9 +781,15 @@ public class StartApp {
 				}
 			}
 			
-		}	
-					
+		}
+		
+		if(choix == 0) {
+			break;
+		}
+		
 	
 		}
+		entre.close();
+		System.exit(0);
 	 }
 }
