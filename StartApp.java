@@ -452,6 +452,8 @@ public class StartApp {
 		ArrayList<Pylone> ListP = new ArrayList<Pylone>();
 		ArrayList<Noeud> ListN = new ArrayList<Noeud>();
 		
+		
+		//On créé des antennes et des pylones de bases pour pouvoir tester toutes les fonctionnalités
 		double[] coords = {43.619679,7.058884};
 		double[] coords2 = {43.640010,7.076146};
 		ArrayList <String> nul = new ArrayList();
