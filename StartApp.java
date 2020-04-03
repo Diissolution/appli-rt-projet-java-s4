@@ -11,7 +11,7 @@ public class StartApp {
 		public ArrayList<Noeud> createNoeud(ArrayList<Noeud> NoeudList) {		
 			int idNoeud = unNoeud.getNbNoeud();			
 			NoeudList.add(new Noeud(Integer.toString(idNoeud)));	
-			System.out.println("Le Noeud "+idNoeud+" a été créé");
+			System.out.println("Le Noeud "+idNoeud+" a ete cree");
 			return NoeudList;			
 		}	
 		
@@ -84,7 +84,7 @@ public class StartApp {
 					float puissance = user.nextFloat();
 					System.out.println("Entrer la valeur de la sensibilite (dBm) ");
 					float sensibilite = user.nextFloat();
-					System.out.println("Entrer la valeur de l'ouverture (degrés) ");
+					System.out.println("Entrer la valeur de l'ouverture (degres) ");
 					float ouverture = user.nextFloat();
 					System.out.println("Choisir le type de polarisation :");
 					System.out.println("1. Horizontale ");
@@ -123,9 +123,9 @@ public class StartApp {
 					float puissance = user.nextFloat();
 					System.out.println("Entrer la valeur de la sensibilite (dBm) ");
 					float sensibilite = user.nextFloat();
-					System.out.println("Entrer la valeur de l'orientation (degrés) ");
+					System.out.println("Entrer la valeur de l'orientation (degres) ");
 					float orientation = user.nextFloat();
-					System.out.println("Entrer la valeur de l'ouverture (degrés) ");
+					System.out.println("Entrer la valeur de l'ouverture (degres) ");
 					float ouverture = user.nextFloat();
 					System.out.println("Choisir le type de polarisation :");
 					System.out.println("1. Horizontale ");
@@ -241,7 +241,7 @@ public class StartApp {
 				int nbAntennes = sc.nextInt();
 				sc.nextLine();
 	        
-				System.out.println("Entrez les ID des antennes connectees séparés par des virgules:");
+				System.out.println("Entrez les ID des antennes connectees separes par des virgules:");
 				String antennes = sc.nextLine();
 	        
 				System.out.println("Entrez l'ID du noeud auquel le pylone est connecte:(String)");
@@ -486,11 +486,11 @@ public class StartApp {
 		System.out.println("6. Supprimer une antenne");
 		System.out.println("7. Supprimer un pylone");
 		System.out.println("8. Supprimer un noeud");
-		System.out.println("-- Caractéristiques --");
-		System.out.println("9. Afficher les caracterisitques d'une antenne");
-		System.out.println("10. Afficher les caracterisitques d'un pylone");
-		System.out.println("11. Afficher les caracterisitques d'un noeud");
-		System.out.println("12. Afficher  pouvant se connecter entre elles");
+		System.out.println("-- Caracteristiques --");
+		System.out.println("9. Afficher les caracteristiques d'une antenne");
+		System.out.println("10. Afficher les caracteristiques d'un pylone");
+		System.out.println("11. Afficher les caracteristiques d'un noeud");
+		System.out.println("12. Afficher, selon une antenne donnee, les antennes qui lui sont joignables");
 		System.out.println("-- Modification --");
 		System.out.println("13. Modifier une antenne");
 		System.out.println("14. Modifier un pylone");
@@ -528,7 +528,7 @@ public class StartApp {
 			int choixPylone;
 			out:
 			while(true) {
-				System.out.println("Voulez-vous créer un pylone vide ou remplir ses parametres ?");
+				System.out.println("Voulez-vous creer un pylone vide ou remplir ses parametres ?");
 				System.out.println("1. Creer un Pylone vide?");
 				System.out.println("2. Creer un Pylone et remplir ses parametres");
 				System.out.println("3. Revenir en arriere");
@@ -632,7 +632,7 @@ public class StartApp {
 		if(choix==11) {
 			while(true) {
 				HashMap<String, String> result = new HashMap<String, String>();
-				System.out.println("De quel noeud voulez-vous obtenir les caractéristiques");
+				System.out.println("De quel noeud voulez-vous obtenir les caracteristiques");
 				for(int i=0;i<ListN.size();i++){
 					result=ListN.get(i).caracteristiqueNoeud();
 					System.out.println(result.get("idNoeud")+". "+" Noeud"+result.get("idNoeud"));
