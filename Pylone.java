@@ -97,10 +97,10 @@ public class Pylone {
     public void modifier(Scanner sc){
     	
     	
-		System.out.println("1. Coordonnées ");
-		System.out.println("2. Nombres d'antennes connectées");
-		System.out.println("3. Liste des antennes connectées");
-		System.out.println("4. Noeud connecté");
+		System.out.println("1. Coordonnees ");
+		System.out.println("2. Nombres d'antennes connectees");
+		System.out.println("3. Liste des antennes connectees");
+		System.out.println("4. Noeud connecte");
 		
 		int choix = sc.nextInt();
 		
@@ -115,14 +115,14 @@ public class Pylone {
 			break;
 			
 		case 2:
-			System.out.println("Entrez le nouveau nombre d'antennes connectées:(int)");
+			System.out.println("Entrez le nouveau nombre d'antennes connectees:(int)");
 	        this.setNbAntennes(sc.nextInt());
 	        sc.nextLine();
 			break;
 			
 		case 3:
 			ArrayList<String> antennesConnectees = new ArrayList<String>();
-			System.out.println("Entrez les ID des antennes connectées séparés par des virgules:");
+			System.out.println("Entrez les ID des antennes connectées separes par des virgules:");
 	        String antennes = sc.nextLine();
 	        String[] antennesSeparees = antennes.split(",");
 	        for (int i = 0; i < antennesSeparees.length; i++) {
@@ -132,7 +132,7 @@ public class Pylone {
 			break;
 			
 		case 4:
-			System.out.println("Entrez l'ID du noeud auquel le pylône est connecté:(String)");
+			System.out.println("Entrez l'ID du noeud auquel le pylone est connecte:(String)");
 	        this.setNoeudConnect(sc.nextLine());
 			break;
 		}
