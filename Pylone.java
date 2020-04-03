@@ -14,7 +14,7 @@ public class Pylone {
     private double[] coordGps ;
     private int nbAntennes ;
     private ArrayList<String> antenneConnect ;
-   // private ArrayList<String> tempAntenneConnect ;
+    private String tempAntenneConnect ;
     private String noeudConnect ;
     
     public static int nbPylone=0;
@@ -62,6 +62,9 @@ public class Pylone {
     public ArrayList<String> getAntenneConnect(){
         return antenneConnect;
     }
+    public String getTempAntenneConnect(){
+        return tempAntenneConnect;
+    }
 
     public String getNoeudConnect(){
         return noeudConnect;
@@ -91,6 +94,10 @@ public class Pylone {
     public void addAntenneConnect(String idAntenne){
     	this.antenneConnect.add(idAntenne);
 	}
+    public void setTempAntenneConnect(String tempAntenneConnect){
+    	this.tempAntenneConnect=tempAntenneConnect;
+	}
+    
     public void setNoeudConnect(String noeudConnect){
         this.noeudConnect=noeudConnect;
     }
@@ -162,6 +169,7 @@ public class Pylone {
 		liste.put("Coordonées",Arrays.toString(coordGps));
 		liste.put("Nb antennes connectées",Integer.toString(nbAntennes));
 		liste.put("Liste antennes connectées",antenneConnect.toString());
+		liste.put("Liste antennes connectéesTemp",tempAntenneConnect);
 		liste.put("Noeud connecté",noeudConnect);
 		return liste;
 		}
