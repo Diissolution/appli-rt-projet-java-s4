@@ -299,11 +299,11 @@ public class StartApp {
 			return Pylonelist;
 		}
 	    	    public int searchIndexPylone(ArrayList<Pylone> Pylonelist,int numDel) {
-			HashMap<String, String> antenne = new HashMap<String, String>();
+			HashMap<String, String> pylone = new HashMap<String, String>();
 			int result = 0;
 			for(int i=0;i<Pylonelist.size();i++){
-				antenne=Pylonelist.get(i).caracteristiquePylone();
-				if(Integer.parseInt(antenne.get("idAntenne"))==numDel) {
+				pylone=Pylonelist.get(i).caracteristiquePylone();
+				if(Integer.parseInt(pylone.get("idAntenne"))==numDel) {
 					result=i;
 				}
 			}
