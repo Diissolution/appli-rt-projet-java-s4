@@ -599,10 +599,12 @@ public class StartApp {
 		ListA.add(new Antenne(Integer.toString(2),Float.parseFloat("60"),Float.parseFloat("50"),Float.parseFloat("60"),Float.parseFloat("-120"),"verticale","directive","2",Float.parseFloat("225"),Float.parseFloat("30")));
 		ListP.add(new Pylone(Integer.toString(1),coords,Integer.toString(1)));
 		ListP.add(new Pylone(Integer.toString(2),coords2,Integer.toString(1)));
+		ListN.add(new Noeud("1"));
 		
-		
+	
 		
 		while (true) {
+			ListN=start.syncNoeud(ListN, ListP);
 			ListP=start.syncPylone(ListP,ListA);
 		System.out.println("---=== MENU ===---");
 		System.out.println("-- Creation --");
