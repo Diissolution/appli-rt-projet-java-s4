@@ -123,7 +123,7 @@ public class Pylone {
 		HashMap<String, String> liste = new HashMap<String, String>();
 		liste.put("idPylone",idPylone);
 		liste.put("Coordonées",Arrays.toString(coordGps));
-		liste.put("Liste antennes connectées",tempAntenneConnect);
+		liste.put("Liste des id des antennes connectées",tempAntenneConnect);
 		liste.put("Noeud connecté",noeudConnect);
 		return liste;
 		}
