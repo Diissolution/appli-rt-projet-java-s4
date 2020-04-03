@@ -97,23 +97,7 @@ public class StartApp {
 			
 			return NoeudList;
 		}	
-	//fonction addPyloneConnect
-		public ArrayList<Noeud> addPyloneConnect(ArrayList<Noeud> NoeudList, int idNoeud2,  Scanner sc) {
-			ArrayList<String> pylonesConnectes = new ArrayList<String>();
-			HashMap<String, String> test = new HashMap<String, String>();					
-			System.out.println("Veuillez saisir l'ID du pylone :");		
-			String idPylone = sc.next();
-			for(int i=0;i<NoeudList.size();i++){	
-				test=NoeudList.get(i).caracteristiqueNoeud();
-				if(Integer.parseInt(test.get("idNoeud"))==idNoeud2) {
-					NoeudList.get(i).addPylonesConnect(idPylone);					
-				}
-								
-				
-			}
-			System.out.println("Le pylone " + idPylone + " est desormais connecte au noeud " + idNoeud2);
-			return NoeudList;
-		}
+
 	// ================================= FONCTIONS ANTENNE ===========================================
 	
 	//fonction createAntenne
