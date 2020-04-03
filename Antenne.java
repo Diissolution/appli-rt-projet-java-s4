@@ -236,6 +236,7 @@ public class Antenne{
 		liste.put("sensibilite",Float.toString(sensibilite));
 		liste.put("polarisation",polarisation);
 		liste.put("typeAntenne",typeAntenne);
+		liste.put("pylonesConnect",pylonesConnect);
 		liste.put("orientation",Float.toString(orientation));
 		liste.put("ouverture",Float.toString(ouverture));
 		
