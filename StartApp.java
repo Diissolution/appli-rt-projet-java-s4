@@ -477,6 +477,76 @@ public class StartApp {
 		return result;
 	}
 	
+	public HashMap <String,String> Sauvegarde(ArrayList<Pylone> ListeP, ArrayList<Antenne> ListeA, ArrayList <Noeud> ListeN ){
+		System.out.println("j'entre dans sauvegarde");
+		HashMap<String, String> result = new HashMap<String, String>();
+		
+		File f = new File("SauvegardeAppliRT.txt");
+			 try {
+				 f.createNewFile();
+			 }
+			 catch (IOException e)
+			 {
+				 e.printStackTrace();
+			 }
+			 System.out.println("j'ai créer le fichier");
+		 try (
+				 FileWriter fw = new FileWriter(f,false);
+				 BufferedWriter bw = new BufferedWriter(fw);
+				 PrintWriter out = new PrintWriter(bw))
+				{
+			 System.out.println("je vais lister");
+			 bw.write("\nANTENNES\n");
+		for(int i=0;i<ListeA.size();i++){
+			System.out.println("je parcours");
+			System.out.println("j'ecris");
+			bw.write("\n");
+			result=ListeA.get(i).caracteristiqueAntenne();
+			result.forEach((key, value) -> {
+				try {
+					bw.write(key + " : " + value+"\n");
+					
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			});
+			//System.out.println(key + ":" + value));
+			
+			
+		}
+		System.out.println("j'ai fini d'écrire");
+		bw.write("\n####################################");
+		bw.write("\n\nPYLONES\n");
+		for(int i=0;i<ListeP.size();i++){
+			System.out.println("je parcours");
+			System.out.println("j'ecris");
+			bw.write("\n");
+			result=ListeP.get(i).caracteristiquePylone();
+			result.forEach((key, value) -> {
+				try {
+					bw.write(key + " : " + value+"\n");
+					
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			});
+			//System.out.println(key + ":" + value));
+			
+			
+		}
+		bw.write("\n####################################");
+		bw.write("\n\nNOEUDS\n");
+		for(int i=0;i<ListeN.size();i++){}
+		
+		
+		bw.close();
+		
+		}catch (IOException e){e.printStackTrace();}
+		 return result;
+	}
+	
 	
 	public static void main (String args[]){
 		HashMap<String, String> test = new HashMap<String, String>();
@@ -522,7 +592,7 @@ public class StartApp {
 		System.out.println("12. Modifier un pylone");
 		System.out.println("13. Modifier un noeud");
 		System.out.println("---=============---");
-		System.out.println("0. QUITTER");
+		System.out.println("0. QUITTER & SAUVEGARDER");
 		System.out.print(">> ");
 		int choix = entre.nextInt();
 			//création d'une antenne
@@ -784,6 +854,7 @@ public class StartApp {
 		}
 		
 		if(choix == 0) {
+			start.sauvegarde(ListeA,ListeP,ListeN);
 			break;
 		}
 		
