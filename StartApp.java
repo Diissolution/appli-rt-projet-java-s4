@@ -47,7 +47,20 @@ public class StartApp {
            return Noeudlist;
            
        }
+	
 	// ================================= FONCTIONS NOEUD ===========================================
+		public int searchIndexNoeud(ArrayList<Noeud> Noeudlist,int id) {
+			HashMap<String, String> antenne = new HashMap<String, String>();
+			int result = 0;
+			for(int i=0;i<Noeudlist.size();i++){
+				antenne=Noeudlist.get(i).caracteristiqueNoeud();
+				if(Integer.parseInt(antenne.get("idNoeud"))==id) {
+					result=i;
+				}
+			}
+			
+			return result;
+		}
 	//fonction createNoeud
 		Noeud unNoeud = new Noeud();
 		public ArrayList<Noeud> createNoeud(ArrayList<Noeud> NoeudList) {		
