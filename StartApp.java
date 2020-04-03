@@ -42,15 +42,23 @@ public class StartApp {
 			
 			return NoeudList;
 		}	
-		public void addPyloneConnect(Scanner sc) {
-		
-			System.out.println("Veuillez saisir l'ID du noeud auquel ajouter :");
-			String idNoeud = sc.nextLine();
+	//fonction addPyloneConnect
+		public ArrayList<Noeud> addPyloneConnect(ArrayList<Noeud> NoeudList, int idNoeud2,  Scanner sc) {
+			ArrayList<String> pylonesConnectes = new ArrayList<String>();
+			HashMap<String, String> test = new HashMap<String, String>();					
 			System.out.println("Veuillez saisir l'ID du pylone :");		
-			String idPylone = sc.nextLine();
-			System.out.println("Le pylone " + idPylone + " est désormais connecté au noeud " + idNoeud);
+			String idPylone = sc.next();
+			for(int i=0;i<NoeudList.size();i++){	
+				test=NoeudList.get(i).caracteristiqueNoeud();
+				if(Integer.parseInt(test.get("idNoeud"))==idNoeud2) {
+					NoeudList.get(i).addPylonesConnect(idPylone);					
+				}
+								
+				
+			}
+			System.out.println("Le pylone " + idPylone + " est dÃ©sormais connectÃ© au noeud " + idNoeud2);
+			return NoeudList;
 		}
-	
 	// ================================= FONCTIONS ANTENNE ===========================================
 	
 	//fonction createAntenne
@@ -566,10 +574,13 @@ public class StartApp {
 					}
 				}
 			
-			//ajout d'un pylone au Noeud
+				//ajout d'un pylone au Noeud
 		if(choix ==5){ 
-			start.addPyloneConnect(entre);	
+			System.out.println("Veuillez saisir l'ID du noeud auquel ajouter :");
+			int idNoeud = entre.nextInt();			
+			ListN=start.addPyloneConnect(ListN, idNoeud, entre);	
 		}
+			
 			
 		if(choix==10) {
 			while(true) {
