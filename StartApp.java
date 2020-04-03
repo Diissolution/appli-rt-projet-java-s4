@@ -639,6 +639,30 @@ public class StartApp {
 					}
 			}
 			
+			if(choix==7) { //Afficher carac antenne
+			while(true) {
+				HashMap<String, String> result = new HashMap<String, String>();
+				for(int i=0;i<ListA.size();i++){
+					result=ListA.get(i).caracteristiqueAntenne();
+					System.out.println(result.get("idAntenne")+". "+" Antenne"+result.get("idAntenne"));
+				}
+				System.out.println("0. Retourner en arriere");
+				System.out.print(">> ");
+				int numRech = entre.nextInt();
+				if(numRech!=0) {
+				HashMap<String,String> caracs = start.searchAntenne(ListA,numRech);
+				System.out.println("-----------------------------");
+				System.out.println("- Antenne "+numRech);
+				start.idAntenne = numRech;
+				caracs.forEach((key, value) -> System.out.println(key + ":" + value));
+				System.out.println("-----------------------------");
+				}else{
+					System.out.println("-----------------------------");
+					break;
+				}
+			}
+		}
+			
 			
 		if(choix==8) { //afficher carac pylone
 			while(true) {
@@ -663,6 +687,7 @@ public class StartApp {
 			}
 			
 		}
+			
 		if(choix==9) { //Afficher carac noeud
 			while(true) {
 				HashMap<String, String> result = new HashMap<String, String>();
@@ -687,29 +712,7 @@ public class StartApp {
 			}
 		}	
 			
-		if(choix==7) { //Afficher carac antenne
-			while(true) {
-				HashMap<String, String> result = new HashMap<String, String>();
-				for(int i=0;i<ListA.size();i++){
-					result=ListA.get(i).caracteristiqueAntenne();
-					System.out.println(result.get("idAntenne")+". "+" Antenne"+result.get("idAntenne"));
-				}
-				System.out.println("0. Retourner en arriere");
-				System.out.print(">> ");
-				int numRech = entre.nextInt();
-				if(numRech!=0) {
-				HashMap<String,String> caracs = start.searchAntenne(ListA,numRech);
-				System.out.println("-----------------------------");
-				System.out.println("- Antenne "+numRech);
-				start.idAntenne = numRech;
-				caracs.forEach((key, value) -> System.out.println(key + ":" + value));
-				System.out.println("-----------------------------");
-				}else{
-					System.out.println("-----------------------------");
-					break;
-				}
-			}
-		}
+		
 			if(choix==10) { //Afficher selon antenne, antennes joignables
 			while(true) {
 				System.out.println("Choisir l'antenne souhaitee\n");
@@ -731,27 +734,7 @@ public class StartApp {
 				}
 			}
 		}
-		if(choix==12) { //Modifier un pylone
-			int index;
-			while (true) {
-				HashMap<String, String> result = new HashMap<String, String>();
-				for(int i=0;i<ListP.size();i++){
-					result=ListP.get(i).caracteristiquePylone();
-					System.out.println(result.get("idPylone")+". "+" Pylone"+result.get("idPylone"));
-				}
-				System.out.println("0. Retourner en arriere");
-				System.out.print(">> ");
-				int numRech = entre.nextInt();
-				if(numRech!=0) {
-					index=start.searchIndexPylone(ListP,numRech);
-					ListP.get(index).modifier(entre);
-				}else{
-					System.out.println("-----------------------------");
-					break;
-				}
-			}
-			
-		}
+		
 			
 		if(choix==11) {//Modifier une antenne
 			int index;
@@ -773,7 +756,27 @@ public class StartApp {
 				}
 			}
 		}	
+		if(choix==12) { //Modifier un pylone
+			int index;
+			while (true) {
+				HashMap<String, String> result = new HashMap<String, String>();
+				for(int i=0;i<ListP.size();i++){
+					result=ListP.get(i).caracteristiquePylone();
+					System.out.println(result.get("idPylone")+". "+" Pylone"+result.get("idPylone"));
+				}
+				System.out.println("0. Retourner en arriere");
+				System.out.print(">> ");
+				int numRech = entre.nextInt();
+				if(numRech!=0) {
+					index=start.searchIndexPylone(ListP,numRech);
+					ListP.get(index).modifier(entre);
+				}else{
+					System.out.println("-----------------------------");
+					break;
+				}
+			}
 			
+		}	
 					
 	
 		}
