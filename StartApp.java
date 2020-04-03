@@ -651,6 +651,25 @@ public class StartApp {
 				}
 			}
 		}
+			if(choix==12) {
+			while(true) {
+				
+				HashMap<String, String> result = new HashMap<String, String>();
+				
+				for(int i=0;i<ListA.size();i++){
+					result=ListA.get(i).caracteristiqueAntenne();
+					System.out.println(result.get("idAntenne")+". "+" Antenne"+result.get("idAntenne"));
+				}
+				System.out.println("0. Retourner en arrière");
+				System.out.print(">> ");
+				int numRech = entre.nextInt();
+				if(numRech!=0) {
+					start.testConnecAnt(ListA,ListP,numRech);
+					System.out.println("-----------------------------");
+				}
+			}
+		}
+			
 					
 	
 		}
