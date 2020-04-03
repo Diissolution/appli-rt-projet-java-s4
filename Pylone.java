@@ -175,4 +175,11 @@ public class Pylone {
         
     }
     */
+	public HashMap cooPyl() {
+    	HashMap<String, double[]> liste = new HashMap<String, double[]>();
+    	liste.put("Coordonées",coordGps);
+    	return liste;
+    }
+
+	
 }
