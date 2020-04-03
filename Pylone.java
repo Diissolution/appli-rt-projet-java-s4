@@ -155,6 +155,7 @@ public class Pylone {
     public HashMap caracteristiquePylone(){
 		HashMap<String, String> liste = new HashMap<String, String>();
 		liste.put("idPylone",idPylone);
+	    	liste.put("CoordonÃ©es",Arrays.toString(coordGps));
 		liste.put("Nb antennes connectées",Integer.toString(nbAntennes));
 		liste.put("Liste antennes connectées",antenneConnect.toString());
 		liste.put("Noeud connecté",noeudConnect);
