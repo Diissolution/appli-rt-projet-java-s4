@@ -10,6 +10,43 @@ import java.util.Scanner;
 public class StartApp {	
 	
 		public int idAntenne;
+	
+		// ================================= FONCTIONS SYNCNOEUD ===========================================
+		
+		public ArrayList<Noeud> syncNoeud(ArrayList<Noeud> Noeudlist,ArrayList<Pylone> Pylonelist) { 
+			 String NewPylonne="";
+			 String add="";
+			 for(int i=0;i<Pylonelist.size();i++) {
+		           	Pylonelist.get(i).setTempAntenneConnect(NewPylonne);
+		            }
+           String idNoeud;
+           String idPylone;
+           String CoPylone;
+           int indexNoeud;
+           HashMap<String, String> NoeudActuel = new HashMap<String, String>();
+           HashMap<String, String> PyloneActuel = new HashMap<String, String>();
+           for(int i=0;i<Pylonelist.size();i++) {
+        	PyloneActuel=Pylonelist.get(i).caracteristiquePylone();
+           	idPylone=PyloneActuel.get("idPylone");
+           	CoPylone=PyloneActuel.get("Noeud connecté");
+           	if(!CoPylone.equals("")) {
+           		System.out.println(CoPylone);
+           		indexNoeud=searchIndexNoeud(Noeudlist,Integer.parseInt(CoPylone));
+           		NoeudActuel=Noeudlist.get(indexNoeud).caracteristiqueNoeud();
+           		idNoeud=NoeudActuel.get("idNoeud");
+           		if(Integer.parseInt(CoPylone)==Integer.parseInt(idNoeud)) {
+           			add=idPylone;
+           			add=add+" "+Noeudlist.get(indexNoeud).getPylonesConnect();
+           			System.out.println("add before"+add);
+           			Noeudlist.get(indexNoeud).setPylonesConnect(add);
+           			
+           			System.out.println("add after"+add);
+           		}
+           	}
+           }
+           return Noeudlist;
+           
+       }
 	// ================================= FONCTIONS NOEUD ===========================================
 	//fonction createNoeud
 		Noeud unNoeud = new Noeud();
@@ -204,7 +241,7 @@ public class StartApp {
 			return result;
 		}
 	// ================================= FONCTIONS SYNCPYLONE ===========================================
- public ArrayList<Pylone> syncPylone(ArrayList<Pylone> Pylonelist,ArrayList<Antenne> Antlist) { 
+	 public ArrayList<Pylone> syncPylone(ArrayList<Pylone> Pylonelist,ArrayList<Antenne> Antlist) { 
 			 String NewAntenne="";
 			 String add="";
 			 for(int i=0;i<Pylonelist.size();i++) {
@@ -228,9 +265,9 @@ public class StartApp {
             		idPylone=PyloneActuel.get("idPylone");
             		if(Integer.parseInt(CoPylone)==Integer.parseInt(idPylone)) {
             			add=idAntenne;
-				add=add+Pylonelist.get(indexPylone).getTempAntenneConnect();
+            			add=add+" "+Pylonelist.get(indexPylone).getTempAntenneConnect();
             			Pylonelist.get(indexPylone).setTempAntenneConnect(add);
-            			
+
             		}
             	}
             }
