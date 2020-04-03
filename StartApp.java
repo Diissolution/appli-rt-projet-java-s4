@@ -466,19 +466,19 @@ public class StartApp {
 		
 		while (true) {
 		System.out.println("---=== MENU ===---");
-		System.out.println("-- Création --");
-		System.out.println("1. Créer une antenne");
-		System.out.println("2. Créer un pylone");
-		System.out.println("3. Créer un noeud");
+		System.out.println("-- Creation --");
+		System.out.println("1. Creer une antenne");
+		System.out.println("2. Creer un pylone");
+		System.out.println("3. Creer un noeud");
 		System.out.println("5. Ajouter un pylone à un noeud");
 		System.out.println("-- Suppression --");
 		System.out.println("6. Supprimer une antenne");
 		System.out.println("7. Supprimer un pylone");
 		System.out.println("8. Supprimer un noeud");
 		System.out.println("-- Caractéristiques --");
-		System.out.println("9. Afficher les caractérisitques d'une antenne");
-		System.out.println("10. Afficher les caractérisitques d'un pylone");
-		System.out.println("11. Afficher les caractérisitques d'un noeud");
+		System.out.println("9. Afficher les caracterisitques d'une antenne");
+		System.out.println("10. Afficher les caracterisitques d'un pylone");
+		System.out.println("11. Afficher les caracterisitques d'un noeud");
 		System.out.println("12. Afficher  pouvant se connecter entre elles");
 		System.out.println("-- Modification --");
 		System.out.println("13. Modifier une antenne");
@@ -490,10 +490,10 @@ public class StartApp {
 		System.out.println(choix);
 		if(choix == 1){
 			while(true) {
-			System.out.println("voulez-vous créé une antenne vide ou remplir ses paramètres ?");
-			System.out.println("1. Créer une Antenne vide?");
-			System.out.println("2. Créer une Antenne et remplir ses paramètres");
-			System.out.println("3. Revenir en arrière");
+			System.out.println("Voulez-vous creer une antenne vide ou remplir ses parametres ?");
+			System.out.println("1. Creer une Antenne vide?");
+			System.out.println("2. Creer une Antenne et remplir ses parametres");
+			System.out.println("3. Revenir en arriere");
 			System.out.print(">> ");
 			int choixAntenne = entre.nextInt();
 			if(choixAntenne==1) {
@@ -509,7 +509,7 @@ public class StartApp {
 				break;
 				}
 			else {
-				System.out.println("Veuillez choisir un chiffre attitré à une option");
+				System.out.println("Veuillez choisir un chiffre attitre a une option");
 			}
 			}
 		}
@@ -517,10 +517,10 @@ public class StartApp {
 			int choixPylone;
 			out:
 			while(true) {
-				System.out.println("Voulez-vous créer un pylône vide ou remplir ses paramètres ?");
-				System.out.println("1. Créer un Pylone vide?");
-				System.out.println("2. Créer un Pylone et remplir ses paramètres");
-				System.out.println("3. Revenir en arrière");
+				System.out.println("Voulez-vous créer un pylone vide ou remplir ses parametres ?");
+				System.out.println("1. Creer un Pylone vide?");
+				System.out.println("2. Creer un Pylone et remplir ses parametres");
+				System.out.println("3. Revenir en arriere");
     				System.out.print(">> ");
 				choixPylone =  entre.nextInt();
 				entre.nextLine();
@@ -554,7 +554,7 @@ public class StartApp {
 					result=ListA.get(i).caracteristiqueAntenne();
 					System.out.println(result.get("idAntenne")+". "+" Antenne"+result.get("idAntenne"));
 				}
-				System.out.println("0. Retourner en arrière");
+				System.out.println("0. Retourner en arriere");
 				System.out.print(">> ");
 					int choixAntenne = entre.nextInt();
 					if(choixAntenne!=0) {
@@ -572,9 +572,9 @@ public class StartApp {
 					HashMap<String, String> result = new HashMap<String, String>();
 					for(int i=0;i<ListP.size();i++){
 						result=ListP.get(i).caracteristiquePylone();
-						System.out.println(result.get("idPylone")+". "+" Pylône"+result.get("idPylone"));
+						System.out.println(result.get("idPylone")+". "+" Pylone"+result.get("idPylone"));
 					}
-					System.out.println("0. Retourner en arrière");
+					System.out.println("0. Retourner en arriere");
 					System.out.print(">> ");
 						int choixPylone = entre.nextInt();
 						if(choixPylone!=0) {
@@ -600,9 +600,9 @@ public class StartApp {
 				HashMap<String, String> result = new HashMap<String, String>();
 				for(int i=0;i<ListP.size();i++){
 					result=ListP.get(i).caracteristiquePylone();
-					System.out.println(result.get("idPylone")+". "+" Pylône"+result.get("idPylone"));
+					System.out.println(result.get("idPylone")+". "+" Pylone"+result.get("idPylone"));
 				}
-				System.out.println("0. Retourner en arrière");
+				System.out.println("0. Retourner en arriere");
 				System.out.print(">> ");
 				int numRech = entre.nextInt();
 				if(numRech!=0) {
@@ -625,7 +625,7 @@ public class StartApp {
 					result=ListN.get(i).caracteristiqueNoeud();
 					System.out.println(result.get("idNoeud")+". "+" Noeud"+result.get("idNoeud"));
 				}
-				System.out.println("0. Retourner en arrière");
+				System.out.println("0. Retourner en arriere");
 				System.out.print(">> ");
 				int numRech = entre.nextInt();
 				if(numRech!=0) {
@@ -648,7 +648,7 @@ public class StartApp {
 					result=ListA.get(i).caracteristiqueAntenne();
 					System.out.println(result.get("idAntenne")+". "+" Antenne"+result.get("idAntenne"));
 				}
-				System.out.println("0. Retourner en arrière");
+				System.out.println("0. Retourner en arriere");
 				System.out.print(">> ");
 				int numRech = entre.nextInt();
 				if(numRech!=0) {
@@ -673,7 +673,7 @@ public class StartApp {
 					result=ListA.get(i).caracteristiqueAntenne();
 					System.out.println(result.get("idAntenne")+". "+" Antenne"+result.get("idAntenne"));
 				}
-				System.out.println("0. Retourner en arrière");
+				System.out.println("0. Retourner en arriere");
 				System.out.print(">> ");
 				int numRech = entre.nextInt();
 				if(numRech!=0) {
