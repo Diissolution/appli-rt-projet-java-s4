@@ -186,39 +186,38 @@ public class StartApp {
 			return Antlist;
 		}
 	// ================================= FONCTIONS SYNCPYLONE ===========================================
-	  public ArrayList<Pylone> syncPylone(ArrayList<Pylone> Pylonelist,ArrayList<Antenne> Antlist) { 
-			  String idPylone;
-			  String idAntenne;
-			  String CoPylone;
-			  ArrayList <String> LAntenne=new ArrayList<String>();
-			  HashMap<String, String> AntActuel = new HashMap<String, String>();
-			  HashMap<String, String> PyloneActuel = new HashMap<String, String>();
-			  for(int i=0;i<Pylonelist.size();i++){
-				  
-				  PyloneActuel=Pylonelist.get(i).caracteristiquePylone();
-					idPylone=PyloneActuel.get("idPylone");
-						for(int n=0;n<Antlist.size();n++){
-							AntActuel=Antlist.get(n).caracteristiqueAntenne();
-							CoPylone=AntActuel.get("pylonesConnect");
-							System.out.println("CoPylone :"+CoPylone);
-							System.out.println("idPylone :"+idPylone);
-							idAntenne=AntActuel.get("idAntenne");
-							System.out.println("PyloneActuel :"+PyloneActuel);
-							if(Integer.parseInt(CoPylone)==Integer.parseInt(idPylone)) {
-								System.out.println("ca marche");
-								LAntenne.add(idAntenne);
-								System.out.println(LAntenne);
-						}
-					}
-						System.out.println(LAntenne);
-						Pylonelist.get(i).setAntenneConnect(LAntenne);
-						System.out.println(Pylonelist.get(i).getAntenneConnect());
-						LAntenne.clear();
-						System.out.println(LAntenne);
-						System.out.println("PAS COMPRIS");
-			  }
-			  return Pylonelist;
-		  }
+	 	public ArrayList<Pylone> syncPylone(ArrayList<Pylone> Pylonelist,ArrayList<Antenne> Antlist) { 
+            String idPylone;
+            String idAntenne;
+            String CoPylone;
+            ArrayList <String> LAntenne=new ArrayList<String>();
+            HashMap<String, String> AntActuel = new HashMap<String, String>();
+            HashMap<String, String> PyloneActuel = new HashMap<String, String>();
+            for(int i=0;i<Pylonelist.size();i++){
+                System.out.println("Passage dans le for ===========================================================");
+                LAntenne.clear();
+                PyloneActuel=Pylonelist.get(i).caracteristiquePylone();
+                  idPylone=PyloneActuel.get("idPylone");
+                      for(int n=0;n<Antlist.size();n++){
+                          AntActuel=Antlist.get(n).caracteristiqueAntenne();
+                          CoPylone=AntActuel.get("pylonesConnect");
+                          idAntenne=AntActuel.get("idAntenne");
+                          System.out.println("PyloneActuel :"+PyloneActuel);
+                          if(Integer.parseInt(CoPylone)==Integer.parseInt(idPylone)) {
+                              LAntenne.add(idAntenne);
+                              System.out.println("id antenne ajoutee: "+idAntenne);
+                          }
+                      }
+                      Pylonelist.get(i).setAntenneConnect(LAntenne);
+                      System.out.println(Pylonelist.get(i).getAntenneConnect());
+
+                      System.out.println(LAntenne);
+                      System.out.println(i);
+                      System.out.println("RETOUR FINAL 0"+Pylonelist.get(0).caracteristiquePylone());
+                      System.out.println("RETOUR FINAL 1"+Pylonelist.get(1).caracteristiquePylone());
+            }
+            return Pylonelist;
+        }
 	// ================================= FONCTIONS PYLÔNE ===========================================
 		
 		// Création d'un pylône
@@ -472,9 +471,10 @@ public class StartApp {
 		ListP.add(new Pylone(Integer.toString(1),coords,1,nul,Integer.toString(1)));
 		ListP.add(new Pylone(Integer.toString(2),coords2,1,nul,Integer.toString(1)));
 		
-		ListP=start.syncPylone(ListP,ListA);
+		
 		
 		while (true) {
+			ListP=start.syncPylone(ListP,ListA);
 		System.out.println("---=== MENU ===---");
 		System.out.println("-- Creation --");
 		System.out.println("1. Creer une antenne");
