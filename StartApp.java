@@ -429,6 +429,16 @@ public class StartApp {
 		HashMap<String, double[]> pylone = new HashMap<String, double[]>();
 		HashMap<String, double[]> result = new HashMap<String, double[]>();
 		HashMap<String, String> idPylone = new HashMap<String, String>();
+		
+		double[] coords = {43.619679,7.058884};
+		double[] coords2 = {43.640010,7.076146};
+		ArrayList <String> nul = new ArrayList();
+		nul.add("test");
+		ListA.add(new Antenne(Integer.toString(1),Float.parseFloat("60"),Float.parseFloat("10"),Float.parseFloat("50"),Float.parseFloat("-120"),"verticale","directive","1",Float.parseFloat("45"),Float.parseFloat("360")));
+		ListA.add(new Antenne(Integer.toString(2),Float.parseFloat("60"),Float.parseFloat("50"),Float.parseFloat("60"),Float.parseFloat("-120"),"verticale","directive","2",Float.parseFloat("225"),Float.parseFloat("30")));
+		ListP.add(new Pylone(Integer.toString(1),coords,1,nul,Integer.toString(1)));
+		ListP.add(new Pylone(Integer.toString(2),coords2,1,nul,Integer.toString(1)));
+		
 		for(int i=0;i<Pylonelist.size();i++){
 			pylone=Pylonelist.get(i).cooPyl();
 			idPylone=Pylonelist.get(i).caracteristiquePylone();
