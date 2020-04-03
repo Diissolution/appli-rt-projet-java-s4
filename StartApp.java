@@ -400,7 +400,7 @@ public class StartApp {
 					if (typeA == "omnidirectionnelle") {
 						testConnec = omni.comAntenne(distanceAB, sensibiliteB, puissanceA, ouvertureA, ouvertureB, polarisationA, polarisationB, frequenceA, gainA, gainB, orientationA, orientationB, lat_A, lon_A, lat_B, lon_B);
 						if (testConnec = true) {
-							System.out.println("(1)"+idPyloneB);
+							System.out.println("- L'antenne "+idPyloneB);
 							//on affiche l'id de cette antenne
 						}else {
 							System.out.println("les 2 antennes ne peuvent pas communiquer");
@@ -409,7 +409,7 @@ public class StartApp {
 					}else {
 						testConnec = direct.comAntenne(distanceAB, sensibiliteB, puissanceA, ouvertureA, ouvertureB, polarisationA, polarisationB, frequenceA, gainB, orientationA, orientationB, lat_A, lon_A, lat_B, lon_B);
 						if (testConnec = true) {
-							System.out.println("(2)"+idPyloneB);
+							System.out.println("- L'antenne"+idPyloneB);
 							//on affiche l'id de cette antenne
 						}else {
 							System.out.println("les 2 antennes ne peuvent pas communiquer");
@@ -666,7 +666,7 @@ public class StartApp {
 		}
 			if(choix==12) {
 			while(true) {
-				
+				System.out.println("Choisir l'antenne souhaitee\n");
 				HashMap<String, String> result = new HashMap<String, String>();
 				
 				for(int i=0;i<ListA.size();i++){
@@ -679,6 +679,9 @@ public class StartApp {
 				if(numRech!=0) {
 					start.testConnecAnt(ListA,ListP,numRech);
 					System.out.println("-----------------------------");
+				}else {
+					System.out.println("-----------------------------");
+					break;
 				}
 			}
 		}
