@@ -854,7 +854,7 @@ public class StartApp {
 		}
 		
 		if(choix == 0) {
-			start.sauvegarde(ListeA,ListeP,ListeN);
+			start.Sauvegarde(ListP, ListA, ListN);
 			break;
 		}
 		
