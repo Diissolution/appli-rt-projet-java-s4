@@ -199,7 +199,7 @@ public class StartApp {
 			return result;
 		}
 	// ================================= FONCTIONS SYNCPYLONE ===========================================
-	 	public ArrayList<Pylone> syncPylone(ArrayList<Pylone> Pylonelist,ArrayList<Antenne> Antlist) { 
+	 public ArrayList<Pylone> syncPylone(ArrayList<Pylone> Pylonelist,ArrayList<Antenne> Antlist) { 
 			 ArrayList <String> NewAntenne=new ArrayList<String>();
 			 for(int i=0;i<Pylonelist.size();i++) {
 		           	Pylonelist.get(i).setAntenneConnect(NewAntenne);
@@ -222,9 +222,9 @@ public class StartApp {
             		idPylone=PyloneActuel.get("idPylone");
             		if(Integer.parseInt(CoPylone)==Integer.parseInt(idPylone)) {
             			Pylonelist.get(indexPylone).addAntenneConnect(idAntenne);
-            			System.out.println(idPylone);
+            			System.out.println("IdPylone :"+idPylone);
             			System.out.println(Pylonelist.get(indexPylone).getAntenneConnect());
-            			System.out.println(idAntenne);
+            			System.out.println("IdAntenne: "+idAntenne);
             		}
             	}
             	System.out.println("partie"+i);
