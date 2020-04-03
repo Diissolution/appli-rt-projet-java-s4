@@ -1,4 +1,5 @@
 
+
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -10,9 +11,9 @@ public class Noeud {
     //variables
     public String idNoeud;
 	public ArrayList pylonesConnect;	
-	public int nbNoeud=0;
+	public static int nbNoeud=0;
 	
-	//constructeur par dÃ©faut
+	//constructeur par dÃƒÂ©faut
 	public Noeud(){
 		this.idNoeud=DEF;
 		this.pylonesConnect= new ArrayList<String>();
@@ -52,9 +53,10 @@ public class Noeud {
 	}
 	
 	
-	//accesseurs en Ã©criture
-	public void addPylonesConnect(String idPylone){
+	//accesseurs en ÃƒÂ©criture
+	public ArrayList<String> addPylonesConnect(String idPylone){
 		pylonesConnect.add(idPylone);
+		return pylonesConnect;
 	}
 	
 	public void delPylonesConnect(int num){
@@ -62,3 +64,4 @@ public class Noeud {
 	}	
 
 }
+
