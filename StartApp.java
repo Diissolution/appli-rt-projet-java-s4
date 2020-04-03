@@ -16,8 +16,8 @@ public class StartApp {
 		public ArrayList<Noeud> syncNoeud(ArrayList<Noeud> Noeudlist,ArrayList<Pylone> Pylonelist) { 
 			 String NewPylonne="";
 			 String add="";
-			 for(int i=0;i<Pylonelist.size();i++) {
-		           	Pylonelist.get(i).setTempAntenneConnect(NewPylonne);
+			 for(int i=0;i<Noeudlist.size();i++) {
+		           	Noeudlist.get(i).setPylonesConnect(NewPylonne);
 		            }
            String idNoeud;
            String idPylone;
@@ -268,9 +268,9 @@ public class StartApp {
             return Pylonelist;
             
         }
-	// ================================= FONCTIONS PYLÔNE ===========================================
+	// ================================= FONCTIONS PYLÃ”NE ===========================================
 		
-		// Création d'un pylône
+		// CrÃ©ation d'un pylÃ´ne
 		static Pylone pyl = new Pylone();
 	    public ArrayList<Pylone> CreatePylone(ArrayList<Pylone> Pylonelist,boolean isEmpty, Scanner sc) { 
 	  
@@ -298,7 +298,7 @@ public class StartApp {
 	       
 	    }
 	    
-	    //Recherche d'un pylône
+	    //Recherche d'un pylÃ´ne
 	    public HashMap <String, String> searchPylone(ArrayList<Pylone> Pylonelist,int numRech) {
 			HashMap<String, String> pylone = new HashMap<String, String>();
 			HashMap<String, String> result = new HashMap<String, String>();
@@ -312,7 +312,7 @@ public class StartApp {
 			return result;
 		}
 	    
-	    //Suppression d'un pylône
+	    //Suppression d'un pylÃ´ne
 	    public ArrayList<Pylone> DeletePylone(ArrayList<Pylone> Pylonelist,int numDel){
 			HashMap<String, String> testPyl = new HashMap<String, String>();
 			for(int i=0;i<Pylonelist.size();i++){
@@ -338,7 +338,7 @@ public class StartApp {
 		}
 	
 	
-	 // ================================= FIN PYLÔNE =================================================
+	 // ================================= FIN PYLÃ”NE =================================================
 	
 	public void testConnecAnt (ArrayList <Antenne> Antlist, ArrayList <Pylone> Pylonelist, int idAntenne) {
 		ConvDist convDist = new ConvDist();
@@ -539,7 +539,7 @@ public class StartApp {
 			
 			
 		}
-		//System.out.println("j'ai fini d'écrire");
+		//System.out.println("j'ai fini d'Ã©crire");
 		bw.write("\n####################################");
 		bw.write("\n\nPYLONES\n");
 		for(int i=0;i<ListeP.size();i++){
@@ -583,7 +583,7 @@ public class StartApp {
 		ArrayList<Noeud> ListN = new ArrayList<Noeud>();
 		
 		
-		//On créé des antennes et des pylones de bases pour pouvoir tester toutes les fonctionnalités
+		//On crÃ©Ã© des antennes et des pylones de bases pour pouvoir tester toutes les fonctionnalitÃ©s
 		double[] coords = {43.619679,7.058884};
 		double[] coords2 = {43.640010,7.076146};
 		ArrayList <String> nul = new ArrayList();
@@ -622,7 +622,7 @@ public class StartApp {
 		System.out.println("0. QUITTER & SAUVEGARDER");
 		System.out.print(">> ");
 		int choix = entre.nextInt();
-			//création d'une antenne
+			//crÃ©ation d'une antenne
 		System.out.println(choix);
 		if(choix == 1){ //Creer antenne
 			while(true) {
@@ -779,7 +779,7 @@ public class StartApp {
 				if(numRech!=0) {
 				HashMap<String,String> caracs = start.searchPylone(ListP,numRech);
 				System.out.println("-----------------------------");
-				System.out.println("- Pylône "+numRech);
+				System.out.println("- PylÃ´ne "+numRech);
 				caracs.forEach((key, value) -> System.out.println(key + " : " + value));
 				System.out.println("-----------------------------");
 				}else{
