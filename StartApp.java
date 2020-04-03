@@ -310,18 +310,7 @@ public class StartApp {
 			
 			return result;
 		}
-	public int searchIndexPylone(ArrayList<Pylone> Pylonelist,int id) {
-			HashMap<String, String> pylone = new HashMap<String, String>();
-			int result = 0;
-			for(int i=0;i<Pylonelist.size();i++){
-				pylone=Pylonelist.get(i).caracteristiquePylone();
-				if(Integer.parseInt(pylone.get("idPylone"))==id) {
-					result=i;
-				}
-			}
-			
-			return result;
-		}
+	
 	 // ================================= FIN PYLÔNE =================================================
 	
 	public void testConnecAnt (ArrayList <Antenne> Antlist, ArrayList <Pylone> Pylonelist, int idAntenne) {
