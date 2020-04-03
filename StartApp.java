@@ -185,6 +185,19 @@ public class StartApp {
 			
 			return Antlist;
 		}
+	
+	public int searchIndexAntenne(ArrayList<Antenne> Antennelist,int id) {
+			HashMap<String, String> antenne = new HashMap<String, String>();
+			int result = 0;
+			for(int i=0;i<Antennelist.size();i++){
+				antenne=Antennelist.get(i).caracteristiqueAntenne();
+				if(Integer.parseInt(antenne.get("idAntenne"))==id) {
+					result=i;
+				}
+			}
+			
+			return result;
+		}
 	// ================================= FONCTIONS SYNCPYLONE ===========================================
 	 	public ArrayList<Pylone> syncPylone(ArrayList<Pylone> Pylonelist,ArrayList<Antenne> Antlist) { 
             String idPylone;
@@ -291,6 +304,18 @@ public class StartApp {
 			for(int i=0;i<Pylonelist.size();i++){
 				antenne=Pylonelist.get(i).caracteristiquePylone();
 				if(Integer.parseInt(antenne.get("idAntenne"))==numDel) {
+					result=i;
+				}
+			}
+			
+			return result;
+		}
+	public int searchIndexPylone(ArrayList<Pylone> Pylonelist,int id) {
+			HashMap<String, String> pylone = new HashMap<String, String>();
+			int result = 0;
+			for(int i=0;i<Pylonelist.size();i++){
+				pylone=Pylonelist.get(i).caracteristiquePylone();
+				if(Integer.parseInt(pylone.get("idPylone"))==id) {
 					result=i;
 				}
 			}
@@ -707,6 +732,48 @@ public class StartApp {
 				}
 			}
 		}
+		if(choix==14) {
+			int index;
+			while (true) {
+				HashMap<String, String> result = new HashMap<String, String>();
+				for(int i=0;i<ListP.size();i++){
+					result=ListP.get(i).caracteristiquePylone();
+					System.out.println(result.get("idPylone")+". "+" Pylone"+result.get("idPylone"));
+				}
+				System.out.println("0. Retourner en arriere");
+				System.out.print(">> ");
+				int numRech = entre.nextInt();
+				if(numRech!=0) {
+					index=start.searchIndexPylone(ListP,numRech);
+					ListP.get(index).modifier(entre);
+				}else{
+					System.out.println("-----------------------------");
+					break;
+				}
+			}
+			
+		}
+			
+		if(choix==13) {
+			int index;
+			while (true) {
+				HashMap<String, String> result = new HashMap<String, String>();
+				for(int i=0;i<ListA.size();i++){
+					result=ListA.get(i).caracteristiqueAntenne();
+					System.out.println(result.get("idAntenne")+". "+" Antenne"+result.get("idAntenne"));
+				}
+				System.out.println("0. Retourner en arriere");
+				System.out.print(">> ");
+				int numRech = entre.nextInt();
+				if(numRech!=0) {
+					index=start.searchIndexAntenne(ListA,numRech);
+					ListA.get(index).modifier(entre);
+				}else{
+					System.out.println("-----------------------------");
+					break;
+				}
+			}
+		}	
 			
 					
 	
