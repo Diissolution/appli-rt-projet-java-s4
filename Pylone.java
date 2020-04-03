@@ -12,7 +12,6 @@ public class Pylone {
     //Variables d'instance
     private String idPylone ;
     private double[] coordGps ;
-    private int nbAntennes ;
     private String tempAntenneConnect ;
     private String noeudConnect ;
     
@@ -21,7 +20,6 @@ public class Pylone {
 
     public Pylone(){
         this.coordGps=COORDGPS;
-        this.nbAntennes=NBANTENNES;
         this.tempAntenneConnect=ANTENNECONNECT;
         this.noeudConnect=NOEUDCONNECT;
         this.idPylone=IDPYLONE;
@@ -29,16 +27,14 @@ public class Pylone {
     }
     public Pylone(String idPyl){
         this.coordGps=COORDGPS;
-        this.nbAntennes=NBANTENNES;
         this.tempAntenneConnect=ANTENNECONNECT;
         this.noeudConnect=NOEUDCONNECT;
         this.idPylone=idPyl;
         nbPylone++;
     }
 
-    public Pylone(String idPylone, double[] coordGps, int nbAntennes, String noeudConnect){
+    public Pylone(String idPylone, double[] coordGps, String noeudConnect){
         this.coordGps=coordGps;
-        this.nbAntennes=nbAntennes;
         this.noeudConnect=noeudConnect;
         this.idPylone=idPylone;
         nbPylone++;
@@ -52,11 +48,6 @@ public class Pylone {
     public double[] getCoordGps(){
         return coordGps;
     }
-
-    public int getNbAntennes(){
-        return nbAntennes;
-    }
-
 
     public String getTempAntenneConnect(){
         return tempAntenneConnect;
@@ -77,10 +68,6 @@ public class Pylone {
 
     public void setCoordGps(double[] coordGps){
         this.coordGps=coordGps;
-    }
-
-    public void setNbAntennes(int nbAntennes){
-        this.nbAntennes=nbAntennes;
     }
 
     public void setTempAntenneConnect(String tempAntenneConnect){
@@ -126,18 +113,16 @@ public class Pylone {
     public void affiche(){ //Préférer l'utilisation de -> caracteristiquePylone
         String id=this.idPylone;
         double[] coord = this.coordGps;
-        int nb = this.nbAntennes;
         String antenne = this.tempAntenneConnect;
         String noeud = this.noeudConnect;
         
-        System.out.println("ID: "+id+"\nCoordonnées GPS: "+Arrays.toString(coord)+"\nNb antennes connectées: "+nb+"\nListe antennes connectées: "+antenne.toString()+"\nNoeud connecté: "+noeud);
+        System.out.println("ID: "+id+"\nCoordonnées GPS: "+Arrays.toString(coord)+"\nListe antennes connectées: "+antenne.toString()+"\nNoeud connecté: "+noeud);
     }
     
     public HashMap caracteristiquePylone(){
 		HashMap<String, String> liste = new HashMap<String, String>();
 		liste.put("idPylone",idPylone);
 		liste.put("Coordonées",Arrays.toString(coordGps));
-		liste.put("Nb antennes connectées",Integer.toString(nbAntennes));
 		liste.put("Liste antennes connectées",tempAntenneConnect);
 		liste.put("Noeud connecté",noeudConnect);
 		return liste;
