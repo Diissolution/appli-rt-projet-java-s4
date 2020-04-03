@@ -56,7 +56,7 @@ public class StartApp {
 								
 				
 			}
-			System.out.println("Le pylone " + idPylone + " est dÃ©sormais connectÃ© au noeud " + idNoeud2);
+			System.out.println("Le pylone " + idPylone + " est desormais connecte au noeud " + idNoeud2);
 			return NoeudList;
 		}
 	// ================================= FONCTIONS ANTENNE ===========================================
@@ -105,7 +105,7 @@ public class StartApp {
 					if(choixPol==4){
 						polarisation="droite";
 						}
-					System.out.println("choisir l'id du pylone à associer :");
+					System.out.println("choisir l'id du pylone a associer :");
 					String pylonesConnect="NULL";
 					String choixPolId = user.next();
 					pylonesConnect=choixPolId;
@@ -146,7 +146,7 @@ public class StartApp {
 					if(choixPol==4){
 						polarisation="droite";
 						}
-					System.out.println("choisir l'id du pylone à associer :");
+					System.out.println("choisir l'id du pylone a associer :");
 					String pylonesConnect="NULL";
 					String choixPolId = user.next();
 					pylonesConnect=choixPolId;
@@ -227,14 +227,14 @@ public class StartApp {
 				System.out.println("Entrez la longitude:(double avec virgule)");
 				double coord2 = sc.nextDouble();
 	        
-				System.out.println("Entrez le nombre d'antennes connectées:(int)");
+				System.out.println("Entrez le nombre d'antennes connectees:(int)");
 				int nbAntennes = sc.nextInt();
 				sc.nextLine();
 	        
-				System.out.println("Entrez les ID des antennes connectées séparés par des virgules:");
+				System.out.println("Entrez les ID des antennes connectees séparés par des virgules:");
 				String antennes = sc.nextLine();
 	        
-				System.out.println("Entrez l'ID du noeud auquel le pylône est connecté:(String)");
+				System.out.println("Entrez l'ID du noeud auquel le pylone est connecte:(String)");
 				String idNoeud = sc.nextLine();
 	        
 				double coords[] = {coord1,coord2};
@@ -378,7 +378,7 @@ public class StartApp {
 					idPyloneB = test.get("pylonesConnect");
 					
 					HashMap <String,double[]> pylB = searchCooPyl(Pylonelist,Integer.parseInt(idPyloneB));
-					double[] getPylA = pylB.get("Coordonées");
+					double[] getPylA = pylB.get("Coordonees");
 					System.out.println("pylA = "+getPylA[0]);
 					
 					puissanceB = Float.parseFloat(test.get("puissance"));
