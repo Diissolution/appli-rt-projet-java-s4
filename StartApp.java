@@ -471,7 +471,7 @@ public class StartApp {
 	}
 	
 	public HashMap <String,String> Sauvegarde(ArrayList<Pylone> ListeP, ArrayList<Antenne> ListeA, ArrayList <Noeud> ListeN ){
-		System.out.println("j'entre dans sauvegarde");
+		//System.out.println("j'entre dans sauvegarde");
 		HashMap<String, String> result = new HashMap<String, String>();
 		
 		File f = new File("SauvegardeAppliRT.txt");
@@ -482,17 +482,17 @@ public class StartApp {
 			 {
 				 e.printStackTrace();
 			 }
-			 System.out.println("j'ai créer le fichier");
+			 System.out.println("Sauvegarde en cours...");
 		 try (
 				 FileWriter fw = new FileWriter(f,false);
 				 BufferedWriter bw = new BufferedWriter(fw);
 				 PrintWriter out = new PrintWriter(bw))
 				{
-			 System.out.println("je vais lister");
+			 //System.out.println("je vais lister");
 			 bw.write("\nANTENNES\n");
 		for(int i=0;i<ListeA.size();i++){
-			System.out.println("je parcours");
-			System.out.println("j'ecris");
+			//System.out.println("je parcours");
+			//System.out.println("j'ecris");
 			bw.write("\n");
 			result=ListeA.get(i).caracteristiqueAntenne();
 			result.forEach((key, value) -> {
@@ -508,12 +508,12 @@ public class StartApp {
 			
 			
 		}
-		System.out.println("j'ai fini d'écrire");
+		//System.out.println("j'ai fini d'écrire");
 		bw.write("\n####################################");
 		bw.write("\n\nPYLONES\n");
 		for(int i=0;i<ListeP.size();i++){
-			System.out.println("je parcours");
-			System.out.println("j'ecris");
+			//System.out.println("je parcours");
+			//System.out.println("j'ecris");
 			bw.write("\n");
 			result=ListeP.get(i).caracteristiquePylone();
 			result.forEach((key, value) -> {
@@ -533,7 +533,7 @@ public class StartApp {
 		bw.write("\n\nNOEUDS\n");
 		for(int i=0;i<ListeN.size();i++){}
 		
-		
+		System.out.println("Sauvegarde terminee avec succes ! Elle est accessible dans '\\eclipse-workspace\\appliRT'");
 		bw.close();
 		
 		}catch (IOException e){e.printStackTrace();}
