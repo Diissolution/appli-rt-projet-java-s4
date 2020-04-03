@@ -148,7 +148,7 @@ public class Antenne{
 		this.ouverture = ouverture;
 	}
 		
-	public void modifier(){
+	public void modifier(Scanner add){
 		
 		System.out.println("1. gain");
 		System.out.println("2. frequence");
