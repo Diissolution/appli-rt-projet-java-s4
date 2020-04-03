@@ -11,7 +11,7 @@ public class StartApp {
 		public ArrayList<Noeud> createNoeud(ArrayList<Noeud> NoeudList) {		
 			int idNoeud = unNoeud.getNbNoeud();			
 			NoeudList.add(new Noeud(Integer.toString(idNoeud)));	
-			System.out.println(idNoeud);
+			System.out.println("Le Noeud "+idNoeud+" a été créé");
 			return NoeudList;			
 		}	
 		
@@ -632,6 +632,7 @@ public class StartApp {
 		if(choix==11) {
 			while(true) {
 				HashMap<String, String> result = new HashMap<String, String>();
+				System.out.println("De quel noeud voulez-vous obtenir les caractéristiques");
 				for(int i=0;i<ListN.size();i++){
 					result=ListN.get(i).caracteristiqueNoeud();
 					System.out.println(result.get("idNoeud")+". "+" Noeud"+result.get("idNoeud"));
