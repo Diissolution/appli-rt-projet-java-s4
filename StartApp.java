@@ -723,7 +723,7 @@ public class StartApp {
 				System.out.println("-----------------------------");
 				System.out.println("- Antenne "+numRech);
 				start.idAntenne = numRech;
-				caracs.forEach((key, value) -> System.out.println(key + ":" + value));
+				caracs.forEach((key, value) -> System.out.println(key + " : " + value));
 				System.out.println("-----------------------------");
 				}else{
 					System.out.println("-----------------------------");
@@ -747,7 +747,7 @@ public class StartApp {
 				HashMap<String,String> caracs = start.searchPylone(ListP,numRech);
 				System.out.println("-----------------------------");
 				System.out.println("- Pylône "+numRech);
-				caracs.forEach((key, value) -> System.out.println(key + ":" + value));
+				caracs.forEach((key, value) -> System.out.println(key + " : " + value));
 				System.out.println("-----------------------------");
 				}else{
 					System.out.println("-----------------------------");
@@ -772,7 +772,7 @@ public class StartApp {
 				HashMap<String,String> caracs = start.searchNoeud(ListN,numRech);
 				System.out.println("-----------------------------");
 				System.out.println("- Noeud "+numRech);				
-				caracs.forEach((key, value) -> System.out.println(key + ":" + value));
+				caracs.forEach((key, value) -> System.out.println(key + " : " + value));
 				System.out.println("-----------------------------");
 				}else{
 					System.out.println("-----------------------------");
