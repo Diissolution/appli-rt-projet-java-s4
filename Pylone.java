@@ -6,14 +6,13 @@ public class Pylone {
     private final String IDPYLONE = "0";
     private final double[] COORDGPS = {0.0,0.0} ;
     private final int NBANTENNES = 0 ;
-    private final ArrayList<String> ANTENNECONNECT = new ArrayList<String>();
-    private final String NOEUDCONNECT = "aucun";
+    private final String ANTENNECONNECT = "";
+    private final String NOEUDCONNECT = "";
 
     //Variables d'instance
     private String idPylone ;
     private double[] coordGps ;
     private int nbAntennes ;
-    private ArrayList<String> antenneConnect ;
     private String tempAntenneConnect ;
     private String noeudConnect ;
     
@@ -23,7 +22,7 @@ public class Pylone {
     public Pylone(){
         this.coordGps=COORDGPS;
         this.nbAntennes=NBANTENNES;
-        this.antenneConnect=ANTENNECONNECT;
+        this.tempAntenneConnect=ANTENNECONNECT;
         this.noeudConnect=NOEUDCONNECT;
         this.idPylone=IDPYLONE;
         nbPylone++;
@@ -31,16 +30,15 @@ public class Pylone {
     public Pylone(String idPyl){
         this.coordGps=COORDGPS;
         this.nbAntennes=NBANTENNES;
-        this.antenneConnect=ANTENNECONNECT;
+        this.tempAntenneConnect=ANTENNECONNECT;
         this.noeudConnect=NOEUDCONNECT;
         this.idPylone=idPyl;
         nbPylone++;
     }
 
-    public Pylone(String idPylone, double[] coordGps, int nbAntennes, ArrayList<String> antenneConnect, String noeudConnect){
+    public Pylone(String idPylone, double[] coordGps, int nbAntennes, String noeudConnect){
         this.coordGps=coordGps;
         this.nbAntennes=nbAntennes;
-        this.antenneConnect=antenneConnect;
         this.noeudConnect=noeudConnect;
         this.idPylone=idPylone;
         nbPylone++;
@@ -59,9 +57,7 @@ public class Pylone {
         return nbAntennes;
     }
 
-    public ArrayList<String> getAntenneConnect(){
-        return antenneConnect;
-    }
+
     public String getTempAntenneConnect(){
         return tempAntenneConnect;
     }
@@ -87,13 +83,6 @@ public class Pylone {
         this.nbAntennes=nbAntennes;
     }
 
-    public void setAntenneConnect(ArrayList<String> antenneConnect){
-        this.antenneConnect=antenneConnect;
-    }
-
-    public void addAntenneConnect(String idAntenne){
-    	this.antenneConnect.add(idAntenne);
-	}
     public void setTempAntenneConnect(String tempAntenneConnect){
     	this.tempAntenneConnect=tempAntenneConnect;
 	}
@@ -112,9 +101,7 @@ public class Pylone {
     	
     	
 		System.out.println("1. Coordonnées ");
-		System.out.println("2. Nombres d'antennes connectées");
-		System.out.println("3. Liste des antennes connectées");
-		System.out.println("4. Noeud connecté");
+		System.out.println("2. Noeud connecté");
 		
 		int choix = sc.nextInt();
 		
@@ -129,23 +116,6 @@ public class Pylone {
 			break;
 			
 		case 2:
-			System.out.println("Entrez le nouveau nombre d'antennes connectées:(int)");
-	        this.setNbAntennes(sc.nextInt());
-	        sc.nextLine();
-			break;
-			
-		case 3:
-			ArrayList<String> antennesConnectees = new ArrayList<String>();
-			System.out.println("Entrez les ID des antennes connectées séparés par des virgules:");
-	        String antennes = sc.nextLine();
-	        String[] antennesSeparees = antennes.split(",");
-	        for (int i = 0; i < antennesSeparees.length; i++) {
-	            antennesConnectees.add(antennesSeparees[i]);
-	        }
-	        this.setAntenneConnect(antennesConnectees);
-			break;
-			
-		case 4:
 			System.out.println("Entrez l'ID du noeud auquel le pylône est connecté:(String)");
 	        this.setNoeudConnect(sc.nextLine());
 			break;
@@ -157,7 +127,7 @@ public class Pylone {
         String id=this.idPylone;
         double[] coord = this.coordGps;
         int nb = this.nbAntennes;
-        ArrayList<String> antenne = this.antenneConnect;
+        String antenne = this.tempAntenneConnect;
         String noeud = this.noeudConnect;
         
         System.out.println("ID: "+id+"\nCoordonnées GPS: "+Arrays.toString(coord)+"\nNb antennes connectées: "+nb+"\nListe antennes connectées: "+antenne.toString()+"\nNoeud connecté: "+noeud);
@@ -168,8 +138,7 @@ public class Pylone {
 		liste.put("idPylone",idPylone);
 		liste.put("Coordonées",Arrays.toString(coordGps));
 		liste.put("Nb antennes connectées",Integer.toString(nbAntennes));
-		liste.put("Liste antennes connectées",antenneConnect.toString());
-		liste.put("Liste antennes connectéesTemp",tempAntenneConnect);
+		liste.put("Liste antennes connectées",tempAntenneConnect);
 		liste.put("Noeud connecté",noeudConnect);
 		return liste;
 		}
