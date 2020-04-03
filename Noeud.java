@@ -47,6 +47,11 @@ public class Noeud {
 		return idNoeud;
 	}
 	
+	public String getPylonesConnect(){
+		return pylonesConnect;
+	}
+	
+	
 	public int getNbNoeud() {
 		return nbNoeud;
 	}
