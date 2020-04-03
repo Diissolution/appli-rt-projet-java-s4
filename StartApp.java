@@ -28,20 +28,16 @@ public class StartApp {
            for(int i=0;i<Pylonelist.size();i++) {
         	PyloneActuel=Pylonelist.get(i).caracteristiquePylone();
            	idPylone=PyloneActuel.get("idPylone");
-           	CoPylone=PyloneActuel.get("Noeud connect√©");
+           	CoPylone=PyloneActuel.get("Noeud connecte");
            	if(!CoPylone.equals("")) {
-           		System.out.println(CoPylone);
            		indexNoeud=searchIndexNoeud(Noeudlist,Integer.parseInt(CoPylone));
            		NoeudActuel=Noeudlist.get(indexNoeud).caracteristiqueNoeud();
            		idNoeud=NoeudActuel.get("idNoeud");
            		if(Integer.parseInt(CoPylone)==Integer.parseInt(idNoeud)) {
            			add=idPylone;
            			add=add+" "+Noeudlist.get(indexNoeud).getPylonesConnect();
-           			System.out.println("add before"+add);
            			Noeudlist.get(indexNoeud).setPylonesConnect(add);
-           			
-           			System.out.println("add after"+add);
-           		}
+           			           		}
            	}
            }
            return Noeudlist;
@@ -272,9 +268,9 @@ public class StartApp {
             return Pylonelist;
             
         }
-	// ================================= FONCTIONS PYL√îNE ===========================================
+	// ================================= FONCTIONS PYL‘NE ===========================================
 		
-		// Cr√©ation d'un pyl√¥ne
+		// CrÈation d'un pylÙne
 		static Pylone pyl = new Pylone();
 	    public ArrayList<Pylone> CreatePylone(ArrayList<Pylone> Pylonelist,boolean isEmpty, Scanner sc) { 
 	  
@@ -291,7 +287,7 @@ public class StartApp {
 				double coord2 = sc.nextDouble();
 	        
 				System.out.println("Entrez l'ID du noeud auquel le pylone est connecte:(String)");
-				String idNoeud = sc.nextLine();
+				String idNoeud = sc.next();
 	        
 				double coords[] = {coord1,coord2};
 	        
@@ -302,7 +298,7 @@ public class StartApp {
 	       
 	    }
 	    
-	    //Recherche d'un pyl√¥ne
+	    //Recherche d'un pylÙne
 	    public HashMap <String, String> searchPylone(ArrayList<Pylone> Pylonelist,int numRech) {
 			HashMap<String, String> pylone = new HashMap<String, String>();
 			HashMap<String, String> result = new HashMap<String, String>();
@@ -316,7 +312,7 @@ public class StartApp {
 			return result;
 		}
 	    
-	    //Suppression d'un pyl√¥ne
+	    //Suppression d'un pylÙne
 	    public ArrayList<Pylone> DeletePylone(ArrayList<Pylone> Pylonelist,int numDel){
 			HashMap<String, String> testPyl = new HashMap<String, String>();
 			for(int i=0;i<Pylonelist.size();i++){
@@ -342,7 +338,7 @@ public class StartApp {
 		}
 	
 	
-	 // ================================= FIN PYL√îNE =================================================
+	 // ================================= FIN PYL‘NE =================================================
 	
 	public void testConnecAnt (ArrayList <Antenne> Antlist, ArrayList <Pylone> Pylonelist, int idAntenne) {
 		ConvDist convDist = new ConvDist();
@@ -387,7 +383,7 @@ public class StartApp {
 					idPyloneA = test.get("pylonesConnect");
 					
 					HashMap <String,double[]> pylA = searchCooPyl(Pylonelist,Integer.parseInt(idPyloneA));
-					double[] getPylA = pylA.get("Coordon√©es");
+					double[] getPylA = pylA.get("Coordonees");
 					//System.out.println("pylA = "+getPylA[0]);
 					
 					frequenceA = Float.parseFloat(test.get("frequence"));
@@ -407,7 +403,7 @@ public class StartApp {
 					idPyloneA = test.get("pylonesConnect");
 					
 					HashMap <String,double[]> pylA = searchCooPyl(Pylonelist,Integer.parseInt(idPyloneA));
-					double[] getPylA = pylA.get("Coordon√©es");
+					double[] getPylA = pylA.get("Coordonees");
 					//System.out.println("pylA = "+getPylA[0]);
 					
 					frequenceA = Float.parseFloat(test.get("frequence"));
@@ -442,7 +438,7 @@ public class StartApp {
 					idPyloneB = test.get("pylonesConnect");
 					
 					HashMap <String,double[]> pylB = searchCooPyl(Pylonelist,Integer.parseInt(idPyloneB));
-					double[] getPylA = pylB.get("Coordon√©es");
+					double[] getPylA = pylB.get("Coordonees");
 					//System.out.println("pylA = "+getPylA[0]);
 					
 					puissanceB = Float.parseFloat(test.get("puissance"));
@@ -543,7 +539,7 @@ public class StartApp {
 			
 			
 		}
-		//System.out.println("j'ai fini d'√©crire");
+		//System.out.println("j'ai fini d'Ècrire");
 		bw.write("\n####################################");
 		bw.write("\n\nPYLONES\n");
 		for(int i=0;i<ListeP.size();i++){
@@ -587,11 +583,13 @@ public class StartApp {
 		ArrayList<Noeud> ListN = new ArrayList<Noeud>();
 		
 		
-		//On cr√©√© des antennes et des pylones de bases pour pouvoir tester toutes les fonctionnalit√©s
+		//On crÈÈ des antennes et des pylones de bases pour pouvoir tester toutes les fonctionnalitÈs
 		double[] coords = {43.619679,7.058884};
 		double[] coords2 = {43.640010,7.076146};
 		ArrayList <String> nul = new ArrayList();
 		nul.add("test");
+		
+		//Ajout d'antennes, de pylones et de noeuds pour effectuer les test de toutes les fonctions
 		ListA.add(new Antenne(Integer.toString(1),Float.parseFloat("60"),Float.parseFloat("10"),Float.parseFloat("50"),Float.parseFloat("-120"),"verticale","directive","1",Float.parseFloat("45"),Float.parseFloat("360")));
 		ListA.add(new Antenne(Integer.toString(2),Float.parseFloat("60"),Float.parseFloat("50"),Float.parseFloat("60"),Float.parseFloat("-120"),"verticale","directive","2",Float.parseFloat("225"),Float.parseFloat("30")));
 		ListP.add(new Pylone(Integer.toString(1),coords,Integer.toString(1)));
@@ -620,12 +618,11 @@ public class StartApp {
 		System.out.println("-- Modification --");
 		System.out.println("11. Modifier une antenne");
 		System.out.println("12. Modifier un pylone");
-		System.out.println("13. Modifier un noeud");
 		System.out.println("---=============---");
 		System.out.println("0. QUITTER & SAUVEGARDER");
 		System.out.print(">> ");
 		int choix = entre.nextInt();
-			//cr√©ation d'une antenne
+			//crÈation d'une antenne
 		System.out.println(choix);
 		if(choix == 1){ //Creer antenne
 			while(true) {
@@ -782,7 +779,7 @@ public class StartApp {
 				if(numRech!=0) {
 				HashMap<String,String> caracs = start.searchPylone(ListP,numRech);
 				System.out.println("-----------------------------");
-				System.out.println("- Pyl√¥ne "+numRech);
+				System.out.println("- PylÙne "+numRech);
 				caracs.forEach((key, value) -> System.out.println(key + " : " + value));
 				System.out.println("-----------------------------");
 				}else{

@@ -98,13 +98,13 @@ public class AntenneDirective extends Antenne {
 			//System.out.println("valeur de l'angle inferieur B = "+anglInfB);
 			if ( anglPylB <= anglSupB && anglPylB >= anglInfB ){
 				if(pr >= sensibiliteB) { //comparaison puissance de reception / sensibilité
-					System.out.println("Puissance d'émission = "+pr);
-					System.out.println("la sensibilité = "+sensibiliteB);
+					System.out.println("Puissance d'emission = "+pr);
+					System.out.println("la sensibilite = "+sensibiliteB);
 					return true;
 				}else {
-					System.out.println("Puissance d'émission plus faible que la sensibilité");
-					System.out.println("Puissance d'émission = "+pr);
-					System.out.println("la sensibilité = "+sensibiliteB);
+					System.out.println("Puissance d'emission plus faible que la sensibilité");
+					System.out.println("Puissance d'emission = "+pr);
+					System.out.println("la sensibilite = "+sensibiliteB);
 					return false;
 				}
 	

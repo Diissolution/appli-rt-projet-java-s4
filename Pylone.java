@@ -87,8 +87,8 @@ public class Pylone {
     public void modifier(Scanner sc){
     	
     	
-		System.out.println("1. Coordonnées ");
-		System.out.println("2. Noeud connecté");
+		System.out.println("1. Coordonnees ");
+		System.out.println("2. Noeud connecte");
 		
 		int choix = sc.nextInt();
 		
@@ -103,7 +103,7 @@ public class Pylone {
 			break;
 			
 		case 2:
-			System.out.println("Entrez l'ID du noeud auquel le pylône est connecté:(String)");
+			System.out.println("Entrez l'ID du noeud auquel le pylone est connecte:(String)");
 	        this.setNoeudConnect(sc.nextLine());
 			break;
 		}
@@ -116,21 +116,21 @@ public class Pylone {
         String antenne = this.tempAntenneConnect;
         String noeud = this.noeudConnect;
         
-        System.out.println("ID: "+id+"\nCoordonnées GPS: "+Arrays.toString(coord)+"\nListe antennes connectées: "+antenne.toString()+"\nNoeud connecté: "+noeud);
+        System.out.println("ID: "+id+"\nCoordonnees GPS: "+Arrays.toString(coord)+"\nListe antennes connectees: "+antenne.toString()+"\nNoeud connecte: "+noeud);
     }
     
     public HashMap caracteristiquePylone(){
 		HashMap<String, String> liste = new HashMap<String, String>();
 		liste.put("idPylone",idPylone);
-		liste.put("Coordonées",Arrays.toString(coordGps));
-		liste.put("Liste des id des antennes connectées",tempAntenneConnect);
-		liste.put("Noeud connecté",noeudConnect);
+		liste.put("Coordonees",Arrays.toString(coordGps));
+		liste.put("Liste des id des antennes connectees",tempAntenneConnect);
+		liste.put("Noeud connecte",noeudConnect);
 		return liste;
 		}
     
     public HashMap cooPyl() {
     	HashMap<String, double[]> liste = new HashMap<String, double[]>();
-    	liste.put("Coordonées",coordGps);
+    	liste.put("Coordonees",coordGps);
     	return liste;
     }
 

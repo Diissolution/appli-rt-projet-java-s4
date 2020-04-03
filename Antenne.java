@@ -30,7 +30,7 @@ public class Antenne{
 		this.sensibilite=0;
 		this.polarisation="NULL";
 		this.typeAntenne="Inconnu";
-		this.pylonesConnect="connecté a aucun pylonne";
+		this.pylonesConnect="";
 		this.orientation = 0;
 		this.ouverture = 0;
 		nbAntenne++;
@@ -43,7 +43,7 @@ public class Antenne{
 		this.puissance=0;
 		this.sensibilite=0;
 		this.polarisation="NULL";
-		this.pylonesConnect="connecté a aucun pylonne";
+		this.pylonesConnect="";
 		this.orientation = 0;
 		this.ouverture = 0;
 		nbAntenne++;
