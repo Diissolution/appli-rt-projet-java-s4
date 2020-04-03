@@ -101,9 +101,8 @@ public class Pylone {
     //MÃ©thodes de création -> dans le StartApp !
 
 
-    public void modifier(){
+    public void modifier(Scanner sc){
     	
-    	Scanner sc = new Scanner(System.in);
     	
 		System.out.println("1. Coordonnées ");
 		System.out.println("2. Nombres d'antennes connectées");
@@ -145,8 +144,6 @@ public class Pylone {
 			break;
 		}
 		
-		sc.close();
-
     }
     
     public void affiche(){ //Préférer l'utilisation de -> caracteristiquePylone
@@ -168,18 +165,17 @@ public class Pylone {
 		liste.put("Noeud connecté",noeudConnect);
 		return liste;
 		}
-
-    /*
-    public ArrayList<String> listeAntenne(){
-        //Liste des antennes attachÃ©es Ã  ce pylone (noeuds attachÃ©s Ã  ce pylone)
-        
-    }
-    */
-	public HashMap cooPyl() {
+    
+    public HashMap cooPyl() {
     	HashMap<String, double[]> liste = new HashMap<String, double[]>();
     	liste.put("Coordonées",coordGps);
     	return liste;
     }
 
-	
+    /*
+    public ArrayList<String> listeAntenne(){
+        //Liste des antennes attachÃ©es Ã  ce pylone (noeuds attachÃ©s Ã  ce pylone)
+        
+    }
+    */
 }
