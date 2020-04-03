@@ -38,7 +38,7 @@ public class Noeud {
 	public HashMap caracteristiqueNoeud(){
 		HashMap<String, String> liste = new HashMap<String, String>(); 
 		liste.put("idNoeud", idNoeud);
-		liste.put("pylonesConnect", pylonesConnect.toString());
+		liste.put("pylonesConnect", pylonesConnect);
 		return liste;
 	}
 	
