@@ -505,25 +505,24 @@ public class StartApp {
 		System.out.println("1. Creer une antenne");
 		System.out.println("2. Creer un pylone");
 		System.out.println("3. Creer un noeud");
-		System.out.println("5. Ajouter un pylone à un noeud");
 		System.out.println("-- Suppression --");
-		System.out.println("6. Supprimer une antenne");
-		System.out.println("7. Supprimer un pylone");
-		System.out.println("8. Supprimer un noeud");
+		System.out.println("4. Supprimer une antenne");
+		System.out.println("5. Supprimer un pylone");
+		System.out.println("6. Supprimer un noeud");
 		System.out.println("-- Caracteristiques --");
-		System.out.println("9. Afficher les caracteristiques d'une antenne");
-		System.out.println("10. Afficher les caracteristiques d'un pylone");
-		System.out.println("11. Afficher les caracteristiques d'un noeud");
-		System.out.println("12. Afficher, selon une antenne donnee, les antennes qui lui sont joignables");
+		System.out.println("7. Afficher les caracteristiques d'une antenne");
+		System.out.println("8. Afficher les caracteristiques d'un pylone");
+		System.out.println("9. Afficher les caracteristiques d'un noeud");
+		System.out.println("10. Afficher, selon une antenne donnee, les antennes qui lui sont joignables");
 		System.out.println("-- Modification --");
-		System.out.println("13. Modifier une antenne");
-		System.out.println("14. Modifier un pylone");
-		System.out.println("15. Modifier un noeud");
+		System.out.println("11. Modifier une antenne");
+		System.out.println("12. Modifier un pylone");
+		System.out.println("13. Modifier un noeud");
 		System.out.print(">> ");
 		int choix = entre.nextInt();
 			//création d'une antenne
 		System.out.println(choix);
-		if(choix == 1){
+		if(choix == 1){ //Creer antenne
 			while(true) {
 			System.out.println("Voulez-vous creer une antenne vide ou remplir ses parametres ?");
 			System.out.println("1. Creer une Antenne vide?");
@@ -548,7 +547,7 @@ public class StartApp {
 			}
 			}
 		}
-		if(choix==2) {
+		if(choix==2) { //Creer pylone
 			int choixPylone;
 			out:
 			while(true) {
@@ -576,13 +575,12 @@ public class StartApp {
 		}
 			
 	
-		if(choix ==3){ 
+		if(choix ==3){  //Creer noeud
 			ListN=start.createNoeud(ListN);
-		
 			System.out.println("-----------------------------");
 		}
-			//supprimer une antenne
-		if(choix ==6){
+			
+		if(choix ==4){//supprimer une antenne
 				while(true) {
 				HashMap<String, String> result = new HashMap<String, String>();
 				for(int i=0;i<ListA.size();i++){
@@ -602,7 +600,7 @@ public class StartApp {
 				}
 			}
 			
-			if(choix==7) {
+			if(choix==5) {	//Supprimer pylone
 					while(true) {
 					HashMap<String, String> result = new HashMap<String, String>();
 					for(int i=0;i<ListP.size();i++){
@@ -621,16 +619,28 @@ public class StartApp {
 							}
 					}
 				}
+			if(choix==6) {
+				while(true) {
+					HashMap<String, String> result = new HashMap<String, String>();
+					for(int i=0;i<ListN.size();i++){
+						result=ListN.get(i).caracteristiqueNoeud();
+						System.out.println(result.get("idNoeud")+". "+" Noeud"+result.get("idNoeud"));
+					}
+					System.out.println("0. Retourner en arriere");
+					System.out.print(">> ");
+						int choixNoeud = entre.nextInt();
+						if(choixNoeud!=0) {
+							ListN=start.DeleteNoeud(ListN,choixNoeud);
+							System.out.println("-----------------------------");
+						}else{
+							System.out.println("-----------------------------");
+							break;
+							}
+					}
+			}
 			
-				//ajout d'un pylone au Noeud
-		if(choix ==5){ 
-			System.out.println("Veuillez saisir l'ID du noeud auquel ajouter :");
-			int idNoeud = entre.nextInt();			
-			ListN=start.addPyloneConnect(ListN, idNoeud, entre);	
-		}
 			
-			
-		if(choix==10) {
+		if(choix==8) { //afficher carac pylone
 			while(true) {
 				HashMap<String, String> result = new HashMap<String, String>();
 				for(int i=0;i<ListP.size();i++){
@@ -653,7 +663,7 @@ public class StartApp {
 			}
 			
 		}
-		if(choix==11) {
+		if(choix==9) { //Afficher carac noeud
 			while(true) {
 				HashMap<String, String> result = new HashMap<String, String>();
 				System.out.println("De quel noeud voulez-vous obtenir les caracteristiques");
@@ -677,7 +687,7 @@ public class StartApp {
 			}
 		}	
 			
-		if(choix==9) {
+		if(choix==7) { //Afficher carac antenne
 			while(true) {
 				HashMap<String, String> result = new HashMap<String, String>();
 				for(int i=0;i<ListA.size();i++){
@@ -700,7 +710,7 @@ public class StartApp {
 				}
 			}
 		}
-			if(choix==12) {
+			if(choix==10) { //Afficher selon antenne, antennes joignables
 			while(true) {
 				System.out.println("Choisir l'antenne souhaitee\n");
 				HashMap<String, String> result = new HashMap<String, String>();
@@ -721,7 +731,7 @@ public class StartApp {
 				}
 			}
 		}
-		if(choix==14) {
+		if(choix==12) { //Modifier un pylone
 			int index;
 			while (true) {
 				HashMap<String, String> result = new HashMap<String, String>();
@@ -743,7 +753,7 @@ public class StartApp {
 			
 		}
 			
-		if(choix==13) {
+		if(choix==11) {//Modifier une antenne
 			int index;
 			while (true) {
 				HashMap<String, String> result = new HashMap<String, String>();
